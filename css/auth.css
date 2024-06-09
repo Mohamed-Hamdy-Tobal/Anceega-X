@@ -17,3 +17,29 @@
     font-weight: bold !important;
     color: #1A202C !important;
 }
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 5px;
+    display: none;
+    
+}
+.disabled {
+    background-color: #85a0cd !important;/* Light gray background */
+    cursor: not-allowed !important; /* Change cursor to not-allowed */
+}
+
+.icon-eye {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    fill: #000; /* Adjust color as needed */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.icon-eye.icon-eye-open path {
+    fill: #007BFF; /* Change color to indicate password visibility */
+}
