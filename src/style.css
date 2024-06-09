@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.h-full {
+    height: 100%;
+}
+.flex-auto {
+    flex: 1 1 auto;
+}
+.bg-no-repeat {
+    background-repeat: no-repeat;
+}
+.bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.col-span-2 {
+    grid-column: span 2 / span 2;
+}
+.w-full {
+    width: 100%;
+}
+.gap-2 {
+    gap: 0.5rem/* 8px */;
+}
+
+.main-sign {
+    /* background-color: red; */
+}
