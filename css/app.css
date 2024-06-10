@@ -2218,7 +2218,7 @@ body.dark .tooltipster-sidetip.tooltipster-shadow.tooltipster-shadow-customized 
 }
 
 .btn_big {
-  height: 48px;
+  height: 40px;
 }
 
 .btn_white {
@@ -7107,7 +7107,7 @@ body.dark .checkbox__status {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  padding: 40px 20px 100px;
+  padding: 0px 20px 0px 20px;
 }
 
 .entry__wrap {
@@ -7130,7 +7130,7 @@ body.dark .checkbox__status {
 }
 
 .entry__info {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   text-align: center;
   font-size: 16px;
   line-height: 1.625;
@@ -30228,7 +30228,7 @@ body.dark .statistics__line {
     display: none;
   }
   .btn_big {
-    height: 42px;
+    height: 40px;
   }
   .login__container {
     padding: 40px 20px;

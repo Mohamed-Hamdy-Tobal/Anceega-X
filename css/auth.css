@@ -43,3 +43,8 @@
 .icon-eye.icon-eye-open path {
     fill: #007BFF; /* Change color to indicate password visibility */
 }
+
+.auth-bg {
+    background-image: url("../img/auth-cover-main-bg.jpg");
+    background-image: linear-gradient(#EDFBFF7C 30%, #009CF88A 70%), url('../img/auth-cover-main-bg.jpg');
+}
