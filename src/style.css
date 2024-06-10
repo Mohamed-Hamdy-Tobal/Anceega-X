@@ -24,6 +24,12 @@
 .gap-2 {
     gap: 0.5rem/* 8px */;
 }
+.flex {
+    display: flex;
+}
+.items-center {
+    align-items: center;
+}
 
 .main-sign {
     /* background-color: red; */
