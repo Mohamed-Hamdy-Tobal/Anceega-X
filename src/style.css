@@ -5,32 +5,94 @@
 .h-full {
     height: 100%;
 }
+
 .flex-auto {
     flex: 1 1 auto;
 }
+
 .bg-no-repeat {
     background-repeat: no-repeat;
 }
+
 .bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+
 .col-span-2 {
     grid-column: span 2 / span 2;
 }
+
 .w-full {
     width: 100%;
 }
+
 .gap-2 {
-    gap: 0.5rem/* 8px */;
+    gap: 0.5rem
+        /* 8px */
+    ;
 }
+
 .flex {
     display: flex;
 }
+
 .items-center {
     align-items: center;
 }
 
 .main-sign {
     /* background-color: red; */
+}
+
+/* General styles for the select element */
+.select-multi {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    /* p-2 is equivalent to 0.5rem */
+    margin-bottom: 1.5rem;
+    /* mb-6 is equivalent to 1.5rem */
+    font-size: 0.875rem;
+    /* text-sm is equivalent to 0.875rem */
+    color: #1f2937;
+    /* text-gray-900 */
+    border: 1px solid #d1d5db;
+    /* border-gray-300 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    background-color: #f9fafb;
+    /* bg-gray-50 */
+}
+
+/* Focus styles for light mode */
+.select-multi:focus {
+    outline: none;
+    border-color: #3b82f6;
+    /* focus:border-blue-500 */
+    box-shadow: 0 0 0 3px #EDFBFF;
+    /* focus:ring-blue-500 */
+}
+
+/* Styles for dark mode */
+.dark .select-multi {
+    background-color: #374151;
+    /* dark:bg-gray-700 */
+    border-color: #4b5563;
+    /* dark:border-gray-600 */
+    color: #f9fafb;
+    /* dark:text-white */
+}
+
+.dark .select-multi::placeholder {
+    color: #9ca3af;
+    /* dark:placeholder-gray-400 */
+}
+
+/* Focus styles for dark mode */
+.dark .select-multi:focus {
+    border-color: #3b83f682;
+    /* dark:focus:border-blue-500 */
+    box-shadow: 0 0 0 3px #EDFBFF;
+    /* dark:focus:ring-blue-500 */
 }

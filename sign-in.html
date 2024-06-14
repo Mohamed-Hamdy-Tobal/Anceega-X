@@ -4,6 +4,17 @@
 <head>
     <meta charset="utf-8">
     <title>Sign In</title>
+    <script>
+        // Check if the user is already logged in
+        window.onload = function() {
+            const token = localStorage.getItem('token');
+            const accountType = localStorage.getItem('accountType');
+            if (token) {
+                // Check account type and redirect accordingly
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
     <link href="dist/style.css" rel="stylesheet">
     <link href="src/style.css" rel="stylesheet">
     <link href="css/auth.css" rel="stylesheet">
@@ -97,6 +108,13 @@
                                                     </label>
                                                     <a class="entry__link" href="#">Forgot Password</a>
                                                 </div>
+
+                                                <!-- Type Of User -->
+                                                <select class="select-multi" id="accountType" name="accountType" required>
+                                                    <option value="user">User</option>
+                                                    <option value="company">Company</option>
+                                                </select>
+                                                
                                                 <button class="entry__btn btn btn btn_big btn_wide btn_blue disabled" type="submit" id="loginButton" disabled>Login</button>
                                             </form>
                                             <div class="entry__bottom flex gap-2 items-center">

@@ -89,59 +89,23 @@
                 -o-transform: rotate(360deg);
             }
         }
+
         /* Hide content initially */
         #content {
             display: none;
         }
     </style>
-    <script>
-        // Check if the user is logged in
-        window.onload = function () {
-            const token = localStorage.getItem('token');
-            const accountType = localStorage.getItem('accountType');
-            const contentContainer = document.getElementById('content');
-            const loading = document.getElementById('loading');
 
-            if (!token) {
-                // Redirect to sign-in.html if not logged in
-                window.location.href = 'sign-in.html';
-            } else {
-                let dashboardUrl = '';
-                if (accountType === 'user') {
-                    dashboardUrl = 'layout/User/user-dashboard.html';
-                } else if (accountType === 'company') {
-                    dashboardUrl = 'layout/Company/company-dashboard.html';
-                }
-
-                // Show loading
-                loading.style.display = 'flex';
-
-                // Fetch and load the appropriate dashboard content
-                fetch(dashboardUrl)
-                    .then(response => response.text())
-                    .then(data => {
-                        contentContainer.innerHTML = data;
-                        contentContainer.style.display = 'flex';
-                        loading.style.display = 'none'; // Hide loading
-                    })
-                    .catch(error => {
-                        console.error('Error loading dashboard:', error);
-                        loading.style.display = 'none'; // Hide loading on error
-                    });
-            }
-        }
-    </script>
 </head>
 
 <body>
-    <div id="loading" class="loading">
+    <div class="loading fixed top-0 left-0 h-[100vh] w-full flex justify-center items-center">
         <div id="spinner" class="spinner">
             <div class="rot"></div>
             <div class="rot"></div>
             <div class="rot"></div>
         </div>
     </div>
-    <div id="content"></div> <!-- Placeholder for dashboard content -->
 </body>
 
 </html>

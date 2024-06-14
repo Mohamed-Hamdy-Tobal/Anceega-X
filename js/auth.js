@@ -55,7 +55,61 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!loginButton.disabled) {
             const email = emailInput.value;
             const password = passwordInput.value;
-            alert(`Form submitted successfully!\nEmail: ${email}\nPassword: ${password}`);
+            // alert(`Form submitted successfully!\nEmail: ${email}\nPassword: ${password}`);
         }
+    });
+});
+
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const accountType = document.getElementById('accountType').value;
+
+    console.log("Email", email)
+    console.log("Password", password)
+
+    
+    let loginEndpoint = '';
+    if (accountType === 'user') {
+        loginEndpoint = 'https://back.anceega.com/client-api/v1/auth/employees/login';
+    } else if (accountType === 'company') {
+        loginEndpoint = 'https://back.anceega.com/client-api/v1/auth/companies/login';
+    }
+
+    console.log("Email", email)
+    console.log("Password", password)
+    console.log("loginEndpoint", loginEndpoint)
+
+    // Send login request to server
+    fetch(loginEndpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: email, password: password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data) {
+            console.log('Login successful:', data);
+            // Save token or session info
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('accountType', accountType);
+
+            // Ensure the employee data is stored as a JSON string
+            if (accountType === 'user') {
+                localStorage.setItem('employee', JSON.stringify(data.employee));
+            } else if (accountType === 'company') {
+                localStorage.setItem('company', JSON.stringify(data.company));
+            }
+            // Redirect to the appropriate dashboard
+            window.location.href = 'index.html';
+        } else {
+            console.error('Login failed:', data);
+        }
+    })
+    .catch(error => {
+        console.error('Error during fetch:', error);
     });
 });
