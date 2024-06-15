@@ -1,6 +1,9 @@
 .sidebar2__wrapper {
     background-color: #FAFAFB;
 }
+body.dark .sidebar2__wrapper {
+    background-color: transparent;
+}
 .sidebar2 {
     background-color: transparent;
 }

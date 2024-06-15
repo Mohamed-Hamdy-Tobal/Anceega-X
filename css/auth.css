@@ -8,14 +8,14 @@
     font-size: 14px !important;
     text-align: left !important;
     font-weight: normal !important;
-    color: #2D3748 !important;
+    color: #2D3748;
     margin-bottom: 5px !important;
 }
 .auth-welcome-enjoy {
     font-size: 24px !important;
     text-align: left !important;
     font-weight: bold !important;
-    color: #1A202C !important;
+    color: #1A202C ;
 }
 
 .error-message {
@@ -53,4 +53,10 @@
     .auth-bg {
         display: flex;
     }
+}
+body.dark .p-in-auth {
+    color: rgba(255, 255, 255, 0.776)
+}
+.my-2 {
+    margin: .5rem 0;
 }

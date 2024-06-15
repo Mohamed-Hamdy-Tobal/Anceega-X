@@ -109,6 +109,8 @@
                                                     <a class="entry__link" href="#">Forgot Password</a>
                                                 </div>
 
+                                                
+
                                                 <!-- Type Of User -->
                                                 <select class="select-multi" id="accountType" name="accountType" required>
                                                     <option value="user">User</option>
@@ -116,9 +118,10 @@
                                                 </select>
                                                 
                                                 <button class="entry__btn btn btn btn_big btn_wide btn_blue disabled" type="submit" id="loginButton" disabled>Login</button>
+                                                <div class="error-message mt-2" id="loginError" style="display: none;"></div> <!-- Add this line -->
                                             </form>
                                             <div class="entry__bottom flex gap-2 items-center">
-                                                <p>Already have an Square account?</p>
+                                                <p class="p-in-auth">Already have an Square account?</p>
                                                 <a class="entry__link" href="#">Register</a>
                                             </div>
                                         </div>

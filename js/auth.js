@@ -65,6 +65,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const accountType = document.getElementById('accountType').value;
+    const loginError = document.getElementById('loginError');
 
     console.log("Email", email)
     console.log("Password", password)
@@ -103,6 +104,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
             } else if (accountType === 'company') {
                 localStorage.setItem('company', JSON.stringify(data.company));
             }
+            
             // Redirect to the appropriate dashboard
             window.location.href = 'index.html';
         } else {
@@ -111,5 +113,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     })
     .catch(error => {
         console.error('Error during fetch:', error);
+        loginError.textContent = 'Login failed. Please check your email and password and try again.';
+        loginError.style.display = 'block';
     });
 });
