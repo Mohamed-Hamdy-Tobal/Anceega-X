@@ -47,4 +47,10 @@
 .auth-bg {
     background-image: url("../img/auth-cover-main-bg.jpg");
     background-image: linear-gradient(#EDFBFF7C 30%, #009CF88A 70%), url('../img/auth-cover-main-bg.jpg');
+    display: none;
+}
+@media (min-width: 1200px) {
+    .auth-bg {
+        display: flex;
+    }
 }
