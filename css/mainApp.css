@@ -107,7 +107,7 @@
 
 @media (min-width: 772px) {
     .sidebar2__box {
-        display: block;
+        display: block !important;
     }
     .show-more-btn {
         display: none;
