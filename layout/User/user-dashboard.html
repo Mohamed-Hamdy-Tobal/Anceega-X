@@ -39,9 +39,9 @@
     <meta property="og:description" content="Description Here">
     <meta property="og:site_name" content="Site Name, i.e. Moz">
     <meta property="fb:admins" content="Facebook numeric ID">
-    <link rel="stylesheet" media="all" href="css/app.css">
-    <link rel="stylesheet" media="all" href="src/style.css">
-    <link rel="stylesheet" media="all" href="css/mainApp.css">
+    <link rel="stylesheet" media="all" href="../../css/app.css">
+    <link rel="stylesheet" media="all" href="../../src/style.css">
+    <link rel="stylesheet" media="all" href="./../css/mainApp.css">
     <script>
         var viewportmeta = document.querySelector('meta[name="viewport"]');
         if (viewportmeta) {
@@ -52,6 +52,30 @@
                 viewportmeta.content = 'width=device-width, maximum-scale=1.0, initial-scale=1.0';
             }
         }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const showMoreBtn = document.querySelector('.show-more-btn');
+            const showMoreBtnSpan = document.querySelector('.show-more-btn span');
+            const sidebarBox = document.querySelector('.sidebar2__box');
+
+            showMoreBtn.addEventListener('click', function () {
+                console.log("OK?")
+                if (sidebarBox.style.display === 'block') {
+                    sidebarBox.style.display = 'none';
+                    showMoreBtnSpan.textContent = 'Show More';
+                    showMoreBtn.classList.remove('show-less');
+                } else {
+                    sidebarBox.style.display = 'block';
+                    showMoreBtnSpan.textContent = 'Show Less';
+                    showMoreBtn.classList.add('show-less');
+                }
+            });
+        });
+
+        document.getElementById('logButton').addEventListener('click', function () {
+            console.log(true);
+        });
     </script>
 </head>
 
@@ -176,15 +200,6 @@
                                     </svg>
                                 </div>
                             </div>
-
-                            <!-- Switch Buttons -->
-                            <!-- <label class="switch switch_theme"><input class="switch__input js-switch-theme" type="checkbox" /><span class="switch__in"><span class="switch__box"></span><span class="switch__icon"><svg class="icon icon-moon">
-                    <use xlink:href="img/sprite.svg#icon-moon"></use>
-                  </svg><svg class="icon icon-sun">
-                    <use xlink:href="img/sprite.svg#icon-sun"></use>
-                  </svg></span></span>
-            </label>
-          -->
 
                         </div>
 
@@ -485,10 +500,10 @@
         </div>
 
     </div>
-    <script src="js/app.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/charts.js"></script>
-    <script src="js/mainApp.js"></script>
+    <script src="../../js/app.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/charts.js"></script>
+    <script src="../../js/mainApp.js"></script>
     <script>
         // Check if the user is logged in
         if (!localStorage.getItem('token')) {

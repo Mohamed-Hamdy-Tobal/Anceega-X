@@ -4,12 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidebarBox = document.querySelector('.sidebar2__box');
 
     showMoreBtn.addEventListener('click', function () {
-        if (sidebarBox.style.display === 'block') {
-            sidebarBox.style.display = 'none';
+        if (sidebarBox.classList.contains('show')) {
+            sidebarBox.classList.remove('show');
+            sidebarBox.classList.add('hidden');
             showMoreBtnSpan.textContent = 'Show More';
             showMoreBtn.classList.remove('show-less');
         } else {
-            sidebarBox.style.display = 'block';
+            sidebarBox.classList.remove('hidden');
+            sidebarBox.classList.add('show');
             showMoreBtnSpan.textContent = 'Show Less';
             showMoreBtn.classList.add('show-less');
         }
