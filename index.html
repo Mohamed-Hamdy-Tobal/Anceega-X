@@ -33,6 +33,7 @@
     <link rel="stylesheet" media="all" href="css/app.css">
     <link rel="stylesheet" media="all" href="src/style.css">
     <link rel="stylesheet" media="all" href="css/mainApp.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Spinner styles */
         .spinner {
@@ -118,7 +119,7 @@
             <div class="rot"></div>
         </div>
     </div> -->
-    
+
     <!-- ### Employee ## -->
     <div class="out" id="root">
 
@@ -547,8 +548,10 @@
     <script src="js/mainApp.js"></script>
     <script>
         // Check if the user is logged in
-        if (!localStorage.getItem('token')) {
-            // Redirect to sign-in.html if not logged in
+        const isEmployeeLoggedIn = localStorage.getItem('employee');
+        const isCompanyLoggedIn = localStorage.getItem('company');
+        if (!isEmployeeLoggedIn && !isCompanyLoggedIn) {
+            // Redirect to sign-in.html if neither is logged in
             window.location.href = 'sign-in.html';
         }
     </script>

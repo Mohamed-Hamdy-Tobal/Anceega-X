@@ -6,10 +6,10 @@
     <title>Sign In</title>
     <script>
         // Check if the user is already logged in
-        window.onload = function() {
-            const token = localStorage.getItem('token');
+        window.onload = function () {
+            const typeUse = localStorage.getItem('employee') || localStorage.getItem('company');
             const accountType = localStorage.getItem('accountType');
-            if (token) {
+            if (typeUse) {
                 // Check account type and redirect accordingly
                 window.location.href = 'index.html';
             }
@@ -48,13 +48,16 @@
 </head>
 
 <body>
+    <div class="toast" id="toast"></div>
+    
     <div class="main-sign">
         <div class="app-layout-blank flex flex-auto flex-col h-[100vh] page__wrapper">
             <div class="h-full flex flex-auto flex-col justify-between">
                 <main class="h-full">
                     <div class="page-container relative h-full flex flex-auto flex-col">
                         <div class="auth-grid grid lg:grid-cols-3 h-full">
-                            <div class="auth-bg col-span-2 bg-no-repeat bg-cover py-6 px-16 flex-col justify-center items-center dark:bg-gray-800 lg:flex">
+                            <div
+                                class="auth-bg col-span-2 bg-no-repeat bg-cover py-6 px-16 flex-col justify-center items-center dark:bg-gray-800 lg:flex">
 
                                 <div>
                                     <h3 class="text-[32px] font-bold text-white mb-5 capitalize ">
@@ -68,7 +71,7 @@
                             </div>
 
 
-                            <div class="flex flex-col justify-center items-center dark:bg-gray-800">
+                            <div class="flex flex-col justify-center items-center dark:bg-gray-800 left-side-auth bg-[#FAFAFB]">
                                 <div class="w-full xl:w-auto xl:min-w-[450px] px-8">
 
                                     <div class="entry">
@@ -80,7 +83,8 @@
                                                     <div class="field1 js-field">
                                                         <div class="field1__label">Your Email</div>
                                                         <div class="field1__wrap">
-                                                            <input class="field1__input js-field-input" type="email" name="email" id="email">
+                                                            <input class="field1__input js-field-input" type="email"
+                                                                name="email" id="email">
                                                             <div class="error-message" id="emailError"></div>
                                                         </div>
                                                     </div>
@@ -88,19 +92,33 @@
                                                         <div class="field1__label">Enter Password</div>
                                                         <div class="field1__wrap">
                                                             <div class="relative">
-                                                                <input class="field1__input js-field-input relative" type="password" name="password" id="password">
-                                                                <svg id="togglePassword" class="icon-eye" viewBox="0 0 24 24">
-                                                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12c-2.48 0-4.5-2.02-4.5-4.5S9.52 7.5 12 7.5s4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5z"></path>
-                                                                    <path d="M12 10c-1.11 0-2 .89-2 2s.89 2 2 2 2-.89 2-2-.89-2-2-2z"></path>
+                                                                <input class="field1__input js-field-input relative"
+                                                                    type="password" name="password" id="password">
+                                                                <svg id="togglePassword" class="icon-eye"
+                                                                    viewBox="0 0 24 24">
+                                                                    <path
+                                                                        d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12c-2.48 0-4.5-2.02-4.5-4.5S9.52 7.5 12 7.5s4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5z">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M12 10c-1.11 0-2 .89-2 2s.89 2 2 2 2-.89 2-2-.89-2-2-2z">
+                                                                    </path>
                                                                 </svg>
                                                             </div>
                                                             <div class="error-message" id="passwordError"></div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <!-- Type Of User -->
+                                                <select class="select-multi" id="accountType" name="accountType"
+                                                    required>
+                                                    <option value="user">User</option>
+                                                    <option value="company">Company</option>
+                                                </select>
+
                                                 <div class="entry__line">
                                                     <label class="checkbox">
-                                                        <input class="checkbox__input" type="checkbox" name="terms" checked>
+                                                        <input class="checkbox__input" type="checkbox" name="terms"
+                                                            checked>
                                                         <span class="checkbox__in">
                                                             <span class="checkbox__tick"></span>
                                                             <span class="checkbox__text">Remember Me</span>
@@ -109,20 +127,14 @@
                                                     <a class="entry__link" href="#">Forgot Password</a>
                                                 </div>
 
-                                                
-
-                                                <!-- Type Of User -->
-                                                <select class="select-multi" id="accountType" name="accountType" required>
-                                                    <option value="user">User</option>
-                                                    <option value="company">Company</option>
-                                                </select>
-                                                
-                                                <button class="entry__btn btn btn btn_big btn_wide btn_blue disabled" type="submit" id="loginButton" disabled>Login</button>
-                                                <div class="error-message mt-2" id="loginError" style="display: none;"></div> <!-- Add this line -->
+                                                <button class="entry__btn btn btn btn_big btn_wide btn_blue disabled"
+                                                    type="submit" id="loginButton" disabled>Login</button>
+                                                <div class="error-message mt-2" id="loginError" style="display: none;">
+                                                </div> <!-- Add this line -->
                                             </form>
                                             <div class="entry__bottom flex gap-2 items-center">
-                                                <p class="p-in-auth">Already have an Square account?</p>
-                                                <a class="entry__link" href="#">Register</a>
+                                                <p class="p-in-auth">Don't have an account? register?</p>
+                                                <a class="entry__link" href="selection-page.html">Register</a>
                                             </div>
                                         </div>
                                     </div>

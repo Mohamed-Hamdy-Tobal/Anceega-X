@@ -25,6 +25,11 @@
     display: none;
     
 }
+.error {
+    color: red;
+    display: none;
+    margin-top: 5px;
+}
 .disabled {
     background-color: #85a0cd !important;/* Light gray background */
     cursor: not-allowed !important; /* Change cursor to not-allowed */
@@ -59,4 +64,16 @@ body.dark .p-in-auth {
 }
 .my-2 {
     margin: .5rem 0;
+}
+
+@media (max-width: 992px) {
+    .left-side-auth {
+        padding: 40px 0;
+    }
+}
+.left-side-auth {
+    padding: 30px 0;
+}
+.bg-main {
+    background-color: #fafafa;
 }

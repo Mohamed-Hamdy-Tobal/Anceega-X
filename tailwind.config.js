@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./**/*.{html,js}', '*.{html,js}'],
+  content: ['./**/*.{html,css}'], // Specifies the files to scan for classes
   theme: {
     extend: {
 

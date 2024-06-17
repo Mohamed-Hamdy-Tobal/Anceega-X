@@ -7107,7 +7107,11 @@ body.dark .checkbox__status {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  padding: 0px 20px 0px 20px;
+}
+@media (min-width: 567px) {
+  .entry {
+    padding: 0px 20px 0px 20px;
+  }
 }
 
 .entry__wrap {
@@ -30727,9 +30731,6 @@ body.dark .statistics__line {
   body.dark .checkbox__info {
     color: #E2E2EA;
   }
-  .entry {
-    padding: 35px 20px 50px;
-  }
   .entry__title {
     margin-bottom: 10px;
     font-size: 30px;
@@ -30737,7 +30738,6 @@ body.dark .statistics__line {
   }
   .entry__info {
     max-width: 260px;
-    margin: 0 auto 20px;
     font-size: 14px;
   }
   .entry__form {
