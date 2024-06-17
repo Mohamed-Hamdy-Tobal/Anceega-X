@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                                 console.log(data.message)
                             }
                         } else if (accountType === 'company') {
-                            if (data.employee) {
+                            if (data.company) {
                                 localStorage.setItem('company', JSON.stringify(data.company));
                                 window.location.href = 'index.html';
                             } else {
