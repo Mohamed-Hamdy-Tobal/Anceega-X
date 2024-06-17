@@ -139,3 +139,4 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         document.getElementById(formId).reset();
     }
 });
+

@@ -1,9 +1,11 @@
 .sidebar2__wrapper {
     background-color: #FAFAFB;
 }
+
 body.dark .sidebar2__wrapper {
     background-color: transparent;
 }
+
 .sidebar2 {
     background-color: transparent;
 }
@@ -42,6 +44,7 @@ body.dark .sidebar2__wrapper {
     font-weight: 500;
     transition: .3s;
 }
+
 .show-more-btn:hover {
     background-color: #ddd;
 }
@@ -112,6 +115,7 @@ body.dark .sidebar2__wrapper {
     .sidebar2__box {
         display: block !important;
     }
+
     .show-more-btn {
         display: none;
     }
@@ -129,6 +133,38 @@ body.dark .sidebar2__wrapper {
     background: rgb(0 0 0 / 3%);
     z-index: 2000;
 }
-.loading .spinner{
+
+.loading .spinner {
     z-index: 3000;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 15px;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    min-width: 200px;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+.menu-item-divider {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    border-bottom-width: 1px;
+    --tw-border-opacity: 1;
+    border-color: #e5e7eb;
 }

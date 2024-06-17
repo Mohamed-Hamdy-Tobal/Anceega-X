@@ -148,7 +148,7 @@
                         </a>
                     </div>
 
-                    
+
                     <div class="main-avatar">
                         <div class="header2__profile user-avatar flex justify-start items-center gap-2" onclick="toggleDropdown()">
                             <img class="header2__pic" src="img/ava-1.png" alt="" />
@@ -157,10 +157,6 @@
                             </svg>
                         </div>
                         <div class="dropdown-menu" id="dropdownMenu">
-                            <div class="info-avatar py-[10px] px-[20px] border-solid border-b-[1px] border-[#e5e7eb]">
-                                <h3 id="userName" class="font-bold text-gray-900 dark:text-gray-100"></h3>
-                                <h6 id="userJob" class="text-xs text-[#009CF8]"></h6>
-                            </div>
                             <span class="dropdown-item block">
                                 <a href="profile.html" class="flex gap-2 items-center w-full">
                                     <span class="text-xl opacity-50"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg></span>
@@ -181,99 +177,150 @@
             <div class="page2__wrapper">
 
                 <div class="page2__container">
-                    <div class="page2__nav">
-                        <a class="page2__link active" href="#">
-                            <svg class="icon icon-dashboard">
-                                <use xlink:href="img/sprite.svg#icon-dashboard"></use>
-                            </svg>
-                        </a>
-                        <a class="page2__link" href="#">
-                            <svg class="icon icon-friends">
-                                <use xlink:href="img/sprite.svg#icon-friends"></use>
-                            </svg></a><a class="page2__link" href="#"><svg class="icon icon-event">
-                                <use xlink:href="img/sprite.svg#icon-event"></use>
-                            </svg></a><a class="page2__link" href="#"><svg class="icon icon-video">
-                                <use xlink:href="img/sprite.svg#icon-video"></use>
-                            </svg></a><a class="page2__link" href="#"><svg class="icon icon-photo">
-                                <use xlink:href="img/sprite.svg#icon-photo"></use>
-                            </svg></a><a class="page2__link yes" href="#"><svg class="icon icon-bell">
-                                <use xlink:href="img/sprite.svg#icon-bell"></use>
-                            </svg></a>
-                    </div>
-
-                    <div class="container-main-page-app">
-                        <!-- Main Side Bar -->
-                        <div class=" main-left-section">
-                            <div class="sidebar2__top"><button class="sidebar2__close js-sidebar2-close"><svg
-                                        class="icon icon-close">
-                                        <use xlink:href="img/sprite.svg#icon-close"></use>
-                                    </svg></button><a class="sidebar2__logo" href="#"><img
-                                        class="sidebar2__pic sidebar2__pic_black" src="img/logo.svg" alt="" /><img
-                                        class="sidebar2__pic sidebar2__pic_white" src="img/logo-white.svg" alt="" /></a>
-                            </div>
-                            <div class="sidebar2__wrapper">
-
-                                <div class="sidebar2__box">
-                                    <div class="card1">
-                                        <div class="card1__head">
-                                            <div class="card1__category">News</div>
-                                        </div>
-
-                                        <div class="card1__body">
-
-                                            <div class="card1__item" href="#">
-                                                <svg class="icon icon-event">
-                                                    <use xlink:href="img/sprite.svg#icon-event"></use>
-                                                </svg>10 Events Invites
-                                            </div>
-
-                                            <div class="card1__item" href="#"><svg class="icon icon-gift">
-                                                    <use xlink:href="img/sprite.svg#icon-gift"></use>
-                                                </svg>Prada’s Invitation Birthday
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="card1">
-                                        <div class="card1__head">
-                                            <div class="card1__category">Calendar</div>
-                                        </div>
-
-                                        <div class="card1__body">
-
-                                            <div class="card1__item" href="#">
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-                                                    doloribus accusantium
-                                                    necessitatibus rerum velit optio voluptas .
-                                                </p>
-                                            </div>
-
-                                            <div class="card1__item" href="#">
-                                                <div class="history__btns w-full">
-                                                    <button class="history__btn btn btn_blue">Accept</button>
-                                                    <button class="history__btn btn btn_gray">Reject</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="show-more-btn">
-                                    <span>Show More</span>
-                                    <svg class="icon icon-arrow-down" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </div>
-                            </div>
-
+                    <div class="profile profile_user">
+                        <div class="profile__bg" style="background-image: url('img/bg-profile.jpg');"><a
+                                class="profile__edit" href="#">Edit Profile<svg class="icon icon-edit">
+                                    <use xlink:href="img/sprite.svg#icon-edit"></use>
+                                </svg></a></div>
+                        <div class="profile__user">
+                            <div class="profile__ava"><img class="profile__pic" src="img/ava-big.jpg" alt=""></div>
+                            <div class="profile__details"><span class="profile__title title">Ahmad Nur
+                                    Fawaid</span><span class="profile__login">@fawait</span></div>
+                            <div class="profile__text">“Pushing pixels and experiences in digital products for
+                                Sebostudio”</div>
                         </div>
-
-                        <!-- Main Content App -->
-                        <div class=" main-app-content">
+                        <div class="profile__options">
+                            <div class="profile__option"><a class="profile__link active" href="#">
+                                    <div class="profile__category">Post</div>
+                                    <div class="profile__number">10,3K</div>
+                                </a></div>
+                            <div class="profile__option"><a class="profile__link" href="#">
+                                    <div class="profile__category">Followers</div>
+                                    <div class="profile__number">2,564</div>
+                                </a></div>
+                            <div class="profile__option"><a class="profile__link" href="#">
+                                    <div class="profile__category">Following</div>
+                                    <div class="profile__number">3,154</div>
+                                </a></div>
+                            <div class="profile__option"><a class="profile__link" href="#">
+                                    <div class="profile__category">Likes</div>
+                                    <div class="profile__number">12,2k</div>
+                                </a></div>
+                            <div class="profile__option"><a class="profile__link" href="#">
+                                    <div class="profile__category">Photos</div>
+                                    <div class="profile__number">35</div>
+                                </a></div>
+                            <div class="profile__option"><a class="profile__link" href="#">
+                                    <div class="profile__category">Videos</div>
+                                    <div class="profile__number">24</div>
+                                </a></div>
+                            <div class="profile__option"><a class="profile__link" href="#">
+                                    <div class="profile__category">Saved</div>
+                                    <div class="profile__number">18</div>
+                                </a></div>
+                        </div>
+                    </div>
+                    <div class="page2__row">
+                        <div class="page2__col page2__col_w35">
+                            <div class="card1">
+                                <div class="card1__wrap">
+                                    <div class="card1__title">Complete Your Profile</div>
+                                    <div class="card1__status">
+                                        <div class="card1__line">
+                                            <div class="card1__progress" style="width: 75%;"></div>
+                                        </div>
+                                        <div class="card1__percent">75%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="card1__head">
+                                    <div class="card1__category">About Me</div>
+                                    <div class="options2 js-options"><button class="options2__btn js-options-btn"><svg
+                                                class="icon icon-dots">
+                                                <use xlink:href="img/sprite.svg#icon-dots"></use>
+                                            </svg></button>
+                                        <div class="options2__dropdown js-options-dropdown"><a class="options2__item"
+                                                href="#">
+                                                <div class="options2__icon"><svg class="icon icon-saved">
+                                                        <use xlink:href="img/sprite.svg#icon-saved"></use>
+                                                    </svg></div>
+                                                <div class="options2__details">
+                                                    <div class="options2__info">Save Link</div>
+                                                    <div class="options2__text">Add this to your saved items</div>
+                                                </div>
+                                            </a><a class="options2__item" href="#">
+                                                <div class="options2__icon"><svg class="icon icon-close-circle">
+                                                        <use xlink:href="img/sprite.svg#icon-close-circle"></use>
+                                                    </svg></div>
+                                                <div class="options2__details">
+                                                    <div class="options2__info">Hide Post</div>
+                                                    <div class="options2__text">See fewer post like this</div>
+                                                </div>
+                                            </a><a class="options2__item" href="#">
+                                                <div class="options2__icon"><svg class="icon icon-close-square">
+                                                        <use xlink:href="img/sprite.svg#icon-close-square"></use>
+                                                    </svg></div>
+                                                <div class="options2__details">
+                                                    <div class="options2__info">Hide all from “Pan Feng Shui”</div>
+                                                    <div class="options2__text">Stop seeing post from this person</div>
+                                                </div>
+                                            </a><a class="options2__item" href="#">
+                                                <div class="options2__icon"><svg class="icon icon-profile">
+                                                        <use xlink:href="img/sprite.svg#icon-profile"></use>
+                                                    </svg></div>
+                                                <div class="options2__details">
+                                                    <div class="options2__info">Unfollow “Pan Feng Shui”</div>
+                                                    <div class="options2__text">Disconnected with this person</div>
+                                                </div>
+                                            </a></div>
+                                    </div>
+                                </div>
+                                <div class="card1__body">
+                                    <div class="card1__note">“Pushing pixels and experiences in digital products for
+                                        Sebostudio”</div>
+                                    <div class="card1__list"><a class="card1__item" href="#"><svg
+                                                class="icon icon-place">
+                                                <use xlink:href="img/sprite.svg#icon-place"></use>
+                                            </svg>Yogyakarta, ID</a><a class="card1__item" href="#"><svg
+                                                class="icon icon-world">
+                                                <use xlink:href="img/sprite.svg#icon-world"></use>
+                                            </svg>dribbble.com/fawait</a><a class="card1__item" href="#"><svg
+                                                class="icon icon-date">
+                                                <use xlink:href="img/sprite.svg#icon-date"></use>
+                                            </svg>Joined June 2012</a><a class="card1__item" href="#"><svg
+                                                class="icon icon-case">
+                                                <use xlink:href="img/sprite.svg#icon-case"></use>
+                                            </svg>Working at Sebo Studio</a><a class="card1__item" href="#"><svg
+                                                class="icon icon-relationship">
+                                                <use xlink:href="img/sprite.svg#icon-relationship"></use>
+                                            </svg>In relationship with Gal Gadot</a></div>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="card1__head">
+                                    <div class="card1__category">Photos and Videos</div><a class="card1__more"
+                                        href="#">SEE ALL</a>
+                                </div>
+                                <div class="card1__body">
+                                    <div class="card1__gallery">
+                                        <div class="card1__photo"><img class="card1__pic" src="img/card-photo-1.jpg"
+                                                alt=""></div>
+                                        <div class="card1__photo"><img class="card1__pic" src="img/card-photo-2.jpg"
+                                                alt=""></div>
+                                        <div class="card1__photo"><img class="card1__pic" src="img/card-photo-3.jpg"
+                                                alt=""></div>
+                                        <div class="card1__photo"><img class="card1__pic" src="img/card-photo-4.jpg"
+                                                alt=""></div>
+                                        <div class="card1__photo"><img class="card1__pic" src="img/card-photo-5.jpg"
+                                                alt=""></div>
+                                        <div class="card1__photo"><img class="card1__pic" src="img/card-photo-6.jpg"
+                                                alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page2__col page2__col_w65">
                             <div class="post js-post">
                                 <div class="post__item post__item_new js-post-item">
                                     <div class="post__top">Post Something<button class="post__close js-post-close"><svg
@@ -308,7 +355,6 @@
                                             Post</button>
                                     </div>
                                 </div>
-
                                 <div class="post__item">
                                     <div class="post__body">
                                         <div class="post__user">
@@ -369,8 +415,7 @@
                                             </div>
                                         </div>
                                         <div class="post__text">One of the perks of working in an international company
-                                            is sharing knowledge
-                                            with your colleagues.</div>
+                                            is sharing knowledge with your colleagues.</div>
                                         <div class="post__gallery">
                                             <div class="post__col post__col">
                                                 <div class="post__preview post__preview_big"><img class="post__pic"
@@ -508,60 +553,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!--Left Section App-->
-                        <div class="main-right-section">
-                            <div class="card1">
-                                <div class="card1__head">
-                                    <div class="card1__category">Suggested Pages</div><a class="card1__more"
-                                        href="#">SEE ALL</a>
-                                </div>
-
-                                <!-- Cards -->
-                                <div class="main-cards">
-                                    <div class="card1__body">
-                                        <a class="card1__user card1__user_team" href="#">
-                                            <div class="ava"><img class="ava__pic" src="img/logo-team-1.png" alt="">
-                                            </div>
-                                            <div class="card1__desc">
-                                                <div class="card1__man">Sebo Studio</div>
-                                                <div class="card1__time">Design Studio</div>
-                                            </div>
-                                        </a>
-                                        <a class="card1__like" href="#">
-                                            <div class="card1__photo">
-                                                <img class="card1__pic" src="img/card-photo.jpg" alt="">
-                                            </div>
-                                            <div class="card1__text">
-                                                <svg class="icon icon-like-thumb">
-                                                    <use xlink:href="img/sprite.svg#icon-like-thumb"></use>
-                                                </svg>Like Page
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="card1__body">
-                                        <a class="card1__user card1__user_team" href="#">
-                                            <div class="ava"><img class="ava__pic" src="img/logo-team-1.png" alt="">
-                                            </div>
-                                            <div class="card1__desc">
-                                                <div class="card1__man">Sebo Studio</div>
-                                                <div class="card1__time">Design Studio</div>
-                                            </div>
-                                        </a>
-                                        <a class="card1__like" href="#">
-                                            <div class="card1__photo">
-                                                <img class="card1__pic" src="img/card-photo.jpg" alt="">
-                                            </div>
-                                            <div class="card1__text">
-                                                <svg class="icon icon-like-thumb">
-                                                    <use xlink:href="img/sprite.svg#icon-like-thumb"></use>
-                                                </svg>Like Page
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -574,7 +565,7 @@
     <script src="js/common.js"></script>
     <script src="js/charts.js"></script>
     <script src="js/mainApp.js"></script>
-    
+
     <script>
         // Check if the user is logged in
         const isEmployeeLoggedIn = localStorage.getItem('employee');
