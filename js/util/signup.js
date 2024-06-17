@@ -59,8 +59,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const signupError = document.getElementById('signupError')
     const accountType = localStorage.getItem('accountType');
 
-    const toast = document.getElementById('toast');
-
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
@@ -179,33 +177,44 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     console.log('Signup:', data);
                     if (data) {
                         console.log('Signup:', data);
-
-                        if (data.message === "تم تسجيل الحساب بنجاح") {
-                            console.log('message', data.message);
-
-                            // Ensure the employee data is stored as a JSON string
-                            if (accountType === 'user') {
+                        
+                        if (accountType === 'user') {
+                            if (data.employee) {
                                 localStorage.setItem('employee', JSON.stringify(data.employee));
-                            } else if (accountType === 'company') {
-                                localStorage.setItem('company', JSON.stringify(data.company));
+                                window.location.href = 'index.html';
+                            } else {
+                                console.log(data.message)
                             }
-
-                            // For Toast
-                            showToast('Login successful');
-                            // Clear form fields if needed
-                            clearForm('loginForm');
-
-                            // Redirect to the appropriate dashboard
-                            window.location.href = 'index.html';
+                        } else if (accountType === 'company') {
+                            if (data.employee) {
+                                localStorage.setItem('company', JSON.stringify(data.company));
+                                window.location.href = 'index.html';
+                            } else {
+                                console.log(data.message)
+                            }
                         }
+                        
+                        // if (data.message == "تم تسجيل الحساب بنجاح" || data.message == "تم تسجيل حسابك بنجاح") {
+                        //     console.log('message', data.message);
+
+                        //     // Ensure the employee data is stored as a JSON string
+                        //     if (accountType === 'user') {
+                        //         localStorage.setItem('employee', JSON.stringify(data.employee));
+                        //     } else if (accountType === 'company') {
+                        //         localStorage.setItem('company', JSON.stringify(data.company));
+                        //     }
+
+                        //     // Redirect to the appropriate dashboard
+                        //     window.location.href = 'index.html';
+                        // }
 
                     } else {
                         console.error('Login failed:', data);
                     }
                 })
                 .catch(error => {
-                    console.error('Error during fetch:', error);
-                    signupError.textContent = "E-mail field is already in use";
+                    console.error('Error during fetch');
+                    signupError.textContent = "Invalid Data, Try again!";
                     signupError.style.display = 'block';
                 });
         }
@@ -214,17 +223,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
     [nameInput, emailInput, phoneInput, countryInput, dobInput, passwordInput, passwordConfirmInput].forEach(input => {
         input.addEventListener('input', validateForm);
     });
-
-    function showToast(message) {
-        toast.textContent = message;
-        toast.style.display = 'block';
-
-        setTimeout(function () {
-            toast.style.display = 'none';
-        }, 3000);
-    }
-
-    function clearForm(formId) {
-        document.getElementById(formId).reset();
-    }
 });

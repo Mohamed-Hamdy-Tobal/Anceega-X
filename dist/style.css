@@ -558,11 +558,6 @@ video {
   width: 100%;
 }
 
-@media (min-width: 0) {
-  .container {
-    max-width: 0;
-  }
-}
 
 @media (min-width: 768px) {
   .container {
@@ -2558,11 +2553,6 @@ video {
     width: 100%;
   }
 
-  @media (min-width: 0) {
-    .sm\:container {
-      max-width: 0;
-    }
-  }
 
   @media (min-width: 768px) {
     .sm\:container {

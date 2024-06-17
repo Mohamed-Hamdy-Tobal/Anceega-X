@@ -34,7 +34,9 @@
     background-color: #85a0cd !important;/* Light gray background */
     cursor: not-allowed !important; /* Change cursor to not-allowed */
 }
-
+body.dark .bgDark {
+    background-color: #13131A;
+}
 .icon-eye {
     cursor: pointer;
     width: 24px;
