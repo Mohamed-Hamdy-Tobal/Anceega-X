@@ -59,6 +59,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const signupError = document.getElementById('signupError')
     const accountType = localStorage.getItem('accountType');
 
+    const toast = document.getElementById('toast');
+
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
@@ -177,10 +179,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     console.log('Signup:', data);
                     if (data) {
                         console.log('Signup:', data);
-                        
+
                         if (accountType === 'user') {
                             if (data.employee) {
                                 localStorage.setItem('employee', JSON.stringify(data.employee));
+                                showToast('Register Successfully');
+                                // Clear form fields if needed
+                                clearForm('registerForm');
                                 window.location.href = 'index.html';
                             } else {
                                 console.log(data.message)
@@ -188,12 +193,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         } else if (accountType === 'company') {
                             if (data.company) {
                                 localStorage.setItem('company', JSON.stringify(data.company));
+                                showToast('Register Successfully');
+                                // Clear form fields if needed
+                                clearForm('registerForm');
                                 window.location.href = 'index.html';
                             } else {
                                 console.log(data.message)
                             }
                         }
-                        
+
                         // if (data.message == "تم تسجيل الحساب بنجاح" || data.message == "تم تسجيل حسابك بنجاح") {
                         //     console.log('message', data.message);
 
@@ -219,6 +227,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 });
         }
     });
+
+    function showToast(message) {
+        toast.textContent = message;
+        toast.style.display = 'block';
+
+        setTimeout(function () {
+            toast.style.display = 'none';
+        }, 3000);
+    }
+
+    function clearForm(formId) {
+        document.getElementById(formId).reset();
+    }
 
     [nameInput, emailInput, phoneInput, countryInput, dobInput, passwordInput, passwordConfirmInput].forEach(input => {
         input.addEventListener('input', validateForm);
