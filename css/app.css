@@ -28494,7 +28494,7 @@ screen and (max-height: 300px) {
   }
 
   .page6__field .page6__icon {
-    left: 0;
+    left: 10px;
     width: 40px;
     text-align: center;
   }
@@ -31578,10 +31578,6 @@ screen and (max-height: 300px) {
 
   .header2__burger .icon {
     font-size: 24px;
-  }
-
-  .header2__logo {
-    display: none;
   }
 
   .header2__search {

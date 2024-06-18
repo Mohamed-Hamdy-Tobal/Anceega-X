@@ -239,313 +239,237 @@
                 <div class="page6__center">
                     <div class="page6__filters js-page6-filters">
                         <div class="page6__fieldset">
-                            <div class="page6__field"><input class="page6__input" type="text"
+                            <div class="page6__field flex-1">
+                                <input id="searchTitle" class="page6__input" type="text"
                                     placeholder="Job Tittle, Company, or Anything">
-                                <div class="page6__icon"><svg class="icon icon-search">
+                                <div class="page6__icon">
+                                    <svg class="icon icon-search">
                                         <use xlink:href="img/sprite.svg#icon-search"></use>
-                                    </svg></div>
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="page6__field"><input class="page6__input" type="text" placeholder="Location">
-                                <div class="page6__icon"><svg class="icon icon-place">
-                                        <use xlink:href="img/sprite.svg#icon-place"></use>
-                                    </svg></div>
-                            </div>
-                            <div class="page6__field"><input class="page6__input" type="text" placeholder="Job Type">
-                                <div class="page6__icon"><svg class="icon icon-briefcase">
+                            <div class="page6__field flex-1">
+                                <input id="searchType" class="page6__input" type="text" placeholder="Job Type">
+                                <div class="page6__icon">
+                                    <svg class="icon icon-briefcase">
                                         <use xlink:href="img/sprite.svg#icon-briefcase"></use>
-                                    </svg></div>
+                                    </svg>
+                                </div>
                             </div>
-                            <div class="page6__field"><input class="page6__input" type="text"
-                                    placeholder="Salary Range">
-                                <div class="page6__icon"><svg class="icon icon-salary">
+                            <div class="page6__field flex-1">
+                                <input id="searchSalary" class="page6__input" type="text" placeholder="Salary Range">
+                                <div class="page6__icon">
+                                    <svg class="icon icon-salary">
                                         <use xlink:href="img/sprite.svg#icon-salary"></use>
-                                    </svg></div>
+                                    </svg>
+                                </div>
                             </div>
-                        </div><button class="page6__btn btn btn_blue">Search</button><button
-                            class="page6__btn btn btn_gray js-page6-btn"><span class="btn__text">See More</span><svg
-                                class="icon icon-arrow-down">
+                        </div>
+                        <button class="page6__btn btn btn_blue" onclick="filterJobs()">Search</button>
+                        <button class="page6__btn btn btn_gray js-page6-btn">
+                            <span class="btn__text">See More</span>
+                            <svg class="icon icon-arrow-down">
                                 <use xlink:href="img/sprite.svg#icon-arrow-down"></use>
-                            </svg></button>
+                            </svg>
+                        </button>
                     </div>
                     <div class="jobs">
                         <div class="jobs__row">
                             <div class="jobs__filters">
                                 <div class="filters1 js-filters1">
-                                    <div class="filters1__top"><button class="filters1__close js-filters1-close"><svg
-                                                class="icon icon-close">
+                                    <div class="filters1__top">
+                                        <button class="filters1__close js-filters1-close">
+                                            <svg class="icon icon-close">
                                                 <use xlink:href="img/sprite.svg#icon-close"></use>
-                                            </svg></button>
+                                            </svg>
+                                        </button>
                                         <div class="filters1__title">Filter</div>
                                     </div>
                                     <div class="filters1__wrap">
+                                        <!-- Employee Type Filter -->
                                         <div class="filters1__item js-accord-item active">
                                             <div class="filters1__head js-accord-head">Employee Type</div>
-                                            <div class="filters1__body js-accord-body" style="display: block;"><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox" checked><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">Full Time Jobs</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">Part Time Jobs</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">Remote Jobs</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">Internship Jobs</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">Contract </span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">Training Jobs</span><span
-                                                            class="checkbox__counter">23</span></span></label></div>
+                                            <div class="filters1__body js-accord-body" style="display: block;">
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input employee-type" type="checkbox"
+                                                        value="Full Time Jobs">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">Full Time Jobs</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input employee-type" type="checkbox"
+                                                        value="Part Time Jobs">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">Part Time Jobs</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input employee-type" type="checkbox"
+                                                        value="Remote Jobs">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">Remote Jobs</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input employee-type" type="checkbox"
+                                                        value="Internship Jobs">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">Internship Jobs</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input employee-type" type="checkbox"
+                                                        value="Contract">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">Contract</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input employee-type" type="checkbox"
+                                                        value="Training Jobs">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">Training Jobs</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <!-- Add more checkboxes as needed -->
+                                            </div>
                                         </div>
+
+                                        <!-- Work Level Filter -->
                                         <div class="filters1__item js-accord-item active">
                                             <div class="filters1__head js-accord-head">Work Level</div>
-                                            <div class="filters1__body js-accord-body" style="display: block;"><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox" checked><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">Student</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">Entry Level</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox" checked><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">Mid Level</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">Senior Level</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">Directors</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">VP or Above</span><span
-                                                            class="checkbox__counter">23</span></span></label></div>
+                                            <div class="filters1__body js-accord-body" style="display: block;">
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input work-level" type="checkbox"
+                                                        value="Student">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">Student</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input work-level" type="checkbox"
+                                                        value="Entry Level">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">Entry Level</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input work-level" type="checkbox"
+                                                        value="Mid Level">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">Mid Level</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input work-level" type="checkbox"
+                                                        value="Senior Level">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">Senior Level</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input work-level" type="checkbox"
+                                                        value="Directors">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">Directors</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input work-level" type="checkbox"
+                                                        value="VP or Above">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">VP or Above</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <!-- Add more checkboxes as needed -->
+                                            </div>
                                         </div>
+
+                                        <!-- Salary Range Filter -->
                                         <div class="filters1__item js-accord-item active">
                                             <div class="filters1__head js-accord-head">Salary Range</div>
-                                            <div class="filters1__body js-accord-body" style="display: block;"><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox" checked><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$0 - $100</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$101 - $200</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox" checked><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$201 - $500</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$501 - $750</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$751 - $1000</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$1000 Above</span><span
-                                                            class="checkbox__counter">23</span></span></label></div>
+                                            <div class="filters1__body js-accord-body" style="display: block;">
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input salary-range" type="checkbox"
+                                                        value="0-1000">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">$0 - $1000</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input salary-range" type="checkbox"
+                                                        value="1000-4000">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">$1000 - $4000</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input salary-range" type="checkbox"
+                                                        value="4000-8000">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">$4000 - $8000</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <label class="checkbox checkbox_green">
+                                                    <input class="checkbox__input salary-range" type="checkbox"
+                                                        value="8000-12000">
+                                                    <span class="checkbox__in">
+                                                        <span class="checkbox__tick"></span>
+                                                        <span class="checkbox__text">$8000 - $12000</span>
+                                                        <span class="checkbox__counter">0</span>
+                                                    </span>
+                                                </label>
+                                                <!-- Add more checkboxes as needed -->
+                                            </div>
                                         </div>
-                                        <div class="filters1__item js-accord-item">
-                                            <div class="filters1__head js-accord-head">Location</div>
-                                            <div class="filters1__body js-accord-body"><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox" checked><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$0 - $100</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$101 - $200</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox" checked><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$201 - $500</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$501 - $750</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$751 - $1000</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$1000 Above</span><span
-                                                            class="checkbox__counter">23</span></span></label></div>
-                                        </div>
-                                        <div class="filters1__item js-accord-item">
-                                            <div class="filters1__head js-accord-head">Language</div>
-                                            <div class="filters1__body js-accord-body"><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox" checked><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$0 - $100</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$101 - $200</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox" checked><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$201 - $500</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$501 - $750</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$751 - $1000</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$1000 Above</span><span
-                                                            class="checkbox__counter">23</span></span></label></div>
-                                        </div>
-                                        <div class="filters1__item js-accord-item">
-                                            <div class="filters1__head js-accord-head">Facility</div>
-                                            <div class="filters1__body js-accord-body"><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox" checked><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$0 - $100</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$101 - $200</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox" checked><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$201 - $500</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$501 - $750</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$751 - $1000</span><span
-                                                            class="checkbox__counter">23</span></span></label><label
-                                                    class="checkbox checkbox_green"><input class="checkbox__input"
-                                                        type="checkbox"><span class="checkbox__in"><span
-                                                            class="checkbox__tick"></span><span
-                                                            class="checkbox__text">$1000 Above</span><span
-                                                            class="checkbox__counter">23</span></span></label></div>
-                                        </div>
+
+                                        <!-- Add other filters similarly -->
                                     </div>
                                 </div>
                             </div>
                             <div class="jobs__container">
 
                                 <div class="jobs__head">
-                                    <div id="jobCount" class="jobs__title title"></div><a
-                                        class="jobs__open-filters js-jobs-filters" href="#"><svg
-                                            class="icon icon-filters-1">
+                                    <div id="jobCount" class="jobs__title title"></div>
+                                    <a class="jobs__open-filters js-jobs-filters" href="#">
+                                        <svg class="icon icon-filters-1">
                                             <use xlink:href="img/sprite.svg#icon-filters-1"></use>
-                                        </svg>Filter</a>
+                                        </svg>
+                                        Filter
+                                    </a>
                                 </div>
 
-                                <!-- The Body Jobs -->
-                                <!-- <div class="jobs__list">
-                                    <div class="jobs__item">
-                                        <div class="options2 js-options">
-                                            <button class="options2__btn js-options-btn">
-                                                <svg class="icon icon-dots">
-                                                    <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                </svg>
-                                            </button>
-                                            <div class="options2__dropdown js-options-dropdown">
-                                                <a class="options2__link" href="#">Remove Notifications</a>
-                                                <a class="options2__link" href="#">Turn Off Notifications from </a>
-                                            </div>
-                                        </div>
-                                        <div class="jobs__logo">
-                                            <img class="jobs__pic" src="img/tokopedia.png" alt="">
-                                        </div>
-                                        <a class="jobs__title" href="job-details.html">Principal UX
-                                            <svg class="icon icon-get-location">
-                                                <use xlink:href="img/sprite.svg#icon-get-location"></use>
-                                            </svg>
-                                        </a>
-                                        <div class="jobs__info">
-                                            You will be responsible for the Visual design for
-                                            multi-device. Understand basic design, User Journey, Ideation and
-                                            Wireframing etc…
-                                        </div>
-                                        <div class="jobs__tags">
-                                            <div class="jobs__tag">Full Time</div>
-                                            <div class="jobs__tag">Min. 1 Year</div>
-                                            <div class="jobs__tag">Director</div>
-                                        </div>
-                                        <div class="jobs__line">
-                                            <div class="users users_sm">
-                                                <div class="users__item">
-                                                    <img class="users__pic" src="img/ava-1.png" alt="">
-                                                </div>
-                                                <div class="users__item">
-                                                    <img class="users__pic" src="img/ava-2.png" alt="">
-                                                </div>
-                                                <div class="users__item" style="background-color: #FFC542">KA</div>
-                                                <div class="users__item users__item_counter">+3</div>
-                                            </div>
-                                            <div class="jobs__friends">5 Friends Work here</div>
-                                        </div>
-                                        <div class="jobs__btns">
-                                            <button class="jobs__btn btn btn_blue">Apply Now</button>
-                                            <button class="jobs__btn btn btn_gray">Messages</button>
-                                        </div>
-                                    </div>
-                                </div> -->
                                 <div id="jobsList" class="jobs__list">
                                     <!-- Job items will be inserted here -->
                                 </div>
@@ -587,9 +511,193 @@
             window.location.href = 'sign-in.html';
         }
     </script>
-
     <script>
         const loadingSpinner = document.getElementById('loadingSpinner');
+        let jobsData = [];
+
+        async function fetchJobs() {
+            try {
+                loadingSpinner.style.display = 'flex';
+                // Retrieve token from localStorage
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    throw new Error('token not found in localStorage');
+                }
+
+                const response = await fetch('https://back.anceega.com/client-api/v1/jobs/get', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    redirect: 'follow'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+
+                const contentType = response.headers.get("content-type");
+                if (!contentType || !contentType.includes("application/json")) {
+                    throw new TypeError("Received response is not in JSON format");
+                }
+
+                const data = await response.json();
+                console.log(data)
+                jobsData = data.data; // Store jobs data
+                displayJobs(jobsData);
+                updateFilterCounts();
+            } catch (error) {
+                console.error('Error fetching job data:', error);
+            } finally {
+                loadingSpinner.style.display = 'none';
+            }
+        }
+
+        function updateFilterCounts() {
+            // Define filter types
+            const filters = {
+                'employee-type': ['Full Time Jobs', 'Part Time Jobs', "Remote Jobs", "Internship Jobs", "Contract", "Training Jobs"], // Add other types as needed
+                'work-level': ['Student', 'Entry Level', 'Mid Level', 'Senior Level', 'Directors', 'VP or Above'], // Add other levels as needed
+                'salary-range': ['0-1000', '1000-4000', '4000-8000', '8000', '12000'] // Add other ranges as needed
+            };
+    
+            // Calculate counts for each filter type
+            for (let filterType in filters) {
+                filters[filterType].forEach(filterValue => {
+                    const count = jobsData.filter(job => {
+                        switch (filterType) {
+                            case 'employee-type':
+                                return job.employee_type.toLowerCase() === filterValue.toLowerCase();
+                            case 'work-level':
+                                return job.work_level.toLowerCase() === filterValue.toLowerCase();
+                            case 'salary-range':
+                                const [min, max] = filterValue.split('-').map(Number);
+                                const jobSalary = parseFloat(job.salary.replace(/[^0-9.-]+/g, ""));
+                                return jobSalary >= min && jobSalary <= max;
+                            default:
+                                return false;
+                        }
+                    }).length;
+    
+                    // Update the count in the checkbox label
+                    const checkboxLabel = document.querySelector(`.${filterType}[value="${filterValue}"]`).closest('label').querySelector('.checkbox__counter');
+                    checkboxLabel.innerText = count;
+                });
+            }
+        }
+
+        function displayJobs(jobs) {
+            const jobsList = document.getElementById('jobsList');
+            jobsList.innerHTML = ''; // Clear previous list items
+
+            const jobCount = document.getElementById('jobCount');
+            jobCount.innerText = `Showing ${jobs.length} Jobs`;
+
+            jobs.forEach((job, index) => {
+                const jobItem = document.createElement('div');
+                jobItem.className = 'jobs__item flex flex-col justify-between gap-3';
+
+                jobItem.innerHTML = `
+                    <div class="">
+                        <div class="jobs__logo">
+                            <img class="jobs__pic" src="img/tokopedia.png" alt="">
+                        </div>
+                        <a class="jobs__title" href="job-details.html?id=${index}">${job.job_name}
+                            <svg class="icon icon-get-location">
+                                <use xlink:href="img/sprite.svg#icon-get-location"></use>
+                            </svg>
+                        </a>
+                        <div class="jobs__info">${job.job_description}</div>
+                        <div class="jobs__tags">
+                            <div class="jobs__tag">${job.employee_type}</div>
+                            <div class="jobs__tag">${job.experience}</div>
+                            <div class="jobs__tag">${job.job_category}</div>
+                        </div>
+                    </div>
+                    <div class="jobs__btns">
+                        <a class="" href="job-details.html?id=${index}">
+                            <button class="jobs__btn btn btn_blue">Apply Now</button>
+                        </a>
+                    </div>
+                `;
+
+                jobsList.appendChild(jobItem);
+            });
+        }
+
+        function filterJobs() {
+            const title = document.getElementById('searchTitle').value.toLowerCase();
+            const type = document.getElementById('searchType').value.toLowerCase();
+
+            // Parse salary input from text input
+            const salaryInput = document.getElementById('searchSalary').value;
+            let minSalary = 0, maxSalary = Number.MAX_VALUE;
+            if (salaryInput.includes('-')) {
+                const [min, max] = salaryInput.split('-').map(s => parseFloat(s.trim()));
+                minSalary = isNaN(min) ? minSalary : min;
+                maxSalary = isNaN(max) ? maxSalary : max;
+            } else if (salaryInput) {
+                minSalary = parseFloat(salaryInput.trim());
+            }
+
+            // Get selected employee types
+            const selectedEmployeeTypes = Array.from(document.querySelectorAll('.employee-type:checked')).map(el => el.value.toLowerCase());
+
+            // Get selected work levels
+            const selectedWorkLevels = Array.from(document.querySelectorAll('.work-level:checked')).map(el => el.value.toLowerCase());
+
+            // Get selected salary ranges
+            const selectedSalaryRanges = Array.from(document.querySelectorAll('.salary-range:checked')).map(el => el.value);
+
+            // If all fields are empty and no checkboxes are selected, show all jobs
+            if (title === "" && type === "" && !salaryInput && selectedEmployeeTypes.length === 0 && selectedWorkLevels.length === 0 && selectedSalaryRanges.length === 0) {
+                displayJobs(jobsData);
+                return;
+            }
+
+            const filteredJobs = jobsData.filter(job => {
+                const matchesTitle = title === "" || job.job_name.toLowerCase().includes(title) ;
+                const matchesType = type === "" || job.employee_type.toLowerCase().includes(type);
+                const matchesSalary = job.salary >= minSalary && job.salary <= maxSalary;
+
+                // Check if job salary matches any of the selected salary ranges
+                let matchesSalaryRange = true;
+                if (selectedSalaryRanges.length > 0) {
+                    matchesSalaryRange = selectedSalaryRanges.some(range => {
+                        const [min, max] = range.replace('$', '').split('-').map(s => parseFloat(s.trim()));
+                        console.log(min, max)
+                        return job.salary >= min && job.salary <= max;
+                    });
+                }
+
+                const matchesEmployeeType = selectedEmployeeTypes.length === 0 || selectedEmployeeTypes.includes(job.employee_type.toLowerCase());
+                const matchesWorkLevel = selectedWorkLevels.length === 0 || selectedWorkLevels.includes(job.work_level.toLowerCase());
+
+                return matchesTitle && matchesType && matchesSalary && matchesSalaryRange && matchesEmployeeType && matchesWorkLevel;
+            });
+
+            displayJobs(filteredJobs);
+        }
+
+        // Add event listener to the "See More" button
+        document.querySelector('.js-page6-btn').addEventListener('click', () => {
+            document.querySelector('.js-page6-filters').classList.toggle('show');
+        });
+
+        // Add event listeners to checkboxes
+        document.querySelectorAll('.checkbox__input').forEach(checkbox => {
+            checkbox.addEventListener('change', filterJobs);
+        });
+
+        // Fetch jobs data when the page loads
+        window.onload = fetchJobs;
+    </script>
+
+    <!-- <script>
+        let jobsData = [];
+        const loadingSpinner = document.getElementById('loadingSpinner');
+
         async function fetchJobs() {
             try {
                 loadingSpinner.style.display = 'flex';
@@ -619,53 +727,128 @@
 
                 const data = await response.json();
                 console.log(data); // Log the data for debugging
-                const jobsList = document.getElementById('jobsList');
-                jobsList.innerHTML = ''; // Clear previous list items
+                jobsData = data.data;
+                displayJobs(jobsData);
 
-                const jobCount = document.getElementById('jobCount');
-                jobCount.innerText = `Showing ${data.data.length} Jobs`;
-
-                data.data.forEach((job, index) => {
-                    const jobItem = document.createElement('div');
-                    jobItem.className = 'jobs__item flex flex-col justify-between gap-3';
-
-                    jobItem.innerHTML = `
-                        <div class="">
-                            <div class="jobs__logo">
-                                <img class="jobs__pic" src="img/tokopedia.png" alt="">
-                            </div>
-                            <a class="jobs__title" href="job-details.html?id=${index}">${job.job_name}
-                                <svg class="icon icon-get-location">
-                                    <use xlink:href="img/sprite.svg#icon-get-location"></use>
-                                </svg>
-                            </a>
-                            <div class="jobs__info">${job.job_description}</div>
-                            <div class="jobs__tags">
-                                <div class="jobs__tag">${job.employee_type}</div>
-                                <div class="jobs__tag">${job.experience}</div>
-                                <div class="jobs__tag">${job.job_category}</div>
-                            </div>
-                        </div>
-                        <div class="jobs__btns">
-                            <a class="" href="job-details.html?id=${index}">
-                                <button class="jobs__btn btn btn_blue">Apply Now</button>
-                            </a>
-                        </div>
-                    `;
-
-                    jobsList.appendChild(jobItem);
-                });
+                document.getElementById('spinner').style.display = 'none';
             } catch (error) {
                 console.error('Error fetching job data:', error);
+                document.getElementById('spinner').style.display = 'none';
             } finally {
                 // Hide loading spinner
                 loadingSpinner.style.display = 'none';
             }
         }
 
+        function displayJobs(jobs) {
+            const jobsList = document.getElementById('jobsList');
+            jobsList.innerHTML = ''; // Clear previous list items
+
+            const jobCount = document.getElementById('jobCount');
+            jobCount.innerText = `Showing ${jobs.length} Jobs`;
+
+            jobs.forEach((job, index) => {
+                const jobItem = document.createElement('div');
+                jobItem.className = 'jobs__item flex flex-col justify-between gap-3';
+
+                jobItem.innerHTML = `
+                <div class="">
+                    <div class="jobs__logo">
+                        <img class="jobs__pic" src="img/tokopedia.png" alt="">
+                    </div>
+                    <a class="jobs__title" href="job-details.html?id=${index}">${job.job_name}
+                        <svg class="icon icon-get-location">
+                            <use xlink:href="img/sprite.svg#icon-get-location"></use>
+                        </svg>
+                    </a>
+                    <div class="jobs__info">${job.job_description}</div>
+                    <div class="jobs__tags">
+                        <div class="jobs__tag">${job.employee_type}</div>
+                        <div class="jobs__tag">${job.experience}</div>
+                        <div class="jobs__tag">${job.job_category}</div>
+                    </div>
+                </div>
+                <div class="jobs__btns">
+                    <a class="" href="job-details.html?id=${index}">
+                        <button class="jobs__btn btn btn_blue">Apply Now</button>
+                    </a>
+                </div>
+            `;
+
+                jobsList.appendChild(jobItem);
+            });
+        }
+
         // Fetch jobs on page load
         document.addEventListener('DOMContentLoaded', fetchJobs);
-    </script>
+
+        function filterJobs() {
+            const title = document.getElementById('searchTitle').value;
+            const type = document.getElementById('searchType').value;
+            const salary = document.getElementById('searchSalary').value
+
+            // Get selected employee types
+            const selectedEmployeeTypes = Array.from(document.querySelectorAll('.employee-type:checked')).map(el => el.value.toLowerCase());
+
+            // Get selected work levels
+            const selectedWorkLevels = Array.from(document.querySelectorAll('.work-level:checked')).map(el => el.value.toLowerCase());
+
+            // Get selected salary ranges
+            const selectedSalaryRanges = Array.from(document.querySelectorAll('.salary-range:checked')).map(el => el.value);
+
+            let minSalary = 0;
+            let maxSalary = Infinity;
+            if (salary) {
+                const salaryParts = salary.split('-');
+                if (salaryParts.length === 2) {
+                    minSalary = parseFloat(salaryParts[0].trim());
+                    maxSalary = parseFloat(salaryParts[1].trim());
+                } else if (salaryParts.length === 1) {
+                    minSalary = parseFloat(salaryParts[0].trim());
+                }
+            }
+
+            // If all fields are empty and no checkboxes are selected, show all jobs
+            if (title === "" && type === "" && salary === "" && selectedEmployeeTypes.length === 0 && selectedWorkLevels.length === 0) {
+                displayJobs(jobsData);
+                return;
+            }
+
+            const filteredJobs = jobsData.filter(job => {
+                const matchesTitle = title === "" || job.job_name.includes(title);
+                const matchesType = type === "" || job.employee_type.includes(type);
+                const matchesSalary = !salary || (job.salary >= minSalary && job.salary <= maxSalary);
+
+                // Check if job salary matches any of the selected salary ranges
+                let matchesSalaryRange = true;
+                if (selectedSalaryRanges.length > 0) {
+                    matchesSalaryRange = selectedSalaryRanges.some(range => {
+                        const [min, max] = range.replace('$', '').split('-').map(s => parseFloat(s.trim()));
+                        console.log(min, max)
+                        return job.salary >= min && job.salary <= max;
+                    });
+                }
+
+                const matchesEmployeeType = selectedEmployeeTypes.length === 0 || selectedEmployeeTypes.includes(job.employee_type.toLowerCase());
+                const matchesWorkLevel = selectedWorkLevels.length === 0 || selectedWorkLevels.includes(job.experience.toLowerCase());
+
+                return matchesTitle && matchesType && matchesSalary && matchesEmployeeType && matchesWorkLevel && matchesSalaryRange;
+            });
+
+            displayJobs(filteredJobs);
+        }
+
+
+        // Add event listener to the "See More" button
+        document.querySelector('.js-page6-btn').addEventListener('click', () => {
+            document.querySelector('.js-page6-filters').classList.toggle('show');
+        });
+
+        document.querySelectorAll('.checkbox__input').forEach(checkbox => {
+            checkbox.addEventListener('change', filterJobs);
+        });
+
+    </script> -->
 </body>
 
 </html>
