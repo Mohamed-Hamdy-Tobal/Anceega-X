@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Theqa</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Page description">
+    <!--Twitter Card data-->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@publisher_handle">
+    <meta name="twitter:title" content="Page Title">
+    <meta name="twitter:description" content="Page description less than 200 characters">
+    <meta name="twitter:creator" content="@author_handle">
+    <meta name="twitter:image" content="http://www.example.com/image.jpg">
+    <!--Open Graph data-->
+    <meta property="og:title" content="Title Here">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://www.example.com/">
+    <meta property="og:image" content="http://example.com/image.jpg">
+    <meta property="og:description" content="Description Here">
+    <meta property="og:site_name" content="Site Name, i.e. Moz">
+    <meta property="fb:admins" content="Facebook numeric ID">
+    <link rel="stylesheet" media="all" href="css/app.css">
+    <link rel="stylesheet" media="all" href="src/style.css">
+    <link rel="stylesheet" media="all" href="css/mainApp.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Spinner styles */
+        .spinner {
+            position: relative;
+            height: 120px;
+            width: 120px;
+        }
+
+        .spinner .rot {
+            border: 3px solid transparent;
+            border-top-color: #009CF8;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            animation-name: rotate;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            position: absolute;
+        }
+
+        .spinner .rot:first-child {
+            width: 90px;
+            height: 90px;
+            animation-duration: 1s;
+            left: 20px;
+            top: 25px;
+        }
+
+        .spinner .rot:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            animation-duration: 1.5s;
+            left: 35px;
+            top: 35px;
+        }
+
+        .spinner .rot:last-child {
+            width: 30px;
+            height: 30px;
+            animation-duration: 2s;
+            top: 46px;
+            left: 49px;
+
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+            }
+        }
+
+        /* Hide content initially */
+        #content {
+            display: none;
+        }
+    </style>
+    <script>
+        // Check if the user is logged in
+        window.onload = function () {
+            const accountType = localStorage.getItem('accountType');
+
+            if (accountType === 'employee') {
+                document.querySelector('.employee-content').style.display = 'block';
+            } else if (accountType === 'company') {
+                document.querySelector('.company-content').style.display = 'block';
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <!-- <div id="loading" class="loading">
+        <div id="spinner" class="spinner">
+            <div class="rot"></div>
+            <div class="rot"></div>
+            <div class="rot"></div>
+        </div>
+    </div> -->
+
+    <!-- ### Employee ## -->
+    <div class="out" id="root">
+
+        <div class="page2 js-page2">
+
+            <!-- The Header -->
+            <div class="header2 js-header2">
+                <a class="header2__logo" href="index.html">
+                    <img class="header2__pic header2__pic_black" src="img/logo.svg" alt="" />
+                    <img class="header2__pic header2__pic_white" src="img/logo-white.svg" alt="" />
+                </a>
+                <div class="header2__search">
+                    <button class="header2__open"><svg class="icon icon-search">
+                            <use xlink:href="img/sprite.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                    <input class="header2__input" type="text" placeholder="Search" />
+                </div>
+
+                <div class="flex items-center">
+                    <div class="header2__group">
+                        <a class="header2__link header2__link_bell active" href="square-notifications.html">
+                            <svg class="icon icon-bell">
+                                <use xlink:href="img/sprite.svg#icon-bell"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+
+                    <div class="main-avatar">
+                        <div class="header2__profile user-avatar flex justify-start items-center gap-2"
+                            onclick="toggleDropdown()">
+                            <img class="header2__pic" src="img/ava-1.png" alt="" />
+                            <svg class="arrow-icon" width="10" height="10" viewBox="0 0 10 10"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0 L5 5 L10 0 Z" fill="#333" />
+                            </svg>
+                        </div>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <div class="info-avatar py-[10px] px-[20px] border-solid border-b-[1px] border-[#e5e7eb]">
+                                <h3 id="userName" class="font-bold text-gray-900 dark:text-gray-100"></h3>
+                                <h6 id="userJob" class="text-xs text-[#009CF8]"></h6>
+                            </div>
+                            <span class="dropdown-item block">
+                                <a href="profile.html" class="flex gap-2 items-center w-full">
+                                    <span class="text-xl opacity-50"><svg stroke="currentColor" fill="none"
+                                            stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em"
+                                            width="1em" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                                            </path>
+                                        </svg></span>
+                                    <span>Profile</span>
+                                </a>
+                            </span>
+                            <span class="dropdown-item flex gap-2 items-center w-full" onclick="logout()">
+                                <span class="text-xl opacity-50"><svg stroke="currentColor" fill="none" stroke-width="2"
+                                        viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                                        </path>
+                                    </svg></span>
+                                <span>Logout</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header2__bg js-header2-bg"></div>
+            </div>
+
+
+            <div class="page2__wrapper">
+
+                <div class="page2__container">
+                    <div class="page__content">
+                        <div class="schedule">
+                            <div class="sorting js-sorting">
+                                <h1 class="sorting__title title">Schedule</h1>
+                                <div class="sorting__variants">
+                                    <div class="sorting__text">Show:</div><select class="sorting__select">
+                                        <option>All Projects</option>
+                                        <option selected>All Schedule</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="schedule__container">
+                                <div class="schedule__calendar">
+                                    <div class="datepicker">
+                                        <div class="datepicker__container">
+                                            <div class="datepicker__month">
+                                                <div class="datepicker__head">
+                                                    <div class="datepicker__title">September <span
+                                                            class="datepicker__year">2020</span></div>
+                                                    <div class="datepicker__control"><button
+                                                            class="datepicker__arrow"><svg class="icon icon-arrow-up">
+                                                                <use xlink:href="img/sprite.svg#icon-arrow-up"></use>
+                                                            </svg></button><button class="datepicker__arrow"><svg
+                                                                class="icon icon-arrow-down">
+                                                                <use xlink:href="img/sprite.svg#icon-arrow-down"></use>
+                                                            </svg></button></div>
+                                                </div>
+                                                <table class="datepicker__table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>sun</th>
+                                                            <th>mon</th>
+                                                            <th>tue</th>
+                                                            <th>wed</th>
+                                                            <th>thu</th>
+                                                            <th>fri</th>
+                                                            <th>sat</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td> </td>
+                                                            <td> </td>
+                                                            <td><a class="datepicker__link one" href="#">1</a></td>
+                                                            <td><a class="datepicker__link" href="#">2</a></td>
+                                                            <td><a class="datepicker__link" href="#">3</a></td>
+                                                            <td><a class="datepicker__link" href="#">4</a></td>
+                                                            <td><a class="datepicker__link" href="#">5</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a class="datepicker__link" href="#">6</a></td>
+                                                            <td><a class="datepicker__link" href="#">7</a></td>
+                                                            <td><a class="datepicker__link" href="#">8</a></td>
+                                                            <td><a class="datepicker__link" href="#">9</a></td>
+                                                            <td><a class="datepicker__link" href="#">10</a></td>
+                                                            <td><a class="datepicker__link" href="#">11</a></td>
+                                                            <td><a class="datepicker__link" href="#">12</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a class="datepicker__link" href="#">13</a></td>
+                                                            <td><a class="datepicker__link" href="#">14</a></td>
+                                                            <td><a class="datepicker__link" href="#">15</a></td>
+                                                            <td><a class="datepicker__link three" href="#">16<span
+                                                                        class="datepicker__dot"></span></a></td>
+                                                            <td><a class="datepicker__link two" href="#">17</a></td>
+                                                            <td><a class="datepicker__link" href="#">18</a></td>
+                                                            <td><a class="datepicker__link" href="#">19</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a class="datepicker__link" href="#">20</a></td>
+                                                            <td><a class="datepicker__link" href="#">21</a></td>
+                                                            <td><a class="datepicker__link active three"
+                                                                    href="#">22<span class="datepicker__dot"></span></a>
+                                                            </td>
+                                                            <td><a class="datepicker__link" href="#">23</a></td>
+                                                            <td><a class="datepicker__link" href="#">24</a></td>
+                                                            <td><a class="datepicker__link" href="#">25</a></td>
+                                                            <td><a class="datepicker__link" href="#">26</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a class="datepicker__link" href="#">27</a></td>
+                                                            <td><a class="datepicker__link blue two" href="#">28</a>
+                                                            </td>
+                                                            <td><a class="datepicker__link one" href="#">29</a></td>
+                                                            <td><a class="datepicker__link" href="#">30</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="datepicker__month">
+                                                <div class="datepicker__head">
+                                                    <div class="datepicker__title">October <span
+                                                            class="datepicker__year">2020</span></div>
+                                                </div>
+                                                <table class="datepicker__table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>sun</th>
+                                                            <th>mon</th>
+                                                            <th>tue</th>
+                                                            <th>wed</th>
+                                                            <th>thu</th>
+                                                            <th>fri</th>
+                                                            <th>sat</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td> </td>
+                                                            <td> </td>
+                                                            <td> </td>
+                                                            <td> </td>
+                                                            <td><a class="datepicker__link one" href="#">1</a></td>
+                                                            <td><a class="datepicker__link" href="#">2</a></td>
+                                                            <td><a class="datepicker__link" href="#">3</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a class="datepicker__link" href="#">4</a></td>
+                                                            <td><a class="datepicker__link" href="#">5</a></td>
+                                                            <td><a class="datepicker__link" href="#">6</a></td>
+                                                            <td><a class="datepicker__link" href="#">7</a></td>
+                                                            <td><a class="datepicker__link" href="#">8</a></td>
+                                                            <td><a class="datepicker__link" href="#">9</a></td>
+                                                            <td><a class="datepicker__link" href="#">10</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a class="datepicker__link" href="#">11</a></td>
+                                                            <td><a class="datepicker__link" href="#">12</a></td>
+                                                            <td><a class="datepicker__link" href="#">13</a></td>
+                                                            <td><a class="datepicker__link" href="#">14</a></td>
+                                                            <td><a class="datepicker__link" href="#">15</a></td>
+                                                            <td><a class="datepicker__link" href="#">16</a></td>
+                                                            <td><a class="datepicker__link" href="#">17</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a class="datepicker__link one" href="#">18</a></td>
+                                                            <td><a class="datepicker__link" href="#">19</a></td>
+                                                            <td><a class="datepicker__link" href="#">20</a></td>
+                                                            <td><a class="datepicker__link" href="#">21</a></td>
+                                                            <td><a class="datepicker__link" href="#">22</a></td>
+                                                            <td><a class="datepicker__link" href="#">23</a></td>
+                                                            <td><a class="datepicker__link" href="#">24</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a class="datepicker__link" href="#">25</a></td>
+                                                            <td><a class="datepicker__link" href="#">26</a></td>
+                                                            <td><a class="datepicker__link" href="#">27</a></td>
+                                                            <td><a class="datepicker__link" href="#">28</a></td>
+                                                            <td><a class="datepicker__link" href="#">29</a></td>
+                                                            <td><a class="datepicker__link" href="#">30</a></td>
+                                                            <td><a class="datepicker__link" href="#">31</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="schedule__list">
+                                    <div class="schedule__group">
+                                        <div class="schedule__item">
+                                            <div class="schedule__date"><svg class="icon icon-calendar">
+                                                    <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                                                </svg>1 Apr, 2018</div>
+                                            <div class="schedule__details"><label
+                                                    class="checkbox checkbox_green checkbox_big"><input
+                                                        class="checkbox__input" type="checkbox" checked><span
+                                                        class="checkbox__in"><span class="checkbox__tick"></span><span
+                                                            class="checkbox__details"><span class="checkbox__line"><span
+                                                                    class="checkbox__info">Create look &
+                                                                    feel</span><span class="users"><span
+                                                                        class="users__item"><img class="users__pic"
+                                                                            src="img/ava-3.png" alt=""></span><span
+                                                                        class="users__item"><img class="users__pic"
+                                                                            src="img/ava-4.png" alt=""></span><span
+                                                                        class="users__item"
+                                                                        style="background-color: #50B5FF">AF</span></span></span><span
+                                                                class="checkbox__desc">
+                                                                <p>Completed Apr 20</p>
+                                                                <p>Circle - Dashboard, Stats, and UI Kit</p>
+                                                            </span></span></span></label></div>
+                                        </div>
+                                        <div class="schedule__item">
+                                            <div class="schedule__date"><svg class="icon icon-calendar">
+                                                    <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                                                </svg>18 Apr, 2018</div>
+                                            <div class="schedule__details"><label
+                                                    class="checkbox checkbox_green checkbox_big"><input
+                                                        class="checkbox__input" type="checkbox" checked><span
+                                                        class="checkbox__in"><span class="checkbox__tick"></span><span
+                                                            class="checkbox__details"><span class="checkbox__line"><span
+                                                                    class="checkbox__info">Create Flow Chart</span><span
+                                                                    class="users"><span class="users__item"><img
+                                                                            class="users__pic" src="img/ava-3.png"
+                                                                            alt=""></span><span class="users__item"><img
+                                                                            class="users__pic" src="img/ava-4.png"
+                                                                            alt=""></span></span></span><span
+                                                                class="checkbox__desc">
+                                                                <p>Completed Apr 20</p>
+                                                                <p>Circle - Dashboard, Stats, and UI Kit</p>
+                                                            </span></span></span></label></div>
+                                        </div>
+                                        <div class="schedule__item">
+                                            <div class="schedule__date"><svg class="icon icon-calendar">
+                                                    <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                                                </svg>23 Apr, 2018</div>
+                                            <div class="schedule__details"><label
+                                                    class="checkbox checkbox_green checkbox_big"><input
+                                                        class="checkbox__input" type="checkbox" checked><span
+                                                        class="checkbox__in"><span class="checkbox__tick"></span><span
+                                                            class="checkbox__details"><span class="checkbox__line"><span
+                                                                    class="checkbox__info">Create Moodboard</span><span
+                                                                    class="users"><span class="users__item"><img
+                                                                            class="users__pic" src="img/ava-3.png"
+                                                                            alt=""></span><span class="users__item"><img
+                                                                            class="users__pic" src="img/ava-4.png"
+                                                                            alt=""></span></span></span><span
+                                                                class="checkbox__desc">
+                                                                <p>Completed Apr 23</p>
+                                                                <p>Circle - Dashboard, Stats, and UI Kit</p>
+                                                            </span></span></span></label><label
+                                                    class="checkbox checkbox_green checkbox_big"><input
+                                                        class="checkbox__input" type="checkbox" checked><span
+                                                        class="checkbox__in"><span class="checkbox__tick"></span><span
+                                                            class="checkbox__details"><span class="checkbox__line"><span
+                                                                    class="checkbox__info">Wireframing</span><span
+                                                                    class="users"><span class="users__item"><img
+                                                                            class="users__pic" src="img/ava-1.png"
+                                                                            alt=""></span><span class="users__item"><img
+                                                                            class="users__pic" src="img/ava-2.png"
+                                                                            alt=""></span><span class="users__item"
+                                                                        style="background-color: #50B5FF">AF</span></span></span><span
+                                                                class="checkbox__desc">
+                                                                <p>Completed Apr 20</p>
+                                                                <p>Circle - Dashboard, Stats, and UI Kit</p>
+                                                            </span></span></span></label><label
+                                                    class="checkbox checkbox_green checkbox_big"><input
+                                                        class="checkbox__input" type="checkbox" checked><span
+                                                        class="checkbox__in"><span class="checkbox__tick"></span><span
+                                                            class="checkbox__details"><span class="checkbox__line"><span
+                                                                    class="checkbox__info">Add one section in about us
+                                                                    page Square</span><span class="users"><span
+                                                                        class="users__item"
+                                                                        style="background-color: #50B5FF">AF</span></span></span><span
+                                                                class="checkbox__desc">Development - Square
+                                                                Website</span></span></span></label></div>
+                                        </div>
+                                        <div class="schedule__item">
+                                            <div class="schedule__date"><svg class="icon icon-calendar">
+                                                    <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                                                </svg>29 Apr, 2018</div>
+                                            <div class="schedule__details"><label
+                                                    class="checkbox checkbox_green checkbox_big"><input
+                                                        class="checkbox__input" type="checkbox"><span
+                                                        class="checkbox__in"><span class="checkbox__tick"></span><span
+                                                            class="checkbox__details"><span class="checkbox__line"><span
+                                                                    class="checkbox__info">[Dev] Homepage - Circle
+                                                                    website</span><span class="users"><span
+                                                                        class="users__item"
+                                                                        style="background-color: #FFC542">JH</span></span></span><span
+                                                                class="checkbox__desc">Development - Circle
+                                                                Website</span></span></span></label></div>
+                                        </div>
+                                        <div class="schedule__item">
+                                            <div class="schedule__date"><svg class="icon icon-calendar">
+                                                    <use xlink:href="img/sprite.svg#icon-calendar"></use>
+                                                </svg>30 Apr, 2018</div>
+                                            <div class="schedule__details"><label
+                                                    class="checkbox checkbox_green checkbox_big"><input
+                                                        class="checkbox__input" type="checkbox"><span
+                                                        class="checkbox__in"><span class="checkbox__tick"></span><span
+                                                            class="checkbox__details"><span class="checkbox__line"><span
+                                                                    class="checkbox__info">[Dev] About Us - Circle
+                                                                    website</span><span class="users"><span
+                                                                        class="users__item"
+                                                                        style="background-color: #FFC542">JH</span></span></span><span
+                                                                class="checkbox__desc">Development - Circle
+                                                                Website</span></span></span></label></div>
+                                        </div>
+                                    </div>
+                                    <div class="schedule__foot"><a class="schedule__more" href="#">Show More
+                                            Schedule</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/mainApp.js"></script>
+
+    <script>
+        // Check if the user is logged in
+        const isEmployeeLoggedIn = localStorage.getItem('employee');
+        const isCompanyLoggedIn = localStorage.getItem('company');
+        if (!isEmployeeLoggedIn && !isCompanyLoggedIn) {
+            // Redirect to sign-in.html if neither is logged in
+            window.location.href = 'sign-in.html';
+        }
+    </script>
+</body>
+
+</html>
