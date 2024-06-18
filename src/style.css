@@ -175,3 +175,11 @@
     display: none;
     z-index: 1;
 }
+
+button:focus {
+    outline: none !important;
+}
+a:hover {
+    color: inherit !important;
+    text-decoration: none !important;
+}

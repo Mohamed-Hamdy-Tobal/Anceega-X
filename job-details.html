@@ -35,6 +35,18 @@
     <link rel="stylesheet" media="all" href="css/mainApp.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        #loadingSpinner {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background: #a1a1a10f;
+        }
+
         /* Spinner styles */
         .spinner {
             position: relative;
@@ -112,13 +124,13 @@
 </head>
 
 <body>
-    <!-- <div id="loading" class="loading">
+    <div id="loadingSpinner" class="loading">
         <div id="spinner" class="spinner">
             <div class="rot"></div>
             <div class="rot"></div>
             <div class="rot"></div>
         </div>
-    </div> -->
+    </div>
 
     <!-- ### Employee ## -->
     <div class="out" id="root">
@@ -136,7 +148,7 @@
                             <use xlink:href="img/sprite.svg#icon-search"></use>
                         </svg>
                     </button>
-                    <input class="header2__input" type="text" placeholder="Search" />
+                    <!-- <input class="header2__input" type="text" placeholder="Search" /> -->
                 </div>
 
                 <div class="flex items-center">
@@ -225,7 +237,7 @@
                                 </svg></span></span></label>
                 </div>
                 <div class="page6__center">
-                    <div class="page6__filters js-page6-filters">
+                    <!-- <div class="page6__filters js-page6-filters">
                         <div class="page6__fieldset">
                             <div class="page6__field"><input class="page6__input" type="text"
                                     placeholder="Job Tittle, Company, or Anything">
@@ -254,10 +266,10 @@
                                 class="icon icon-arrow-down">
                                 <use xlink:href="img/sprite.svg#icon-arrow-down"></use>
                             </svg></button>
-                    </div>
+                    </div> -->
                     <div class="jobs">
                         <div class="jobs__row">
-                            <div class="jobs__filters">
+                            <!-- <div class="jobs__filters">
                                 <form class="jobs__form tablet-hide">
                                     <div class="jobs__category">Save Job Alerts</div>
                                     <div class="jobs__info">Increase an opportunity to get chance for new jobs. </div>
@@ -478,116 +490,16 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="jobs__wrapper">
                                 <div class="jobs__row">
-                                    <div class="jobs__col">
-                                        <div class="description description_big">
-                                            <div class="description__bg"
-                                                style="background-image: url('img/bg-description-work.jpg');">
-                                                <div class="description__logo"><img class="description__pic"
-                                                        src="img/tokopedia.png" alt=""></div>
-                                            </div>
-                                            <div class="description__body">
-                                                <div class="description__head">
-                                                    <h1 class="description__title title">Lead Product Design</h1>
-                                                    <div class="description__actions"><button
-                                                            class="description__action"><svg class="icon icon-saved">
-                                                                <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                            </svg></button><button class="description__action"><svg
-                                                                class="icon icon-share">
-                                                                <use xlink:href="img/sprite.svg#icon-share"></use>
-                                                            </svg></button></div>
-                                                </div>
-                                                <div class="description__line">
-                                                    <div class="description__details"><span
-                                                            class="description__company">Tokopedia</span><span
-                                                            class="description__place">Jakarta, Indonesia<svg
-                                                                class="icon icon-get-location">
-                                                                <use xlink:href="img/sprite.svg#icon-get-location">
-                                                                </use>
-                                                            </svg></span></div>
-                                                    <div class="description__details"><span
-                                                            class="description__date">Posted 3 Days ago</span><span
-                                                            class="description__counter">158 Applicants</span></div>
-                                                </div>
-                                                <div class="description__line">
-                                                    <div class="description__friends">
-                                                        <div class="users users_sm">
-                                                            <div class="users__item"><img class="users__pic"
-                                                                    src="img/ava-1.png" alt=""></div>
-                                                            <div class="users__item"><img class="users__pic"
-                                                                    src="img/ava-2.png" alt=""></div>
-                                                            <div class="users__item" style="background-color: #FFC542">
-                                                                KA</div>
-                                                            <div class="users__item"><img class="users__pic"
-                                                                    src="img/ava-3.png" alt=""></div>
-                                                            <div class="users__item"><img class="users__pic"
-                                                                    src="img/ava-4.png" alt=""></div>
-                                                            <div class="users__item users__item_counter">+3</div>
-                                                        </div>
-                                                        <div class="description__text">5 Friends Work here</div>
-                                                    </div>
-                                                    <div class="description__details"><span
-                                                            class="description__info">Job category</span><a
-                                                            class="description__work" href="">E-commerce, Design</a>
-                                                    </div>
-                                                </div>
-                                                <div class="description__wrap">
-                                                    <div class="description__item">
-                                                        <div class="description__category">Experience</div>
-                                                        <div class="description__value">Minimum 1 Year</div>
-                                                    </div>
-                                                    <div class="description__item">
-                                                        <div class="description__category">Work Level</div>
-                                                        <div class="description__value">Senior Level</div>
-                                                    </div>
-                                                    <div class="description__item">
-                                                        <div class="description__category">Employee Type</div>
-                                                        <div class="description__value">Full Time Jobs</div>
-                                                    </div>
-                                                    <div class="description__item">
-                                                        <div class="description__category">Offer Salary</div>
-                                                        <div class="description__value">$2150,0 / Month</div>
-                                                    </div>
-                                                </div>
-                                                <div class="description__content">
-                                                    <h2>Overview</h2>
-                                                    <p>Your job as a UX Designer is to give a world-class experience for
-                                                        tiket.com users. You have main responsibilities to conduct the
-                                                        user and/or evaluation research, do a lot of sketching, and
-                                                        create wireframes that have high usability. As a UX Designer
-                                                        you'll work closely with team of UX, Engineers and Product
-                                                        Managers to design products that are simple but great for the
-                                                        user, focusing on developing user scenarios, task analysis,
-                                                        process flows & Lo-FI design mocks. </p>
-                                                    <h2>Job Description</h2>
-                                                    <ul>
-                                                        <li>Provide clear user flow and wireframe </li>
-                                                        <li>Build prototype and do usability testing to solve user
-                                                            problems. </li>
-                                                        <li>Follow design system guidelines. </li>
-                                                        <li>Explore best practice approach to execute comprehensive
-                                                            documentation</li>
-                                                        <li>Mentor and coach junior team member to ensure the best
-                                                            design implementation. </li>
-                                                        <li>Being a consultant for other UX Designers in at least 3
-                                                            tribes.</li>
-                                                    </ul>
-                                                </div>
-                                                <div class="description__foot">
-                                                    <div class="description__question">Are you Interested in this Jobs?
-                                                    </div>
-                                                    <div class="description__btns"><button
-                                                            class="description__btn btn btn_blue">Apply
-                                                            Now</button><button
-                                                            class="description__btn btn btn_gray">Messages</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
+                                    <div class="jobs__col mainJobDetails" id="mainJobDetails">
+                                        
                                     </div>
-                                    <div class="jobs__col">
+
+                                    <!-- For Applying -->
+                                    <!-- <div class="jobs__col">
                                         <form class="jobs__form tablet-show">
                                             <div class="jobs__category">Save Job Alerts</div>
                                             <div class="jobs__info">Increase an opportunity to get chance for new jobs.
@@ -598,134 +510,27 @@
                                                     class="jobs__btn btn btn_blue">Activate</button>
                                             </div>
                                         </form>
-                                        <div class="jobs__group jobs__group_flex">
-                                            <div class="jobs__box">
-                                                <div class="jobs__logo"><img class="jobs__pic" src="img/bukalapak.png"
-                                                        alt=""></div>
-                                                <div class="jobs__desc">
-                                                    <div class="jobs__flex">
-                                                        <div class="jobs__title">Lead Product Design</div>
-                                                        <div class="jobs__price"><span class="jobs__money">$45</span> /
-                                                            Hr</div>
-                                                    </div>
-                                                    <div class="jobs__place">Jakarta, Indonesia</div>
-                                                    <div class="jobs__control"><button
-                                                            class="jobs__btn btn btn_gray">View</button><button
-                                                            class="jobs__action"><svg class="icon icon-saved">
-                                                                <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                            </svg></button>
-                                                        <div class="jobs__time">2 Weeks Left</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="jobs__box">
-                                                <div class="jobs__logo"><img class="jobs__pic" src="img/dribbble.png"
-                                                        alt=""></div>
-                                                <div class="jobs__desc">
-                                                    <div class="jobs__flex">
-                                                        <div class="jobs__title">UI Designer</div>
-                                                        <div class="jobs__price"><span class="jobs__money">$19</span> /
-                                                            Hr</div>
-                                                    </div>
-                                                    <div class="jobs__place">San Fransisco, US</div>
-                                                    <div class="jobs__control"><button
-                                                            class="jobs__btn btn btn_gray">View</button><button
-                                                            class="jobs__action"><svg class="icon icon-saved">
-                                                                <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                            </svg></button>
-                                                        <div class="jobs__time">2 Weeks Left</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="jobs__box">
-                                                <div class="jobs__logo"><img class="jobs__pic" src="img/amazon.png"
-                                                        alt=""></div>
-                                                <div class="jobs__desc">
-                                                    <div class="jobs__flex">
-                                                        <div class="jobs__title">Marketing Strategist</div>
-                                                        <div class="jobs__price"><span class="jobs__money">$76</span> /
-                                                            Hr</div>
-                                                    </div>
-                                                    <div class="jobs__place">Guangzhou, China</div>
-                                                    <div class="jobs__control"><button
-                                                            class="jobs__btn btn btn_gray">View</button><button
-                                                            class="jobs__action"><svg class="icon icon-saved">
-                                                                <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                            </svg></button>
-                                                        <div class="jobs__time">2 Weeks Left</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="jobs__box">
-                                                <div class="jobs__logo"><img class="jobs__pic" src="img/bukalapak.png"
-                                                        alt=""></div>
-                                                <div class="jobs__desc">
-                                                    <div class="jobs__flex">
-                                                        <div class="jobs__title">Lead Product Design</div>
-                                                        <div class="jobs__price"><span class="jobs__money">$45</span> /
-                                                            Hr</div>
-                                                    </div>
-                                                    <div class="jobs__place">Jakarta, Indonesia</div>
-                                                    <div class="jobs__control"><button
-                                                            class="jobs__btn btn btn_gray">View</button><button
-                                                            class="jobs__action"><svg class="icon icon-saved">
-                                                                <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                            </svg></button>
-                                                        <div class="jobs__time">2 Weeks Left</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="jobs__box">
-                                                <div class="jobs__logo"><img class="jobs__pic" src="img/dribbble.png"
-                                                        alt=""></div>
-                                                <div class="jobs__desc">
-                                                    <div class="jobs__flex">
-                                                        <div class="jobs__title">UI Designer</div>
-                                                        <div class="jobs__price"><span class="jobs__money">$19</span> /
-                                                            Hr</div>
-                                                    </div>
-                                                    <div class="jobs__place">San Fransisco, US</div>
-                                                    <div class="jobs__control"><button
-                                                            class="jobs__btn btn btn_gray">View</button><button
-                                                            class="jobs__action"><svg class="icon icon-saved">
-                                                                <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                            </svg></button>
-                                                        <div class="jobs__time">2 Weeks Left</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="jobs__box">
-                                                <div class="jobs__logo"><img class="jobs__pic" src="img/amazon.png"
-                                                        alt=""></div>
-                                                <div class="jobs__desc">
-                                                    <div class="jobs__flex">
-                                                        <div class="jobs__title">Marketing Strategist</div>
-                                                        <div class="jobs__price"><span class="jobs__money">$76</span> /
-                                                            Hr</div>
-                                                    </div>
-                                                    <div class="jobs__place">Guangzhou, China</div>
-                                                    <div class="jobs__control"><button
-                                                            class="jobs__btn btn btn_gray">View</button><button
-                                                            class="jobs__action"><svg class="icon icon-saved">
-                                                                <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                            </svg></button>
-                                                        <div class="jobs__time">2 Weeks Left</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><button class="jobs__btn btn btn_gray btn_wide">SEE MORE</button>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div><label class="switch switch_theme"><input class="switch__input js-switch-theme"
-                        type="checkbox" /><span class="switch__in"><span class="switch__box"></span><span
-                            class="switch__icon"><svg class="icon icon-moon">
+                </div>
+
+                <label class="switch switch_theme">
+                    <input class="switch__input js-switch-theme" type="checkbox" />
+                    <span class="switch__in">
+                        <span class="switch__box"></span>
+                        <span class="switch__icon">
+                            <svg class="icon icon-moon">
                                 <use xlink:href="img/sprite.svg#icon-moon"></use>
-                            </svg><svg class="icon icon-sun">
+                            </svg>
+                            <svg class="icon icon-sun">
                                 <use xlink:href="img/sprite.svg#icon-sun"></use>
-                            </svg></span></span></label>
+                            </svg>
+                        </span>
+                    </span>
+                </label>
             </div>
 
         </div>
@@ -746,6 +551,167 @@
             window.location.href = 'sign-in.html';
         }
     </script>
+
+    <script>
+        let jobsData = []; // Declare jobsData as a mutable array
+        const loadingSpinner = document.getElementById('loadingSpinner');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            async function fetchJobs() {
+                try {
+                    loadingSpinner.style.display = 'flex';
+                    // Retrieve token from localStorage
+                    const token = localStorage.getItem('token');
+                    if (!token) {
+                        throw new Error('Token not found in localStorage');
+                    }
+
+                    const response = await fetch('https://back.anceega.com/client-api/v1/jobs/get', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        redirect: 'follow'
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok: ' + response.statusText);
+                    }
+
+                    const contentType = response.headers.get("content-type");
+                    if (!contentType || !contentType.includes("application/json")) {
+                        throw new TypeError("Received response is not in JSON format");
+                    }
+
+                    const data = await response.json();
+                    console.log(data);
+
+                    jobsData = data.data; // Store fetched jobs data in jobsData array
+
+                    // Fetch job index from query parameters
+                    const params = new URLSearchParams(window.location.search);
+                    const jobIndex = params.get('id');
+
+                    if (!jobIndex || isNaN(jobIndex) || jobIndex < 0 || jobIndex >= jobsData.length) {
+                        throw new Error('Job index parameter is missing, invalid, or out of range.');
+                    }
+
+                    // // Share button functionality
+                    // const shareButton = document.getElementById('shareButton');
+                    // shareButton.addEventListener('click', () => {
+                    //     if (navigator.share) {
+                    //         navigator.share({
+                    //             title: job.job_name,
+                    //             text: `Check out this job: ${job.job_name}`,
+                    //             url: window.location.href
+                    //         }).then(() => {
+                    //             console.log('Thanks for sharing!');
+                    //         }).catch(console.error);
+                    //     } else {
+                    //         alert('Web Share API is not supported in your browser.');
+                    //     }
+                    // });
+
+                    displayJobDetails(jobIndex);
+                } catch (error) {
+                    console.error('Error fetching job data:', error);
+                } finally {
+                    // Hide loading spinner
+                    loadingSpinner.style.display = 'none';
+                }
+            }
+
+            fetchJobs();
+        });
+
+        function displayJobDetails(jobIndex) {
+            try {
+                // Retrieve job details from the jobsData array
+                const job = jobsData[jobIndex];
+
+                const jobDetailsElement = document.getElementById('mainJobDetails');
+
+                jobDetailsElement.innerHTML = `
+                    <div class="description description_big">
+                        <div class="description__bg"
+                            style="background-image: url('img/bg-description-work.jpg');">
+                            <div class="description__logo"><img class="description__pic"
+                                    src="img/tokopedia.png" alt=""></div>
+                        </div>
+                        <div class="description__body">
+                            <div class="description__head">
+                                <h1 class="description__title title">${job.job_name}</h1>
+                                <div class="description__actions">
+                                    <button class="description__action" id="shareButton">
+                                        <svg class="icon icon-share">
+                                            <use xlink:href="img/sprite.svg#icon-share"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="description__line">
+                                <div class="description__details flex"><span
+                                        class="description__company">Tokopedia</span><span
+                                        class="description__place flex">Jakarta, Indonesia<svg
+                                            class="icon icon-get-location">
+                                            <use xlink:href="img/sprite.svg#icon-get-location">
+                                            </use>
+                                        </svg></span></div>
+                                <div class="description__details"><span
+                                        class="description__date">Posted 3 Days ago</span><span
+                                        class="description__counter">158 Applicants</span></div>
+                            </div>
+                            <div class="description__line">
+                                <div class="description__details"><span
+                                        class="description__info">Job category</span><a
+                                        class="description__work" href="">${job.job_category}</a>
+                                </div>
+                            </div>
+                            <div class="description__wrap">
+                                <div class="description__item">
+                                    <div class="description__category">Experience</div>
+                                    <div class="description__value">${job.experience}</div>
+                                </div>
+                                <div class="description__item">
+                                    <div class="description__category">Work Level</div>
+                                    <div class="description__value">${job.work_level}</div>
+                                </div>
+                                <div class="description__item">
+                                    <div class="description__category">Employee Type</div>
+                                    <div class="description__value">${job.employee_type}</div>
+                                </div>
+                                <div class="description__item">
+                                    <div class="description__category">Offer Salary</div>
+                                    <div class="description__value">$${job.salary} / Month</div>
+                                </div>
+                            </div>
+                            <div class="description__content">
+                                <h2>Overview</h2>
+                                <p>${job.overview}</p>
+                                <h2>Job Description</h2>
+                                <ul>
+                                    ${job.job_description.map(desc => `<li>${desc}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="description__foot">
+                                <div class="description__question">Are you Interested in this Jobs?
+                                </div>
+                                <div class="description__btns">
+                                    <button class="description__btn btn btn_blue">Apply Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+
+            } catch (error) {
+                console.error('Error displaying job details:', error);
+                // Optionally handle error display or fallback
+            }
+        }
+    </script>
+
 </body>
 
 </html>

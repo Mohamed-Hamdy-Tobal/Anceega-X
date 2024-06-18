@@ -35,6 +35,18 @@
     <link rel="stylesheet" media="all" href="css/mainApp.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        #loadingSpinner {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background: #a1a1a10f;
+        }
+
         /* Spinner styles */
         .spinner {
             position: relative;
@@ -112,13 +124,13 @@
 </head>
 
 <body>
-    <!-- <div id="loading" class="loading">
+    <div id="loadingSpinner" class="loading">
         <div id="spinner" class="spinner">
             <div class="rot"></div>
             <div class="rot"></div>
             <div class="rot"></div>
         </div>
-    </div> -->
+    </div>
 
     <!-- ### Employee ## -->
     <div class="out" id="root">
@@ -136,7 +148,7 @@
                             <use xlink:href="img/sprite.svg#icon-search"></use>
                         </svg>
                     </button>
-                    <input class="header2__input" type="text" placeholder="Search" />
+                    <!-- <input class="header2__input" type="text" placeholder="Search" /> -->
                 </div>
 
                 <div class="flex items-center">
@@ -474,39 +486,42 @@
                                 </div>
                             </div>
                             <div class="jobs__container">
+
                                 <div class="jobs__head">
-                                    <div class="jobs__title title">Showing 125 Jobs</div><a
+                                    <div id="jobCount" class="jobs__title title"></div><a
                                         class="jobs__open-filters js-jobs-filters" href="#"><svg
                                             class="icon icon-filters-1">
                                             <use xlink:href="img/sprite.svg#icon-filters-1"></use>
                                         </svg>Filter</a>
-                                    <div class="jobs__sorting">
-                                        <div class="jobs__text">Sort by:</div><select class="jobs__select">
-                                            <option>Newest Post</option>
-                                            <option>Newest Post</option>
-                                            <option>Newest Post</option>
-                                        </select>
-                                    </div>
                                 </div>
-                                <div class="jobs__list">
+
+                                <!-- The Body Jobs -->
+                                <!-- <div class="jobs__list">
                                     <div class="jobs__item">
-                                        <div class="options2 js-options"><button
-                                                class="options2__btn js-options-btn"><svg class="icon icon-dots">
+                                        <div class="options2 js-options">
+                                            <button class="options2__btn js-options-btn">
+                                                <svg class="icon icon-dots">
                                                     <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                </svg></button>
-                                            <div class="options2__dropdown js-options-dropdown"><a
-                                                    class="options2__link" href="#">Remove Notifications</a><a
-                                                    class="options2__link" href="#">Turn Off Notifications from
-                                                    Janeta</a></div>
+                                                </svg>
+                                            </button>
+                                            <div class="options2__dropdown js-options-dropdown">
+                                                <a class="options2__link" href="#">Remove Notifications</a>
+                                                <a class="options2__link" href="#">Turn Off Notifications from </a>
+                                            </div>
                                         </div>
-                                        <div class="jobs__logo"><img class="jobs__pic" src="img/tokopedia.png" alt="">
-                                        </div><a class="jobs__title" href="job-details.html">Principal UX
-                                            Designer<svg class="icon icon-get-location">
+                                        <div class="jobs__logo">
+                                            <img class="jobs__pic" src="img/tokopedia.png" alt="">
+                                        </div>
+                                        <a class="jobs__title" href="job-details.html">Principal UX
+                                            <svg class="icon icon-get-location">
                                                 <use xlink:href="img/sprite.svg#icon-get-location"></use>
-                                            </svg></a>
-                                        <div class="jobs__info">You will be responsible for the Visual design for
+                                            </svg>
+                                        </a>
+                                        <div class="jobs__info">
+                                            You will be responsible for the Visual design for
                                             multi-device. Understand basic design, User Journey, Ideation and
-                                            Wireframing etc…</div>
+                                            Wireframing etc…
+                                        </div>
                                         <div class="jobs__tags">
                                             <div class="jobs__tag">Full Time</div>
                                             <div class="jobs__tag">Min. 1 Year</div>
@@ -514,344 +529,44 @@
                                         </div>
                                         <div class="jobs__line">
                                             <div class="users users_sm">
-                                                <div class="users__item"><img class="users__pic" src="img/ava-1.png"
-                                                        alt=""></div>
-                                                <div class="users__item"><img class="users__pic" src="img/ava-2.png"
-                                                        alt=""></div>
+                                                <div class="users__item">
+                                                    <img class="users__pic" src="img/ava-1.png" alt="">
+                                                </div>
+                                                <div class="users__item">
+                                                    <img class="users__pic" src="img/ava-2.png" alt="">
+                                                </div>
                                                 <div class="users__item" style="background-color: #FFC542">KA</div>
                                                 <div class="users__item users__item_counter">+3</div>
                                             </div>
                                             <div class="jobs__friends">5 Friends Work here</div>
                                         </div>
-                                        <div class="jobs__btns"><button class="jobs__btn btn btn_blue">Apply
-                                                Now</button><button class="jobs__btn btn btn_gray">Messages</button>
+                                        <div class="jobs__btns">
+                                            <button class="jobs__btn btn btn_blue">Apply Now</button>
+                                            <button class="jobs__btn btn btn_gray">Messages</button>
                                         </div>
                                     </div>
-                                    <div class="jobs__item">
-                                        <div class="options2 js-options"><button
-                                                class="options2__btn js-options-btn"><svg class="icon icon-dots">
-                                                    <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                </svg></button>
-                                            <div class="options2__dropdown js-options-dropdown"><a
-                                                    class="options2__link" href="#">Remove Notifications</a><a
-                                                    class="options2__link" href="#">Turn Off Notifications from
-                                                    Janeta</a></div>
-                                        </div>
-                                        <div class="jobs__logo"><img class="jobs__pic" src="img/dropbox.png" alt="">
-                                        </div><a class="jobs__title" href="job-details.html">UI / UX Designer -
-                                            Remote<svg class="icon icon-get-location">
-                                                <use xlink:href="img/sprite.svg#icon-get-location"></use>
-                                            </svg></a>
-                                        <div class="jobs__info">You will be responsible for the Visual design for
-                                            multi-device. Understand basic design, User Journey, Ideation and
-                                            Wireframing etc…</div>
-                                        <div class="jobs__tags">
-                                            <div class="jobs__tag">Full Time</div>
-                                            <div class="jobs__tag">Min. 1 Year</div>
-                                            <div class="jobs__tag">Director</div>
-                                        </div>
-                                        <div class="jobs__line">
-                                            <div class="users users_sm">
-                                                <div class="users__item"><img class="users__pic" src="img/ava-1.png"
-                                                        alt=""></div>
-                                                <div class="users__item"><img class="users__pic" src="img/ava-2.png"
-                                                        alt=""></div>
-                                                <div class="users__item" style="background-color: #FFC542">KA</div>
-                                                <div class="users__item users__item_counter">+3</div>
-                                            </div>
-                                            <div class="jobs__friends">5 Friends Work here</div>
-                                        </div>
-                                        <div class="jobs__btns"><button class="jobs__btn btn btn_blue">Apply
-                                                Now</button><button class="jobs__btn btn btn_gray">Messages</button>
-                                        </div>
-                                    </div>
-                                    <form class="jobs__form tablet-show">
-                                        <div class="jobs__category">Save Job Alerts</div>
-                                        <div class="jobs__info">Increase an opportunity to get chance for new jobs.
-                                        </div>
-                                        <div class="jobs__fielset">
-                                            <div class="jobs__field"><input class="jobs__input" type="text"
-                                                    placeholder="Type Your Email"></div><button
-                                                class="jobs__btn btn btn_blue">Activate</button>
-                                        </div>
-                                    </form>
-                                    <div class="jobs__item">
-                                        <div class="options2 js-options"><button
-                                                class="options2__btn js-options-btn"><svg class="icon icon-dots">
-                                                    <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                </svg></button>
-                                            <div class="options2__dropdown js-options-dropdown"><a
-                                                    class="options2__link" href="#">Remove Notifications</a><a
-                                                    class="options2__link" href="#">Turn Off Notifications from
-                                                    Janeta</a></div>
-                                        </div>
-                                        <div class="jobs__logo"><img class="jobs__pic" src="img/mailchimp.png" alt="">
-                                        </div><a class="jobs__title" href="job-details.html">Lead Product
-                                            Design<svg class="icon icon-get-location">
-                                                <use xlink:href="img/sprite.svg#icon-get-location"></use>
-                                            </svg></a>
-                                        <div class="jobs__info">You will be responsible for the Visual design for
-                                            multi-device. Understand basic design, User Journey, Ideation and
-                                            Wireframing etc…</div>
-                                        <div class="jobs__tags">
-                                            <div class="jobs__tag">Full Time</div>
-                                            <div class="jobs__tag">Min. 1 Year</div>
-                                            <div class="jobs__tag">Director</div>
-                                        </div>
-                                        <div class="jobs__line">
-                                            <div class="users users_sm">
-                                                <div class="users__item"><img class="users__pic" src="img/ava-1.png"
-                                                        alt=""></div>
-                                                <div class="users__item"><img class="users__pic" src="img/ava-2.png"
-                                                        alt=""></div>
-                                                <div class="users__item" style="background-color: #FFC542">KA</div>
-                                                <div class="users__item users__item_counter">+3</div>
-                                            </div>
-                                            <div class="jobs__friends">5 Friends Work here</div>
-                                        </div>
-                                        <div class="jobs__btns"><button class="jobs__btn btn btn_blue">Apply
-                                                Now</button><button class="jobs__btn btn btn_gray">Messages</button>
-                                        </div>
-                                    </div>
-                                    <div class="jobs__item">
-                                        <div class="options2 js-options"><button
-                                                class="options2__btn js-options-btn"><svg class="icon icon-dots">
-                                                    <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                </svg></button>
-                                            <div class="options2__dropdown js-options-dropdown"><a
-                                                    class="options2__link" href="#">Remove Notifications</a><a
-                                                    class="options2__link" href="#">Turn Off Notifications from
-                                                    Janeta</a></div>
-                                        </div>
-                                        <div class="jobs__logo"><img class="jobs__pic" src="img/bukalapak.png" alt="">
-                                        </div><a class="jobs__title" href="job-details.html">UI / UX Designer -
-                                            Remote<svg class="icon icon-get-location">
-                                                <use xlink:href="img/sprite.svg#icon-get-location"></use>
-                                            </svg></a>
-                                        <div class="jobs__info">You will be responsible for the Visual design for
-                                            multi-device. Understand basic design, User Journey, Ideation and
-                                            Wireframing etc…</div>
-                                        <div class="jobs__tags">
-                                            <div class="jobs__tag">Full Time</div>
-                                            <div class="jobs__tag">Min. 1 Year</div>
-                                            <div class="jobs__tag">Director</div>
-                                        </div>
-                                        <div class="jobs__line">
-                                            <div class="users users_sm">
-                                                <div class="users__item"><img class="users__pic" src="img/ava-1.png"
-                                                        alt=""></div>
-                                                <div class="users__item"><img class="users__pic" src="img/ava-2.png"
-                                                        alt=""></div>
-                                                <div class="users__item" style="background-color: #FFC542">KA</div>
-                                                <div class="users__item users__item_counter">+3</div>
-                                            </div>
-                                            <div class="jobs__friends">5 Friends Work here</div>
-                                        </div>
-                                        <div class="jobs__btns"><button class="jobs__btn btn btn_blue">Apply
-                                                Now</button><button class="jobs__btn btn btn_gray">Messages</button>
-                                        </div>
-                                    </div>
-                                    <div class="jobs__item">
-                                        <div class="options2 js-options"><button
-                                                class="options2__btn js-options-btn"><svg class="icon icon-dots">
-                                                    <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                </svg></button>
-                                            <div class="options2__dropdown js-options-dropdown"><a
-                                                    class="options2__link" href="#">Remove Notifications</a><a
-                                                    class="options2__link" href="#">Turn Off Notifications from
-                                                    Janeta</a></div>
-                                        </div>
-                                        <div class="jobs__logo"><img class="jobs__pic" src="img/airbnb.png" alt="">
-                                        </div><a class="jobs__title" href="job-details.html">Lead Product
-                                            Design<svg class="icon icon-get-location">
-                                                <use xlink:href="img/sprite.svg#icon-get-location"></use>
-                                            </svg></a>
-                                        <div class="jobs__info">You will be responsible for the Visual design for
-                                            multi-device. Understand basic design, User Journey, Ideation and
-                                            Wireframing etc…</div>
-                                        <div class="jobs__tags">
-                                            <div class="jobs__tag">Full Time</div>
-                                            <div class="jobs__tag">Min. 1 Year</div>
-                                            <div class="jobs__tag">Director</div>
-                                        </div>
-                                        <div class="jobs__line">
-                                            <div class="users users_sm">
-                                                <div class="users__item"><img class="users__pic" src="img/ava-1.png"
-                                                        alt=""></div>
-                                                <div class="users__item"><img class="users__pic" src="img/ava-2.png"
-                                                        alt=""></div>
-                                                <div class="users__item" style="background-color: #FFC542">KA</div>
-                                                <div class="users__item users__item_counter">+3</div>
-                                            </div>
-                                            <div class="jobs__friends">5 Friends Work here</div>
-                                        </div>
-                                        <div class="jobs__btns"><button class="jobs__btn btn btn_blue">Apply
-                                                Now</button><button class="jobs__btn btn btn_gray">Messages</button>
-                                        </div>
-                                    </div>
-                                    <div class="jobs__item">
-                                        <div class="options2 js-options"><button
-                                                class="options2__btn js-options-btn"><svg class="icon icon-dots">
-                                                    <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                </svg></button>
-                                            <div class="options2__dropdown js-options-dropdown"><a
-                                                    class="options2__link" href="#">Remove Notifications</a><a
-                                                    class="options2__link" href="#">Turn Off Notifications from
-                                                    Janeta</a></div>
-                                        </div>
-                                        <div class="jobs__logo"><img class="jobs__pic" src="img/tokopedia.png" alt="">
-                                        </div><a class="jobs__title" href="job-details.html">Principal UX
-                                            Designer<svg class="icon icon-get-location">
-                                                <use xlink:href="img/sprite.svg#icon-get-location"></use>
-                                            </svg></a>
-                                        <div class="jobs__info">You will be responsible for the Visual design for
-                                            multi-device. Understand basic design, User Journey, Ideation and
-                                            Wireframing etc…</div>
-                                        <div class="jobs__tags">
-                                            <div class="jobs__tag">Full Time</div>
-                                            <div class="jobs__tag">Min. 1 Year</div>
-                                            <div class="jobs__tag">Director</div>
-                                        </div>
-                                        <div class="jobs__line">
-                                            <div class="users users_sm">
-                                                <div class="users__item"><img class="users__pic" src="img/ava-1.png"
-                                                        alt=""></div>
-                                                <div class="users__item"><img class="users__pic" src="img/ava-2.png"
-                                                        alt=""></div>
-                                                <div class="users__item" style="background-color: #FFC542">KA</div>
-                                                <div class="users__item users__item_counter">+3</div>
-                                            </div>
-                                            <div class="jobs__friends">5 Friends Work here</div>
-                                        </div>
-                                        <div class="jobs__btns"><button class="jobs__btn btn btn_blue">Apply
-                                                Now</button><button class="jobs__btn btn btn_gray">Messages</button>
-                                        </div>
-                                    </div>
-                                    <div class="jobs__item">
-                                        <div class="options2 js-options"><button
-                                                class="options2__btn js-options-btn"><svg class="icon icon-dots">
-                                                    <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                </svg></button>
-                                            <div class="options2__dropdown js-options-dropdown"><a
-                                                    class="options2__link" href="#">Remove Notifications</a><a
-                                                    class="options2__link" href="#">Turn Off Notifications from
-                                                    Janeta</a></div>
-                                        </div>
-                                        <div class="jobs__logo"><img class="jobs__pic" src="img/dropbox.png" alt="">
-                                        </div><a class="jobs__title" href="job-details.html">UI / UX Designer -
-                                            Remote<svg class="icon icon-get-location">
-                                                <use xlink:href="img/sprite.svg#icon-get-location"></use>
-                                            </svg></a>
-                                        <div class="jobs__info">You will be responsible for the Visual design for
-                                            multi-device. Understand basic design, User Journey, Ideation and
-                                            Wireframing etc…</div>
-                                        <div class="jobs__tags">
-                                            <div class="jobs__tag">Full Time</div>
-                                            <div class="jobs__tag">Min. 1 Year</div>
-                                            <div class="jobs__tag">Director</div>
-                                        </div>
-                                        <div class="jobs__line">
-                                            <div class="users users_sm">
-                                                <div class="users__item"><img class="users__pic" src="img/ava-1.png"
-                                                        alt=""></div>
-                                                <div class="users__item"><img class="users__pic" src="img/ava-2.png"
-                                                        alt=""></div>
-                                                <div class="users__item" style="background-color: #FFC542">KA</div>
-                                                <div class="users__item users__item_counter">+3</div>
-                                            </div>
-                                            <div class="jobs__friends">5 Friends Work here</div>
-                                        </div>
-                                        <div class="jobs__btns"><button class="jobs__btn btn btn_blue">Apply
-                                                Now</button><button class="jobs__btn btn btn_gray">Messages</button>
-                                        </div>
-                                    </div>
-                                    <div class="jobs__item">
-                                        <div class="options2 js-options"><button
-                                                class="options2__btn js-options-btn"><svg class="icon icon-dots">
-                                                    <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                </svg></button>
-                                            <div class="options2__dropdown js-options-dropdown"><a
-                                                    class="options2__link" href="#">Remove Notifications</a><a
-                                                    class="options2__link" href="#">Turn Off Notifications from
-                                                    Janeta</a></div>
-                                        </div>
-                                        <div class="jobs__logo"><img class="jobs__pic" src="img/mailchimp.png" alt="">
-                                        </div><a class="jobs__title" href="job-details.html">Lead Product
-                                            Design<svg class="icon icon-get-location">
-                                                <use xlink:href="img/sprite.svg#icon-get-location"></use>
-                                            </svg></a>
-                                        <div class="jobs__info">You will be responsible for the Visual design for
-                                            multi-device. Understand basic design, User Journey, Ideation and
-                                            Wireframing etc…</div>
-                                        <div class="jobs__tags">
-                                            <div class="jobs__tag">Full Time</div>
-                                            <div class="jobs__tag">Min. 1 Year</div>
-                                            <div class="jobs__tag">Director</div>
-                                        </div>
-                                        <div class="jobs__line">
-                                            <div class="users users_sm">
-                                                <div class="users__item"><img class="users__pic" src="img/ava-1.png"
-                                                        alt=""></div>
-                                                <div class="users__item"><img class="users__pic" src="img/ava-2.png"
-                                                        alt=""></div>
-                                                <div class="users__item" style="background-color: #FFC542">KA</div>
-                                                <div class="users__item users__item_counter">+3</div>
-                                            </div>
-                                            <div class="jobs__friends">5 Friends Work here</div>
-                                        </div>
-                                        <div class="jobs__btns"><button class="jobs__btn btn btn_blue">Apply
-                                                Now</button><button class="jobs__btn btn btn_gray">Messages</button>
-                                        </div>
-                                    </div>
-                                    <div class="jobs__item">
-                                        <div class="options2 js-options"><button
-                                                class="options2__btn js-options-btn"><svg class="icon icon-dots">
-                                                    <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                </svg></button>
-                                            <div class="options2__dropdown js-options-dropdown"><a
-                                                    class="options2__link" href="#">Remove Notifications</a><a
-                                                    class="options2__link" href="#">Turn Off Notifications from
-                                                    Janeta</a></div>
-                                        </div>
-                                        <div class="jobs__logo"><img class="jobs__pic" src="img/bukalapak.png" alt="">
-                                        </div><a class="jobs__title" href="job-details.html">UI / UX Designer -
-                                            Remote<svg class="icon icon-get-location">
-                                                <use xlink:href="img/sprite.svg#icon-get-location"></use>
-                                            </svg></a>
-                                        <div class="jobs__info">You will be responsible for the Visual design for
-                                            multi-device. Understand basic design, User Journey, Ideation and
-                                            Wireframing etc…</div>
-                                        <div class="jobs__tags">
-                                            <div class="jobs__tag">Full Time</div>
-                                            <div class="jobs__tag">Min. 1 Year</div>
-                                            <div class="jobs__tag">Director</div>
-                                        </div>
-                                        <div class="jobs__line">
-                                            <div class="users users_sm">
-                                                <div class="users__item"><img class="users__pic" src="img/ava-1.png"
-                                                        alt=""></div>
-                                                <div class="users__item"><img class="users__pic" src="img/ava-2.png"
-                                                        alt=""></div>
-                                                <div class="users__item" style="background-color: #FFC542">KA</div>
-                                                <div class="users__item users__item_counter">+3</div>
-                                            </div>
-                                            <div class="jobs__friends">5 Friends Work here</div>
-                                        </div>
-                                        <div class="jobs__btns"><button class="jobs__btn btn btn_blue">Apply
-                                                Now</button><button class="jobs__btn btn btn_gray">Messages</button>
-                                        </div>
-                                    </div>
+                                </div> -->
+                                <div id="jobsList" class="jobs__list">
+                                    <!-- Job items will be inserted here -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div><label class="switch switch_theme"><input class="switch__input js-switch-theme"
-                        type="checkbox" /><span class="switch__in"><span class="switch__box"></span><span
-                            class="switch__icon"><svg class="icon icon-moon">
+                </div>
+
+                <label class="switch switch_theme">
+                    <input class="switch__input js-switch-theme" type="checkbox" />
+                    <span class="switch__in"><span class="switch__box"></span>
+                        <span class="switch__icon">
+                            <svg class="icon icon-moon">
                                 <use xlink:href="img/sprite.svg#icon-moon"></use>
-                            </svg><svg class="icon icon-sun">
+                            </svg>
+                            <svg class="icon icon-sun">
                                 <use xlink:href="img/sprite.svg#icon-sun"></use>
-                            </svg></span></span></label>
+                            </svg>
+                        </span>
+                    </span>
+                </label>
             </div>
 
         </div>
@@ -871,6 +586,85 @@
             // Redirect to sign-in.html if neither is logged in
             window.location.href = 'sign-in.html';
         }
+    </script>
+
+    <script>
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        async function fetchJobs() {
+            try {
+                loadingSpinner.style.display = 'flex';
+                // Retrieve accountType from localStorage
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    throw new Error('token not found in localStorage');
+                }
+
+                const response = await fetch('https://back.anceega.com/client-api/v1/jobs/get', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}` // Assuming token is your authentication token
+                    },
+                    redirect: 'follow' // Ensure to follow redirects
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+
+                const contentType = response.headers.get("content-type");
+                if (!contentType || !contentType.includes("application/json")) {
+                    throw new TypeError("Received response is not in JSON format");
+                }
+
+                const data = await response.json();
+                console.log(data); // Log the data for debugging
+                const jobsList = document.getElementById('jobsList');
+                jobsList.innerHTML = ''; // Clear previous list items
+
+                const jobCount = document.getElementById('jobCount');
+                jobCount.innerText = `Showing ${data.data.length} Jobs`;
+
+                data.data.forEach((job, index) => {
+                    const jobItem = document.createElement('div');
+                    jobItem.className = 'jobs__item flex flex-col justify-between gap-3';
+
+                    jobItem.innerHTML = `
+                        <div class="">
+                            <div class="jobs__logo">
+                                <img class="jobs__pic" src="img/tokopedia.png" alt="">
+                            </div>
+                            <a class="jobs__title" href="job-details.html?id=${index}">${job.job_name}
+                                <svg class="icon icon-get-location">
+                                    <use xlink:href="img/sprite.svg#icon-get-location"></use>
+                                </svg>
+                            </a>
+                            <div class="jobs__info">${job.job_description}</div>
+                            <div class="jobs__tags">
+                                <div class="jobs__tag">${job.employee_type}</div>
+                                <div class="jobs__tag">${job.experience}</div>
+                                <div class="jobs__tag">${job.job_category}</div>
+                            </div>
+                        </div>
+                        <div class="jobs__btns">
+                            <a class="" href="job-details.html?id=${index}">
+                                <button class="jobs__btn btn btn_blue">Apply Now</button>
+                            </a>
+                        </div>
+                    `;
+
+                    jobsList.appendChild(jobItem);
+                });
+            } catch (error) {
+                console.error('Error fetching job data:', error);
+            } finally {
+                // Hide loading spinner
+                loadingSpinner.style.display = 'none';
+            }
+        }
+
+        // Fetch jobs on page load
+        document.addEventListener('DOMContentLoaded', fetchJobs);
     </script>
 </body>
 

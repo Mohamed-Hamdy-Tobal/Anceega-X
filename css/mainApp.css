@@ -143,6 +143,7 @@ body.dark .sidebar2__wrapper {
     position: absolute;
     top: 80px;
     right: 15px;
+    left: auto !important;
     background-color: #fff;
     color: #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Search Results</h1>
+        <p id="searchQuery"></p>
+        <ul id="resultsList" class="list-group mt-3"></ul>
+    </div>
+
+    <script>
+        // Dummy data
+        const mockData = [
+            { name: "Company A", url: "profile_company.html?name=company-a" },
+            { name: "Company B", url: "profile_company.html?name=company-b" },
+            { name: "Company C", url: "profile_company.html?name=company-c" }
+        ];
+
+        // Extract query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q');
+
+        // Display the search query
+        document.getElementById('searchQuery').innerText = `Showing results for: ${query}`;
+
+        // Filter and display results
+        const results = mockData.filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
+        const resultsList = document.getElementById('resultsList');
+        results.forEach(item => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.innerHTML = `<a href="${item.url}">${item.name}</a>`;
+            resultsList.appendChild(li);
+        });
+    </script>
+</body>
+</html>
