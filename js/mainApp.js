@@ -55,13 +55,13 @@ function logout() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Token ${token}`
+            'Authorization': `Bearer ${token}`
             // 'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ Token: token })
     })
         .then(response => {
-            if (response.ok) {
+            console.log(response)
+            if (response) {
                 // Clear the token from storage
                 localStorage.removeItem('token');
                 alert('Logged out successfully.');

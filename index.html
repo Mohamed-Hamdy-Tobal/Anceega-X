@@ -35,94 +35,7 @@
     <link rel="stylesheet" media="all" href="css/mainApp.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        #searchIcon {
-            cursor: pointer;
-            border: 2px solid #ddd;
-            border-radius: 50%;
-            padding: 5px;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
-        #suggestionsContainer {
-            position: absolute;
-            background: white;
-            width: 100%;
-            max-width: 300px;
-            border: 1px solid #ddd;
-            z-index: 1000;
-        }
-
-        .list-group-item {
-            cursor: pointer;
-        }
-    </style>
-    <style>
-        /* Spinner styles */
-        .spinner {
-            position: relative;
-            height: 120px;
-            width: 120px;
-        }
-
-        .spinner .rot {
-            border: 3px solid transparent;
-            border-top-color: #009CF8;
-            border-radius: 50%;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
-            animation-name: rotate;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-            position: absolute;
-        }
-
-        .spinner .rot:first-child {
-            width: 90px;
-            height: 90px;
-            animation-duration: 1s;
-            left: 20px;
-            top: 25px;
-        }
-
-        .spinner .rot:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            animation-duration: 1.5s;
-            left: 35px;
-            top: 35px;
-        }
-
-        .spinner .rot:last-child {
-            width: 30px;
-            height: 30px;
-            animation-duration: 2s;
-            top: 46px;
-            left: 49px;
-
-        }
-
-        @keyframes rotate {
-            to {
-                transform: rotate(360deg);
-                -webkit-transform: rotate(360deg);
-                -moz-transform: rotate(360deg);
-                -ms-transform: rotate(360deg);
-                -o-transform: rotate(360deg);
-            }
-        }
-
-        /* Hide content initially */
-        #content {
-            display: none;
-        }
-    </style>
     <script>
         // Check if the user is logged in
         window.onload = function () {
@@ -172,14 +85,21 @@
 
 
                     <div class="main-avatar">
-                        <div class="header2__profile user-avatar flex justify-start items-center gap-2"
+                        <!-- <div class="header2__profile user-avatar flex justify-start items-center gap-2"
                             onclick="toggleDropdown()">
                             <img class="header2__pic" src="img/ava-1.png" alt="" />
                             <svg class="arrow-icon" width="10" height="10" viewBox="0 0 10 10"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 0 L5 5 L10 0 Z" fill="#333" />
                             </svg>
+                        </div> -->
+                        <div class="header2__profile user-avatar flex justify-start items-center gap-2" onclick="toggleDropdown()">
+                            <div class="header2__pic" id="profilePicContainer"></div>
+                            <svg class="arrow-icon" width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0 L5 5 L10 0 Z" fill="#333" />
+                            </svg>
                         </div>
+                        
                         <div class="dropdown-menu" id="dropdownMenu">
                             <div class="info-avatar py-[10px] px-[20px] border-solid border-b-[1px] border-[#e5e7eb]">
                                 <h3 id="userName" class="font-bold text-gray-900 dark:text-gray-100"></h3>
@@ -626,6 +546,17 @@
     <script src="js/charts.js"></script>
     <script src="js/mainApp.js"></script>
 
+    <!-- For Modal Search -->
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/util/modal.js"></script>
+
+    <!-- For Header Profile -->
+    <script src="js/util/headerProfile.js"></script>
+
+    
     <script>
         // Check if the user is logged in
         const isEmployeeLoggedIn = localStorage.getItem('employee');
@@ -633,50 +564,6 @@
         if (!isEmployeeLoggedIn && !isCompanyLoggedIn) {
             // Redirect to sign-in.html if neither is logged in
             window.location.href = 'sign-in.html';
-        }
-    </script>
-
-    <!-- For Modal Search -->
-    <!-- Include jQuery and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        // Dummy data
-        const mockData = [
-            { name: "Company A", url: "profile_company.html?name=company-a" },
-            { name: "Company B", url: "profile_company.html?name=company-b" },
-            { name: "Company C", url: "profile_company.html?name=company-c" }
-        ];
-
-        // Function to open the modal
-        function openSearchModal() {
-            $('#searchModal').modal('show');
-        }
-
-        // Event listener for search input in the modal
-        $('#modalSearchInput').on('input', function () {
-            let query = $(this).val();
-            if (query.length > 0) {
-                let suggestions = mockData.filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
-                $('#suggestionsList').empty();
-                suggestions.forEach(item => {
-                    $('#suggestionsList').append('<li class="list-group-item" onclick="openProfile(\'' + item.url + '\')">' + item.name + '</li>');
-                });
-            } else {
-                $('#suggestionsList').empty();
-            }
-        });
-
-        // Function to open profile in a new tab
-        function openProfile(url) {
-            window.open(url, '_blank');
-        }
-
-        // Function for final search
-        function finalSearch() {
-            let query = $('#modalSearchInput').val();
-            window.location.href = 'search_company.html?q=' + query;
         }
     </script>
 </body>
