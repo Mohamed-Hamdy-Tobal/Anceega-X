@@ -45,19 +45,7 @@
         }
     </style>
 
-    <script>
-        // Check if the user is logged in
-        window.onload = function () {
-            const accountType = localStorage.getItem('accountType');
-
-            if (accountType === 'employee') {
-                document.querySelector('.employee-content').style.display = 'block';
-            } else if (accountType === 'company') {
-                document.querySelector('.company-content').style.display = 'block';
-            }
-
-        }
-    </script>
+    <script src="js/switcherClasses.js"></script>
 
 </head>
 
@@ -95,7 +83,7 @@
                     <!-- <input class="header2__input" type="text" placeholder="Search" /> -->
                 </div>
 
-                <div class="flex items-center">
+                <div class="flex items-center min-w-[100px] justify-end">
                     <div class="header2__group">
                         <a class="header2__link header2__link_bell active" href="square-notifications.html">
                             <svg class="icon icon-bell">
@@ -181,7 +169,7 @@
                         <div class="profile__bg" id="profileBg">
                             <button class="profile__edit" id="editProfileButton">
                                 Edit Profile
-                                <svg class="icon icon-edit inline-block ml-2 w-5 h-5">
+                                <svg class="icon icon-edit inline-block w-5 h-5">
                                     <use xlink:href="img/sprite.svg#icon-edit"></use>
                                 </svg>
                             </button>
@@ -198,7 +186,7 @@
                                 “Pushing pixels and experiences in digital products for Sebostudio”
                             </div>
                         </div>
-                        <div class="profile__options">
+                        <div class="profile__options company-content">
                             <div class="profile__option">
                                 <a class="profile__link active" href="#">
                                     <div class="profile__category">Post</div>
@@ -274,13 +262,6 @@
                                 </div>
 
                                 <div>
-                                    <label for="coverletter" class="block text-sm font-medium text-gray-700">Cover
-                                        Letter:</label>
-                                    <input type="text" id="coverLetterInput" name="coverletter"
-                                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
-                                </div>
-
-                                <div>
                                     <label for="job" class="block text-sm font-medium text-gray-700">Job:</label>
                                     <input type="text" id="jobInput" name="job"
                                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
@@ -320,7 +301,7 @@
 
                     <!-- Main Content Of Profile -->
                     <div class="page2__row">
-                        <div class="page2__col page2__col_w35">
+                        <div class="page2__col page2__col_w35 flex-1">
                             <div class="card1">
                                 <div class="card1__wrap">
                                     <div class="card1__title">Complete Your Profile</div>
@@ -396,7 +377,7 @@
                                             </svg>In relationship with Gal Gadot</a></div>
                                 </div>
                             </div>
-                            <div class="card1">
+                            <div class="card1 company-content">
                                 <div class="card1__head">
                                     <div class="card1__category">Photos and Videos</div><a class="card1__more"
                                         href="#">SEE ALL</a>
@@ -419,7 +400,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="page2__col page2__col_w65">
+                        <div class="page2__col page2__col_w65 company-content">
                             <div class="post js-post">
                                 <div class="post__item post__item_new js-post-item">
                                     <div class="post__top">Post Something<button class="post__close js-post-close"><svg
@@ -712,7 +693,6 @@
                 personal_info: document.getElementById('personal_infoInput').value,
                 website: document.getElementById('websiteInput').value,
                 experience: document.getElementById('experienceInput').value,
-                coverletter: document.getElementById('coverLetterInput').value,
                 job: document.getElementById('jobInput').value,
                 phone: document.getElementById('phoneInput').value,
                 address: document.getElementById('addressInput').value,
@@ -738,7 +718,6 @@
                 personal_info: document.getElementById('personal_infoInput').value,
                 website: document.getElementById('websiteInput').value,
                 experience: document.getElementById('experienceInput').value,
-                coverletter: document.getElementById('coverLetterInput').value,
                 job: document.getElementById('jobInput').value,
                 phone: document.getElementById('phoneInput').value,
                 address: document.getElementById('addressInput').value,
@@ -819,12 +798,11 @@
             document.getElementById('personal_infoInput').value = profileData.personal_info || '';
             document.getElementById('websiteInput').value = profileData.website || '';
             document.getElementById('experienceInput').value = profileData.experience || '';
-            document.getElementById('coverLetterInput').value = profileData.coverletter || '';
             document.getElementById('jobInput').value = profileData.job || '';
-            document.getElementById('phoneInput').value = profileData.phone || '';
+            document.getElementById('phoneInput').value = profileData.phone;
             document.getElementById('addressInput').value = profileData.address || '';
             document.getElementById('bioInput').value = profileData.bio || '';
-            document.getElementById('countryInput').value = profileData.country || '';
+            document.getElementById('countryInput').value = profileData.country;
         }
 
         // When the modal opens, initialize the form fields

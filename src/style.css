@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.main-visible {
+    display: block !important;
+}
+.main-hidden {
+    display: none !important;
+}
+
 .h-full {
     height: 100%;
 }
@@ -313,3 +320,4 @@ a:hover {
 #editProfileModal .modal-content #updateForm {
     overflow-y: scroll !important;
 }
+

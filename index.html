@@ -36,19 +36,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <script>
-        // Check if the user is logged in
-        window.onload = function () {
-            const accountType = localStorage.getItem('accountType');
-
-            if (accountType === 'employee') {
-                document.querySelector('.employee-content').style.display = 'block';
-            } else if (accountType === 'company') {
-                document.querySelector('.company-content').style.display = 'block';
-            }
-
-        }
-    </script>
+    <script src="js/switcherClasses.js"></script>
 </head>
 
 <body>

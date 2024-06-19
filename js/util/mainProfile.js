@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('personal_infoInput').value = profileData.personal_info || '';
         document.getElementById('websiteInput').value = profileData.website || '';
         document.getElementById('experienceInput').value = profileData.experience || '';
-        document.getElementById('coverLetterInput').value = profileData.coverletter || '';
         document.getElementById('jobInput').value = profileData.job || '';
         document.getElementById('phoneInput').value = profileData.phone || '';
         document.getElementById('addressInput').value = profileData.address || '';
