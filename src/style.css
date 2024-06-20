@@ -9,6 +9,24 @@
     display: none !important;
 }
 
+::-webkit-scrollbar {
+    width: 8px; /* Width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the track */
+    border-radius: 8px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #009CF8; /* Color of the thumb */
+    border-radius: 8px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #81B0D9; /* Color of the thumb when hovered */
+}
+
 .h-full {
     height: 100%;
 }
@@ -319,5 +337,6 @@ a:hover {
 }
 #editProfileModal .modal-content #updateForm {
     overflow-y: scroll !important;
+    padding-right: 20px;
 }
 

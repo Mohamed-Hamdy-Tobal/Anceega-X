@@ -121,7 +121,7 @@ body.dark .sidebar2__wrapper {
     }
 }
 
-.loading {
+/* .loading {
     position: fixed;
     top: 0;
     left: 0;
@@ -132,6 +132,21 @@ body.dark .sidebar2__wrapper {
     justify-content: center;
     background: rgb(0 0 0 / 3%);
     z-index: 2000;
+} */
+.loading {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 70px);
+    justify-content: center;
+    background: #fbfbfb;
+    z-index: 2000;
+}
+body.noscroll {
+    overflow: hidden;
 }
 
 .loading .spinner {

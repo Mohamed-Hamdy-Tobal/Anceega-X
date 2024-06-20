@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Show the loading spinner
     loadingSpinner.style.display = 'block';
+    document.getElementById('loading__wrapper').style.display = 'none';
 
     // Simulate data fetching with a timeout (use actual data fetching in real use case)
     // Profile background
@@ -42,7 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const profileAvatarContainer = document.getElementById('profileAvatarContainer');
     if (profileData.personal_photo) {
         const img = document.createElement('img');
-        img.className = 'profile__pic';
+        img.className = 'profile__pic avatar';
+        img.id = 'avatar';
         img.src = profileData.personal_photo;
         img.alt = '';
         profileAvatarContainer.appendChild(img);
@@ -84,9 +86,22 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('profileVideos').innerText = profileData.videos || '24';
     document.getElementById('profileSaved').innerText = profileData.saved || '18';
 
-    // Hide the loading spinner and show the profile section
-    loadingSpinner.style.display = 'none';
+    // Function to format date
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString(undefined, options);
+    }
 
+    // Populate HTML elements with the retrieved data
+    document.getElementById('note').innerText = profileData.bio;
+    document.getElementById('location').innerText = profileData.country;
+    document.getElementById('website').innerText = profileData.website;
+    document.getElementById('mainWebsiteLink').href = profileData.website;
+    document.getElementById('joinedDate').innerText = `Joined ${formatDate(profileData.created_at)}`;
+    document.getElementById('company').innerText = profileData.experience;
+
+    
     // Close the modal
     closeModal.addEventListener('click', function () {
         editProfileModal.classList.add('hidden');
@@ -98,4 +113,9 @@ document.addEventListener('DOMContentLoaded', function () {
             editProfileModal.classList.add('hidden');
         }
     });
+
+    // Hide the loading spinner and show the profile section
+    loadingSpinner.style.display = 'none';
+    document.getElementById('loading__wrapper').style.display = 'block';
+
 });

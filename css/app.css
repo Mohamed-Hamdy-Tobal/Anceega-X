@@ -5108,7 +5108,7 @@ body.dark .header1__bg {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 80px;
+  height: 70px !important;
   padding: 5px 25px;
   background: #ffffff;
   -webkit-box-shadow: inset 0px -1px 0px #E2E2EA;
@@ -29359,7 +29359,6 @@ screen and (max-height: 300px) {
     -ms-flex-negative: 0;
     flex-shrink: 0;
     padding: 0 20px;
-    border-bottom: 1px solid #E2E2EA;
   }
 
   .sidebar4 {
@@ -30118,10 +30117,6 @@ screen and (max-height: 300px) {
 
   .header1__logo {
     margin-right: 40px;
-  }
-
-  .header2 {
-    height: 70px;
   }
 
   .header2__logo {

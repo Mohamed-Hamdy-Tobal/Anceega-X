@@ -160,7 +160,7 @@
             </div>
 
             <!-- Main Content -->
-            <div class="page2__wrapper">
+            <div id="loading__wrapper" class="page2__wrapper">
 
                 <div class="page2__container">
 
@@ -174,10 +174,11 @@
                                 </svg>
                             </button>
                         </div>
-                        <div class="profile__user">
+                        <div class="profile__user"> 
                             <div class="profile__ava" id="profileAvatarContainer">
                                 <!-- Avatar will be inserted here -->
                             </div>
+                            
                             <div class="profile__details">
                                 <span class="profile__title title" id="profileName">Ahmad Nur Fawaid</span>
                                 <span class="profile__login" id="profileLogin">@fawait</span>
@@ -316,65 +317,15 @@
                             <div class="card1">
                                 <div class="card1__head">
                                     <div class="card1__category">About Me</div>
-                                    <div class="options2 js-options"><button class="options2__btn js-options-btn"><svg
-                                                class="icon icon-dots">
-                                                <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                            </svg></button>
-                                        <div class="options2__dropdown js-options-dropdown"><a class="options2__item"
-                                                href="#">
-                                                <div class="options2__icon"><svg class="icon icon-saved">
-                                                        <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                    </svg></div>
-                                                <div class="options2__details">
-                                                    <div class="options2__info">Save Link</div>
-                                                    <div class="options2__text">Add this to your saved items</div>
-                                                </div>
-                                            </a><a class="options2__item" href="#">
-                                                <div class="options2__icon"><svg class="icon icon-close-circle">
-                                                        <use xlink:href="img/sprite.svg#icon-close-circle"></use>
-                                                    </svg></div>
-                                                <div class="options2__details">
-                                                    <div class="options2__info">Hide Post</div>
-                                                    <div class="options2__text">See fewer post like this</div>
-                                                </div>
-                                            </a><a class="options2__item" href="#">
-                                                <div class="options2__icon"><svg class="icon icon-close-square">
-                                                        <use xlink:href="img/sprite.svg#icon-close-square"></use>
-                                                    </svg></div>
-                                                <div class="options2__details">
-                                                    <div class="options2__info">Hide all from “Pan Feng Shui”</div>
-                                                    <div class="options2__text">Stop seeing post from this person</div>
-                                                </div>
-                                            </a><a class="options2__item" href="#">
-                                                <div class="options2__icon"><svg class="icon icon-profile">
-                                                        <use xlink:href="img/sprite.svg#icon-profile"></use>
-                                                    </svg></div>
-                                                <div class="options2__details">
-                                                    <div class="options2__info">Unfollow “Pan Feng Shui”</div>
-                                                    <div class="options2__text">Disconnected with this person</div>
-                                                </div>
-                                            </a></div>
-                                    </div>
                                 </div>
                                 <div class="card1__body">
-                                    <div class="card1__note">“Pushing pixels and experiences in digital products for
-                                        Sebostudio”</div>
-                                    <div class="card1__list"><a class="card1__item" href="#"><svg
-                                                class="icon icon-place">
-                                                <use xlink:href="img/sprite.svg#icon-place"></use>
-                                            </svg>Yogyakarta, ID</a><a class="card1__item" href="#"><svg
-                                                class="icon icon-world">
-                                                <use xlink:href="img/sprite.svg#icon-world"></use>
-                                            </svg>dribbble.com/fawait</a><a class="card1__item" href="#"><svg
-                                                class="icon icon-date">
-                                                <use xlink:href="img/sprite.svg#icon-date"></use>
-                                            </svg>Joined June 2012</a><a class="card1__item" href="#"><svg
-                                                class="icon icon-case">
-                                                <use xlink:href="img/sprite.svg#icon-case"></use>
-                                            </svg>Working at Sebo Studio</a><a class="card1__item" href="#"><svg
-                                                class="icon icon-relationship">
-                                                <use xlink:href="img/sprite.svg#icon-relationship"></use>
-                                            </svg>In relationship with Gal Gadot</a></div>
+                                    <div class="card1__note" id="note"></div>
+                                    <div class="card1__list">
+                                        <div class="card1__item cursor-pointer"  href="#"><svg class="icon icon-place"><use xlink:href="img/sprite.svg#icon-place"></use></svg> <span id="location"></span></div>
+                                        <a class="card1__item cursor-pointer" id="mainWebsiteLink" href="#" target="_blank"><svg class="icon icon-world"><use xlink:href="img/sprite.svg#icon-world"></use></svg> <span id="website"></span></a>
+                                        <div class="card1__item cursor-pointer"  href="#"><svg class="icon icon-date"><use xlink:href="img/sprite.svg#icon-date"></use></svg> <span id="joinedDate"></span></div>
+                                        <div class="card1__item cursor-pointer"  href="#"><svg class="icon icon-case"><use xlink:href="img/sprite.svg#icon-case"></use></svg> <span id="company"></span></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card1 company-content">
