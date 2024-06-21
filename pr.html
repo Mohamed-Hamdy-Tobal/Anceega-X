@@ -224,8 +224,6 @@
     <!-- ### Employee ## -->
     <div class="out" id="root">
 
-
-
         <div class="page2 js-page2">
 
             <!-- The Header -->
@@ -337,7 +335,9 @@
                             </button>
                         </div>
                         <div class="profile__user">
-                            <div class="main-profile-avatar-image mr-[25px]">
+                            <!-- <div class="profile__ava" id="profileAvatarContainer">
+                            </div> -->
+                            <div class="main-profile-avatar-image">
                                 <div class="avatarProfile-container" id="avatarProfileContainer">
                                     <img src="" alt="AvatarProfile" class="avatarProfile" id="avatarProfile">
                                     <div class="dropdown-menu-profile" id="dropdownMenuProfile">
@@ -430,57 +430,58 @@
                             <span id="close-modal-profile"
                                 class="close absolute top-4 right-4 text-gray-500 cursor-pointer">&times;</span>
                             <h1 class="text-xl font-semibold mb-4">Update Profile</h1>
-                            <form id="updateForm" class="space-y-4 flex flex-col justify-between items-center h-full">
-
-                                <div class="flex flex-col justify-start items-center w-full gap-4">
-                                    <!-- <div>
+                            <form id="updateForm" class="space-y-4">
+                                <div>
                                     <label for="personal_info" class="block text-sm font-medium text-gray-700">Personal
                                         Info:</label>
                                     <input type="text" id="personal_infoInput" name="personal_info"
                                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
-                                </div> -->
+                                </div>
 
-                                    <div class="w-full">
-                                        <label for="website"
-                                            class="block text-sm font-medium text-gray-700">Website:</label>
-                                        <input type="text" id="websiteInput" name="website"
-                                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
-                                    </div>
+                                <div>
+                                    <label for="website"
+                                        class="block text-sm font-medium text-gray-700">Website:</label>
+                                    <input type="text" id="websiteInput" name="website"
+                                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
+                                </div>
 
-                                    <div class="w-full">
-                                        <label for="experience"
-                                            class="block text-sm font-medium text-gray-700">Experience:</label>
-                                        <input type="text" id="experienceInput" name="experience"
-                                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
-                                    </div>
+                                <div>
+                                    <label for="experience"
+                                        class="block text-sm font-medium text-gray-700">Experience:</label>
+                                    <input type="text" id="experienceInput" name="experience"
+                                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
+                                </div>
 
-                                    <div class="w-full">
-                                        <label for="job" class="block text-sm font-medium text-gray-700">Job:</label>
-                                        <input type="text" id="jobInput" name="job"
-                                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
-                                    </div>
+                                <div>
+                                    <label for="job" class="block text-sm font-medium text-gray-700">Job:</label>
+                                    <input type="text" id="jobInput" name="job"
+                                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
+                                </div>
 
-                                    <div class="w-full">
-                                        <label for="phone"
-                                            class="block text-sm font-medium text-gray-700">Phone:</label>
-                                        <input type="text" id="phoneInput" name="phone"
-                                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
-                                    </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone:</label>
+                                    <input type="text" id="phoneInput" name="phone"
+                                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
+                                </div>
 
+                                <div>
+                                    <label for="address"
+                                        class="block text-sm font-medium text-gray-700">Address:</label>
+                                    <input type="text" id="addressInput" name="address"
+                                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
+                                </div>
 
-                                    <!-- 
-                                <div class="w-full">
+                                <div>
                                     <label for="bio" class="block text-sm font-medium text-gray-700">Bio:</label>
                                     <textarea id="bioInput" name="bio"
                                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm"></textarea>
-                                </div> -->
+                                </div>
 
-                                    <div class="w-full">
-                                        <label for="country"
-                                            class="block text-sm font-medium text-gray-700">Country:</label>
-                                        <input type="text" id="countryInput" name="country"
-                                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
-                                    </div>
+                                <div>
+                                    <label for="country"
+                                        class="block text-sm font-medium text-gray-700">Country:</label>
+                                    <input type="text" id="countryInput" name="country"
+                                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
                                 </div>
 
                                 <button type="submit" id="updateButton" disabled
@@ -862,6 +863,9 @@
         avatarProfile.addEventListener('click', () => {
             dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
         });
+        document.getElementById('avatarText').addEventListener('click', () => {
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
 
         document.getElementById('showAvatarProfile').addEventListener('click', () => {
             modalProfileImage.src = avatarProfile.src;
@@ -869,26 +873,6 @@
             modalProfile.style.display = 'flex';
             overlayProfile.style.display = 'block';
             dropdownMenu.style.display = 'none';
-
-            modalProfile.style.display = 'flex';
-            modalProfile.style.width = '100%';
-            modalProfile.style.height = '100%';
-
-            cancelModalProfile.style.width = '42px';
-            cancelModalProfile.style.height = '42px';
-            cancelModalProfile.style.top = '30px';
-            cancelModalProfile.style.right = '30px';
-            cancelModalProfile.style.position = 'fixed';
-            cancelModalProfile.style.borderRadius = '50%';
-            cancelModalProfile.innerHTML = `
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18" stroke="white" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M6 6L18 18" stroke="white" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            `;
         });
 
         document.getElementById('editAvatarProfile').addEventListener('click', () => {

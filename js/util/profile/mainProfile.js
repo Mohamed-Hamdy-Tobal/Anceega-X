@@ -27,43 +27,43 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         editProfileModal.classList.remove('hidden');
 
-        document.getElementById('personal_infoInput').value = profileData.personal_info || '';
+        // document.getElementById('personal_infoInput').value = profileData.personal_info || '';
         document.getElementById('websiteInput').value = profileData.website || '';
         document.getElementById('experienceInput').value = profileData.experience || '';
         document.getElementById('jobInput').value = profileData.job || '';
         document.getElementById('phoneInput').value = profileData.phone || '';
-        document.getElementById('addressInput').value = profileData.address || '';
-        document.getElementById('bioInput').value = profileData.bio || '';
+        // document.getElementById('addressInput').value = profileData.address || '';
+        // document.getElementById('bioInput').value = profileData.bio || '';
         document.getElementById('countryInput').value = profileData.country || '';
 
     });
 
 
-    // Profile avatar
-    const profileAvatarContainer = document.getElementById('profileAvatarContainer');
-    if (profileData.personal_photo) {
-        const img = document.createElement('img');
-        img.className = 'profile__pic avatar';
-        img.id = 'avatar';
-        img.src = profileData.personal_photo;
-        img.alt = '';
-        profileAvatarContainer.appendChild(img);
-    } else if (profileData.full_name) {
-        const initial = profileData.full_name.charAt(0).toUpperCase();
-        const avatar = document.createElement('div');
-        avatar.className = 'profile__pic';
-        avatar.innerText = initial;
-        avatar.style.display = 'flex';
-        avatar.style.alignItems = 'center';
-        avatar.style.justifyContent = 'center';
-        avatar.style.backgroundColor = '#ccc'; // Change this to desired background color
-        avatar.style.color = '#fff'; // Change this to desired text color
-        avatar.style.fontSize = '50px'; // Change this to desired font size
-        avatar.style.borderRadius = '50%';
-        avatar.style.width = '100%'; // Adjust size as needed
-        avatar.style.height = '100%'; // Adjust size as needed
-        profileAvatarContainer.appendChild(avatar);
-    }
+    // // Profile avatar
+    // const profileAvatarContainer = document.getElementById('profileAvatarContainer');
+    // if (profileData.personal_photo) {
+    //     const img = document.createElement('img');
+    //     img.className = 'profile__pic avatar';
+    //     img.id = 'avatar';
+    //     img.src = profileData.personal_photo;
+    //     img.alt = '';
+    //     profileAvatarContainer.appendChild(img);
+    // } else if (profileData.full_name) {
+    //     const initial = profileData.full_name.charAt(0).toUpperCase();
+    //     const avatar = document.createElement('div');
+    //     avatar.className = 'profile__pic';
+    //     avatar.innerText = initial;
+    //     avatar.style.display = 'flex';
+    //     avatar.style.alignItems = 'center';
+    //     avatar.style.justifyContent = 'center';
+    //     avatar.style.backgroundColor = '#ccc'; // Change this to desired background color
+    //     avatar.style.color = '#fff'; // Change this to desired text color
+    //     avatar.style.fontSize = '50px'; // Change this to desired font size
+    //     avatar.style.borderRadius = '50%';
+    //     avatar.style.width = '100%'; // Adjust size as needed
+    //     avatar.style.height = '100%'; // Adjust size as needed
+    //     profileAvatarContainer.appendChild(avatar);
+    // }
 
     // Profile name
     const profileName = document.getElementById('profileName');

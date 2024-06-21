@@ -19,13 +19,12 @@ let initialFormData = { ...profileData };  // Ensure this is a copy
 
 function getFormData() {
     return {
-        personal_info: document.getElementById('personal_infoInput').value,
+        // personal_info: document.getElementById('personal_infoInput').value,
         website: document.getElementById('websiteInput').value,
         experience: document.getElementById('experienceInput').value,
         job: document.getElementById('jobInput').value,
         phone: document.getElementById('phoneInput').value,
-        address: document.getElementById('addressInput').value,
-        bio: document.getElementById('bioInput').value,
+        // bio: document.getElementById('bioInput').value,
         country: document.getElementById('countryInput').value,
     };
 }
@@ -44,13 +43,12 @@ form.addEventListener('submit', function (event) {
 
     // Collect form data
     const formData = {
-        personal_info: document.getElementById('personal_infoInput').value,
+        // personal_info: document.getElementById('personal_infoInput').value,
         website: document.getElementById('websiteInput').value,
         experience: document.getElementById('experienceInput').value,
         job: document.getElementById('jobInput').value,
         phone: document.getElementById('phoneInput').value,
-        address: document.getElementById('addressInput').value,
-        bio: document.getElementById('bioInput').value,
+        // bio: document.getElementById('bioInput').value,
         country: document.getElementById('countryInput').value,
     };
 
@@ -124,13 +122,12 @@ document.getElementById('editProfileModal').addEventListener('show', function ()
 
 // Initialize form fields with profile data
 function initializeFormData(profileData) {
-    document.getElementById('personal_infoInput').value = profileData.personal_info || '';
+    // document.getElementById('personal_infoInput').value = profileData.personal_info || '';
     document.getElementById('websiteInput').value = profileData.website || '';
     document.getElementById('experienceInput').value = profileData.experience || '';
     document.getElementById('jobInput').value = profileData.job || '';
     document.getElementById('phoneInput').value = profileData.phone;
-    document.getElementById('addressInput').value = profileData.address || '';
-    document.getElementById('bioInput').value = profileData.bio || '';
+    // document.getElementById('bioInput').value = profileData.bio || '';
     document.getElementById('countryInput').value = profileData.country;
 }
 
