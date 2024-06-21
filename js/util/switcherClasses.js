@@ -2,6 +2,8 @@ window.onload = function () {
     const accountType = localStorage.getItem('accountType');
     console.log(accountType);
 
+    document.body.classList.add(`body-${accountType}`)
+
     // Select all elements for employees and companies
     const employeeContents = document.querySelectorAll('.employee-content');
     const companyContents = document.querySelectorAll('.company-content');

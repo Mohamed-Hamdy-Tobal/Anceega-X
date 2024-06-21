@@ -33,6 +33,7 @@
     <link rel="stylesheet" media="all" href="css/app.css">
     <link rel="stylesheet" media="all" href="src/style.css">
     <link rel="stylesheet" media="all" href="css/mainApp.css">
+    <link rel="stylesheet" media="all" href="css/Profile.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -46,165 +47,6 @@
     </style>
 
     <link href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.12/dist/cropper.min.css" rel="stylesheet">
-    <style>
-        .file-upload {
-            display: none;
-        }
-
-        .avatarProfile-container {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            width: 170px;
-            height: 170px;
-            border: 6px solid #ffffff;
-            border-radius: 50%;
-            background: #ffffff;
-        }
-
-        #modalProfileImage {
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
-        }
-
-        .avatarProfile {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-        }
-
-        .dropdown-menu-profile {
-            display: none;
-            min-width: 100px;
-            position: absolute;
-            top: 110px;
-            left: 50%;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-            z-index: 1000;
-        }
-
-        .dropdown-menu-profile a {
-            display: block;
-            padding: 10px;
-            color: #333;
-            text-decoration: none;
-        }
-
-        .dropdown-menu-profile a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .modalProfile {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: transparent;
-            padding: 20px;
-            z-index: 2000;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modalProfile img {
-            max-width: 100%;
-        }
-
-        .modalProfile-buttons {
-            z-index: 1000;
-            position: relative;
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: row-reverse;
-            align-items: center;
-            width: 100%;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .modalProfile-buttons button {
-            margin-left: 10px;
-        }
-
-        #saveModalProfile {
-            display: inline;
-            color: #fff;
-            background: #1e75ff;
-            width: 90px;
-            height: 30px;
-            border-radius: 5px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        #cancelModalProfile {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            color: #fff;
-            background: #1e75ff;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 10px;
-        }
-
-        #modalProfileImage {
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .overlayProfile {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1500;
-        }
-
-        .loading-spinner-profile {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: 8px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 8px solid #3498db;
-            width: 60px;
-            height: 60px;
-            animation: spin 2s linear infinite;
-            z-index: 2000;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
-
     <script src="js/util/switcherClasses.js"></script>
 
 </head>
@@ -245,7 +87,7 @@
                     <!-- <input class="header2__input" type="text" placeholder="Search" /> -->
                 </div>
 
-                <div class="flex items-center min-w-[100px] justify-end">
+                <div class="flex items-center min-w-[60px] justify-end">
                     <div class="header2__group">
                         <a class="header2__link header2__link_bell active" href="square-notifications.html">
                             <svg class="icon icon-bell">
@@ -328,14 +170,44 @@
 
                     <!-- Main Personal Info -->
                     <div class="profile profile_user">
-                        <div class="profile__bg" id="profileBg">
-                            <button class="profile__edit" id="editProfileButton">
-                                Edit Profile
-                                <svg class="icon icon-edit inline-block w-5 h-5">
-                                    <use xlink:href="img/sprite.svg#icon-edit"></use>
-                                </svg>
-                            </button>
+                        <!-- Main Cover -->
+                        <div class="main-profile-cover-image mr-[25px]">
+                            <div class="coverProfile-container profile__bg" id="coverProfileContainer">
+                                <button class="profile__edit" id="editProfileButton">
+                                    Edit Profile
+                                    <svg class="icon icon-edit inline-block w-5 h-5">
+                                        <use xlink:href="img/sprite.svg#icon-edit"></use>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-menu-profile-cover" id="dropdownMenuProfileCover">
+                                    <a href="#" id="showcoverProfileCover">Show</a>
+                                    <a href="#" id="editcoverProfileCover">Edit</a>
+                                </div>
+                            </div>
+
+                            <input type="file" id="inpFileCover" class="file-upload-cover">
+
+                            <div class="overlayProfileCover" id="overlayProfileCover"></div>
+
+                            <div class="modalProfileCover profile__bg" id="modalProfileCover">
+                                <img id="modalProfileCoverImage" src="">
+                                <div class="modalProfileCover-buttons">
+                                    <button id="cancelmodalProfileCover">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <button id="savemodalProfileCover">Save</button>
+                                </div>
+                            </div>
+
+                            <div class="loading-spinner-profile-cover" id="loadingSpinnerProfileCover"></div>
                         </div>
+
                         <div class="profile__user">
                             <div class="main-profile-avatar-image mr-[25px]">
                                 <div class="avatarProfile-container" id="avatarProfileContainer">
@@ -426,9 +298,9 @@
                     <!-- Edit Profile Modal -->
                     <div id="editProfileModal"
                         class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-50 hidden">
-                        <div class="modal-content bg-white p-6 rounded-lg shadow-md w-full max-w-2xl relative">
+                        <div class="py-[35px] modal-content bg-white p-6 rounded-lg shadow-md w-full max-w-2xl relative">
                             <span id="close-modal-profile"
-                                class="close absolute top-4 right-4 text-gray-500 cursor-pointer">&times;</span>
+                                class="close absolute top-[25px] right-[10px] p-[10px] text-gray-500 cursor-pointer">&times;</span>
                             <h1 class="text-xl font-semibold mb-4">Update Profile</h1>
                             <form id="updateForm" class="space-y-4 flex flex-col justify-between items-center h-full">
 
@@ -822,152 +694,8 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.5.12/dist/cropper.min.js"></script>
-    <script>
-
-        // Fetch profile data from localStorage
-        const avatarProfile = document.getElementById('avatarProfile');
-        const dropdownMenu = document.getElementById('dropdownMenuProfile');
-        const inpFile = document.getElementById('inpFile');
-        const modalProfile = document.getElementById('modalProfile');
-        const overlayProfile = document.getElementById('overlayProfile');
-        const modalProfileImage = document.getElementById('modalProfileImage');
-        const cancelModalProfile = document.getElementById('cancelModalProfile');
-        const saveModalProfile = document.getElementById('saveModalProfile');
-        const loadingSpinner = document.getElementById('loadingSpinnerProfile');
-        let cropper;
-
-        // Profile avatar
-        const profileAvatarContainer = document.getElementById('avatarProfileContainer');
-        if (profileData.personal_photo) {
-            avatarProfile.src = profileData.personal_photo;
-        } else if (profileData.full_name) {
-            avatarProfile.style.display = 'none'
-            const initial = profileData.full_name.charAt(0).toUpperCase();
-            const avatar = document.createElement('div');
-            avatar.className = 'profile__pic';
-            avatar.id = 'avatarText'
-            avatar.innerText = initial;
-            avatar.style.display = 'flex';
-            avatar.style.alignItems = 'center';
-            avatar.style.justifyContent = 'center';
-            avatar.style.backgroundColor = '#ccc'; // Change this to desired background color
-            avatar.style.color = '#fff'; // Change this to desired text color
-            avatar.style.fontSize = '50px'; // Change this to desired font size
-            avatar.style.borderRadius = '50%';
-            avatar.style.width = '100%'; // Adjust size as needed
-            avatar.style.height = '100%'; // Adjust size as needed
-            profileAvatarContainer.appendChild(avatar);
-        }
-
-        avatarProfile.addEventListener('click', () => {
-            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-        });
-
-        document.getElementById('showAvatarProfile').addEventListener('click', () => {
-            modalProfileImage.src = avatarProfile.src;
-            saveModalProfile.style.display = 'none';
-            modalProfile.style.display = 'flex';
-            overlayProfile.style.display = 'block';
-            dropdownMenu.style.display = 'none';
-
-            modalProfile.style.display = 'flex';
-            modalProfile.style.width = '100%';
-            modalProfile.style.height = '100%';
-
-            cancelModalProfile.style.width = '42px';
-            cancelModalProfile.style.height = '42px';
-            cancelModalProfile.style.top = '30px';
-            cancelModalProfile.style.right = '30px';
-            cancelModalProfile.style.position = 'fixed';
-            cancelModalProfile.style.borderRadius = '50%';
-            cancelModalProfile.innerHTML = `
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18" stroke="white" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M6 6L18 18" stroke="white" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            `;
-        });
-
-        document.getElementById('editAvatarProfile').addEventListener('click', () => {
-            inpFile.click();
-            dropdownMenu.style.display = 'none';
-        });
-
-        inpFile.addEventListener('change', () => {
-            const file = inpFile.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (event) {
-                    modalProfileImage.src = event.target.result;
-                    saveModalProfile.style.display = 'inline';
-                    modalProfile.style.display = 'block';
-                    modalProfile.style.width = '50%';
-                    modalProfile.style.height = '50%';
-                    cancelModalProfile.style.width = '90px';
-                    cancelModalProfile.style.height = '30px';
-                    cancelModalProfile.style.top = '0px';
-                    cancelModalProfile.style.fontWeight = '500';
-                    cancelModalProfile.style.fontSize = '16px';
-                    cancelModalProfile.style.right = '0px';
-                    cancelModalProfile.style.position = 'relative';
-                    cancelModalProfile.style.borderRadius = '5px';
-                    cancelModalProfile.innerHTML = 'Cancel';
-                    overlayProfile.style.display = 'block';
-                    cropper = new Cropper(modalProfileImage, {
-                        aspectRatio: 1,
-                        viewMode: 1
-                    });
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        cancelModalProfile.addEventListener('click', () => {
-            if (cropper) cropper.destroy();
-            modalProfile.style.display = 'none';
-            overlayProfile.style.display = 'none';
-        });
-
-        saveModalProfile.addEventListener('click', () => {
-            loadingSpinner.style.display = 'block'; // Show loading spinner
-
-            const canvas = cropper.getCroppedCanvas();
-            canvas.toBlob((blob) => {
-                const formData = new FormData();
-                formData.append('personal_photo', blob);
-
-                fetch('https://back.anceega.com/client-api/v1/auth/employees/update', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Authorization': 'Bearer 47|SXWhx4xUAY4E0WUELXrfhE5f36XJXjikQ2xIbsg34ccde186'
-                    },
-                    body: formData
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        avatarProfile.src = canvas.toDataURL();
-                        cropper.destroy();
-                        modalProfile.style.display = 'none';
-                        overlayProfile.style.display = 'none';
-                        loadingSpinner.style.display = 'none'; // Hide loading spinner
-                    })
-                    .catch(console.error);
-            });
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target === overlayProfile) {
-                if (cropper) cropper.destroy();
-                modalProfile.style.display = 'none';
-                overlayProfile.style.display = 'none';
-            }
-        });
-    </script>
+    <script src='js/util/profile/profileAvatar.js'></script>
+    <script src='js/util/profile/profileCover.js'></script>
 
 </body>
 

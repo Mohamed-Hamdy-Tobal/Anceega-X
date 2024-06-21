@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* body.body-user .company-content {
+    display: none !important;
+} */
+
 .main-visible {
     display: block !important;
 }

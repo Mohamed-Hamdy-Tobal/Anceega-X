@@ -1,0 +1,326 @@
+.file-upload {
+    display: none;
+}
+
+.avatarProfile-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 170px;
+    height: 170px;
+    border: 6px solid #ffffff;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+#modalProfileImage {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.avatarProfile {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.dropdown-menu-profile {
+    display: none;
+    min-width: 100px;
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.dropdown-menu-profile a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-menu-profile a:hover {
+    background-color: #f1f1f1;
+}
+
+.modalProfile {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    padding: 20px;
+    z-index: 2000;
+    width: 100%;
+    min-width: 300px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalProfile img {
+    max-width: 100%;
+}
+
+.modalProfile-buttons {
+    z-index: 1000;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.modalProfile-buttons button {
+    margin-left: 10px;
+}
+
+#saveModalProfile {
+    display: inline;
+    color: #fff;
+    background: #1e75ff;
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#cancelModalProfile {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color: #fff;
+    background: #1e75ff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+#modalProfileImage {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overlayProfile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1500;
+}
+
+.loading-spinner-profile {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    z-index: 2000;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.file-upload-cover {
+    display: none;
+}
+
+.coverProfile-container {
+    cursor: pointer;
+    width: 100%;
+    background-image: url('img/white-bg.webp');
+}
+
+#modalProfileCoverImage {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.coverProfile {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.dropdown-menu-profile-cover {
+    display: none;
+    min-width: 100px;
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.dropdown-menu-profile-cover a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-menu-profile-cover a:hover {
+    background-color: #f1f1f1;
+}
+
+.modalProfileCover {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    padding: 20px;
+    z-index: 2000;
+    width: 100%;
+    min-width: 300px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalProfileCover img {
+    max-width: 100%;
+}
+
+.modalProfileCover-buttons {
+    z-index: 1000;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 15px;
+}
+/* @media (max-width: 567px) {
+    .modalProfileCover-buttons {
+        z-index: 1000;
+        position: absolute;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+        margin-top: 15px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+} */
+
+.modalProfileCover-buttons button {
+    margin-left: 10px;
+}
+
+#savemodalProfileCover {
+    display: inline;
+    color: #fff;
+    background: #1e75ff;
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#cancelmodalProfileCover {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color: #fff;
+    background: #1e75ff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+#modalProfileCoverImage {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overlayProfileCover {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1500;
+}
+
+.loading-spinner-profile-cover {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    z-index: 2000;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
