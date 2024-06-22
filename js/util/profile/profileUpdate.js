@@ -14,7 +14,7 @@ if (accountType === 'user') {
 
 console.log("loginEndpoint", loginEndpoint)
 
-const profileData = JSON.parse(localStorage.getItem('employee') || '{}') || JSON.parse(localStorage.getItem('company') || '{}');
+const profileData = JSON.parse(localStorage.getItem('employee')) || JSON.parse(localStorage.getItem('company'));
 let initialFormData = { ...profileData };  // Ensure this is a copy
 
 function getFormData() {

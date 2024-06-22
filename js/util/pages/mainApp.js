@@ -64,6 +64,9 @@ function logout() {
             if (response) {
                 // Clear the token from storage
                 localStorage.removeItem('token');
+                localStorage.removeItem('employee');
+                localStorage.removeItem('company');
+                localStorage.removeItem('user');
                 alert('Logged out successfully.');
                 window.location.href = 'sign-in.html'; // Redirect to login page
             } else {

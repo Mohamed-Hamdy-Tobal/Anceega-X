@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadingSpinner = document.getElementById('loadingSpinner');
 
     // Fetch profile data from localStorage
-    const profileData = JSON.parse(localStorage.getItem('employee') || '{}') || JSON.parse(localStorage.getItem('company') || '{}');
+    const profileData = JSON.parse(localStorage.getItem('employee')) || JSON.parse(localStorage.getItem('company'));
 
     const editProfileButton = document.getElementById('editProfileButton');
     const editProfileModal = document.getElementById('editProfileModal');

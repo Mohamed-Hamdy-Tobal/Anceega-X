@@ -2150,7 +2150,7 @@ html.no-scroll {
 }
 
 body {
-  min-width: 375px;
+  /* min-width: 375px; */
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17707,7 +17707,7 @@ body.dark .gallery__link {
 
 .profile__options {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

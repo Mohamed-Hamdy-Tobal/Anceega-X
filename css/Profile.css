@@ -324,3 +324,7 @@
         transform: rotate(360deg);
     }
 }
+
+body.body-company .profile__options {
+    display: flex !important;
+}
