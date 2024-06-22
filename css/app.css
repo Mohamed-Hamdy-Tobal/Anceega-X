@@ -2249,6 +2249,19 @@ body.dark .tooltipster-sidetip.tooltipster-shadow.tooltipster-shadow-customized 
   -o-transition: all .25s;
   transition: all .25s;
 }
+.butn {
+  min-width: 120px;
+  height: 38px;
+  padding-top: 1px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-size: 12px;
+  font-weight: 600;
+  -webkit-transition: all .25s;
+  -o-transition: all .25s;
+  transition: all .25s;
+}
 
 .btn__pic,
 .btn .icon,
@@ -2270,12 +2283,19 @@ body.dark .tooltipster-sidetip.tooltipster-shadow.tooltipster-shadow-customized 
   background: #0062FF;
   color: #FAFAFB;
 }
+.butn_blue {
+  background: #0062FF;
+  color: #FAFAFB;
+}
 
 .btn_blue .icon {
   fill: #FAFAFB;
 }
 
 .btn_blue:hover {
+  background: #0054db;
+}
+.butn_blue:hover {
   background: #0054db;
 }
 
@@ -2365,6 +2385,9 @@ body.dark .btn_blue {
 }
 
 body.dark .btn_blue:hover {
+  background: #005ef4;
+}
+body.dark .butn_blue:hover {
   background: #005ef4;
 }
 
@@ -19330,6 +19353,11 @@ body.dark .courses2__info {
 }
 
 .student__btn {
+  min-width: 100%;
+  height: 40px;
+  margin-top: 30px;
+}
+.student__butn {
   min-width: 100%;
   height: 40px;
   margin-top: 30px;

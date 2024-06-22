@@ -1,0 +1,19 @@
+.star {
+    font-size: 20px;
+}
+
+.star-yellow {
+    color: #FFC542;
+}
+
+.star-gray {
+    color: #d1d1d1;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin: 10px 0; /* Adjust as needed */
+}
