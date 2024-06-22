@@ -28,7 +28,7 @@ async function fetchCompanyDataSearch() {
         companyDataSearch = data.data.map(item => ({
             ...item,
             name: item.full_name,
-            url: `profile_company.html?name=${encodeURIComponent(item.full_name)}`
+            url: `profile_company.html?id=${encodeURIComponent(item.id)}`
         }));
 
 
