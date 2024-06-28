@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Profiles Data
+        const profileAvatarContainer = document.getElementById('avatarProfileContainerCompany');
+        const companyAvatar = document.getElementById('profileCompanyAvatar')
+        const profile__bg_company = document.getElementById('profile__bg_company')
         const companyName = document.getElementById('profileNameCompany')
         const companyEmail = document.getElementById('profileCompanyEmail')
         const companyBio = document.getElementById('profileCompanyBio')
@@ -55,14 +58,45 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Filtered result.website ? result.website : "undefined":', result.website ? result.website : "undefined");
 
                 // Display the company Info
-                companyName.innerText = result.name;
-                companyEmail.innerText = result.email;
-                companyBio.innerText = result.name; // bio
-                companyCountry.innerText = result.country
+                companyAvatar.src = result.name || 'N/A';
+                companyName.innerText = result.name || 'N/A';
+                companyEmail.innerText = result.email || 'No email provided';;
+                companyBio.innerText = result.name || 'No bio available'; // bio
+                companyCountry.innerText = result.country || 'Country not specified';
                 companyJoined.innerText = `Joined ${formatDate(result.created_at)}`;
-                companyWorking.innerText = result.field
-                document.getElementById('mainWebsiteLinkCompany').href =  result.website === null ? "#" : result.website
-                // companyWebsite.innerText = result.website === null ? "undefined" : result.website 
+                companyWorking.innerText = result.field || 'Field not specified';
+                document.getElementById('mainWebsiteLinkCompany').href = result.website || '#';
+                companyWebsite.innerText = result.website || '#';
+
+
+                // For Avatar
+                if (result.personal_photo) {
+                    companyAvatar.src = result.personal_photo;
+                } else if (result.full_name) {
+                    companyAvatar.style.display = 'none'
+                    const initial = result.full_name.charAt(0).toUpperCase();
+                    const avatar = document.createElement('div');
+                    avatar.className = 'profile__pic';
+                    avatar.id = 'avatarText'
+                    avatar.innerText = initial;
+                    avatar.style.display = 'flex';
+                    avatar.style.alignItems = 'center';
+                    avatar.style.justifyContent = 'center';
+                    avatar.style.backgroundColor = '#ccc'; // Change this to desired background color
+                    avatar.style.color = '#fff'; // Change this to desired text color
+                    avatar.style.fontSize = '50px'; // Change this to desired font size
+                    avatar.style.borderRadius = '50%';
+                    avatar.style.width = '100%'; // Adjust size as needed
+                    avatar.style.height = '100%'; // Adjust size as needed
+                    profileAvatarContainer.appendChild(avatar);
+                }
+
+                // For Cover
+                if (result.coverletter) {
+                    profile__bg_company.style.backgroundImage = `url(${result.coverletter})`;
+                } else {
+                    profile__bg_company.style.backgroundImage = `url('../../../img/bg-profile.jpg')`;
+                }
 
                 // Add code here to display additional company details if needed
             } else {

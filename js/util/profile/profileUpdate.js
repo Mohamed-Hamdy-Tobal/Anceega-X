@@ -24,7 +24,7 @@ function getFormData() {
         experience: document.getElementById('experienceInput').value,
         job: document.getElementById('jobInput').value,
         phone: document.getElementById('phoneInput').value,
-        // bio: document.getElementById('bioInput').value,
+        bio: document.getElementById('bioInput').value,
         country: document.getElementById('countryInput').value,
     };
 }
@@ -48,7 +48,7 @@ form.addEventListener('submit', function (event) {
         experience: document.getElementById('experienceInput').value,
         job: document.getElementById('jobInput').value,
         phone: document.getElementById('phoneInput').value,
-        // bio: document.getElementById('bioInput').value,
+        bio: document.getElementById('bioInput').value,
         country: document.getElementById('countryInput').value,
     };
 
@@ -127,7 +127,7 @@ function initializeFormData(profileData) {
     document.getElementById('experienceInput').value = profileData.experience || '';
     document.getElementById('jobInput').value = profileData.job || '';
     document.getElementById('phoneInput').value = profileData.phone;
-    // document.getElementById('bioInput').value = profileData.bio || '';
+    document.getElementById('bioInput').value = profileData.bio || '';
     document.getElementById('countryInput').value = profileData.country;
 }
 

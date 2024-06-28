@@ -344,3 +344,82 @@ a:hover {
     padding-right: 20px;
 }
 
+
+.jobs-btn {
+    background: #0062FF !important;
+    color: #FAFAFB !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+.jobs-btn:hover {
+    background: #0054db !important;
+}
+#dropdownMenu {
+    margin: 0 !important;
+}
+
+.modalProfileVideo {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1111; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black background with transparency */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* .modalProfileVideo video {
+    max-width: 90%;
+    max-height: 90%;
+} */
+
+body.body-user .main_profile_user .profile__user {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+}
+body.body-user .main_profile_user .main-profile-cover-image {
+    margin: 0 !important;
+}
+.show-video-button {
+    position: absolute;
+    bottom: 20px !important;
+    top: auto !important;
+    right: 20px !important;
+}
+#closeVideoModal {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color: #fff;
+    background: #1e75ff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    opacity: 1 !important;
+}
+.modalProfileVideo-content {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#profileVideo {
+    width: 100%;
+    height: 100%;
+}
+@media (max-width: 992px) {
+    #profileVideo {
+        width: 100%;
+        height: auto !important;
+    }
+}

@@ -2,13 +2,14 @@ let companyData = [];
 
 // Fetch company data from the API
 async function fetchCompanyData() {
+    const token = localStorage.getItem('token');
     try {
         // const response = await fetch('https://back.anceega.com/client-api/v1/companies/show');
         const response = await fetch('https://back.anceega.com/client-api/v1/companies/show', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer 58|m0wIYgzqVnyXgG47nragLCrVLslvfgdKljYqhOFk337d7bb2`
+                'Authorization': `Bearer ${token}`
                 // 'Authorization': `Bearer ${token}`
             },
             redirect: 'follow'

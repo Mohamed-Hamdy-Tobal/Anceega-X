@@ -15,7 +15,7 @@ if (profileData.personal_photo) {
     profilecoverContainer.style.backgroundImage = `url(${profileData.coverletter})`;
     // coverProfile.src = profileData.personal_photo;
 } else {
-    profilecoverContainer.style.backgroundImage = `url('img/white-bg.webp')`;
+    profilecoverContainer.style.backgroundImage = `url('../../../img/bg-profile.jpg')`;
 }
 
 profilecoverContainer.addEventListener('click', (event) => {
@@ -26,7 +26,7 @@ profilecoverContainer.addEventListener('click', (event) => {
 
 document.getElementById('showcoverProfileCover').addEventListener('click', () => {
 
-    const imageUrl = false ? profileData.coverletter : "img/white-bg.webp"
+    const imageUrl = false ? profileData.coverletter : "../../../img/bg-profile.jpg"
     modalProfileCoverImage.src = imageUrl;
 
     savemodalProfileCover.style.display = 'none';

@@ -46,7 +46,9 @@ avatarProfile.addEventListener('click', (event) => {
     }
 });
 
+
 document.getElementById('showAvatarProfile').addEventListener('click', () => {
+    document.getElementById('MainHeader').style.zIndex = '2'
     modalProfileImage.src = avatarProfile.src;
     saveModalProfile.style.display = 'none';
     modalProfile.style.display = 'flex';

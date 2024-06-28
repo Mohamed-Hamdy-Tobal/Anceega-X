@@ -163,7 +163,7 @@
 .coverProfile-container {
     cursor: pointer;
     width: 100%;
-    background-image: url('img/white-bg.webp');
+    background-image: url('../img/bg-profile.jpg');
 }
 
 #modalProfileCoverImage {

@@ -180,50 +180,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     if (data) {
                         console.log('Signup:', data);
 
-                        if (accountType === 'user') {
-                            if (data.employee) {
-                                localStorage.setItem('employee', JSON.stringify(data.employee));
-                                showToast('Register Successfully');
-                                // Clear form fields if needed
-                                clearForm('registerForm');
-                                window.location.href = 'index.html';
-                            } else {
-                                console.log(data.message)
-                            }
-                        } else if (accountType === 'company') {
-                            if (data.company) {
-                                localStorage.setItem('company', JSON.stringify(data.company));
-                                showToast('Register Successfully');
-                                // Clear form fields if needed
-                                clearForm('registerForm');
-                                window.location.href = 'index.html';
-                            } else {
-                                console.log(data.message)
-                            }
+                        if (accountType == 'user') {
+                            localStorage.setItem('employee', JSON.stringify(data.employee));
+                            window.location.href = 'index.html';
+                            showToast('Register Successfully');
+                            // Clear form fields if needed
+                            clearForm('registerForm');
+                            
+                        } else {
+                            localStorage.setItem('company', JSON.stringify(data.company));
+                            window.location.href = 'index.html';
+                            showToast('Register Successfully');
+                            // Clear form fields if needed
+                            clearForm('registerForm');
                         }
-
-                        // if (data.message == "تم تسجيل الحساب بنجاح" || data.message == "تم تسجيل حسابك بنجاح") {
-                        //     console.log('message', data.message);
-
-                        //     // Ensure the employee data is stored as a JSON string
-                        //     if (accountType === 'user') {
-                        //         localStorage.setItem('employee', JSON.stringify(data.employee));
-                        //     } else if (accountType === 'company') {
-                        //         localStorage.setItem('company', JSON.stringify(data.company));
-                        //     }
-
-                        //     // Redirect to the appropriate dashboard
-                        //     window.location.href = 'index.html';
-                        // }
 
                     } else {
                         console.error('Login failed:', data);
+                        signupError.textContent = "Invalid Data, Try again!";
+                        signupError.style.display = 'block';
                     }
                 })
                 .catch(error => {
                     console.error('Error during fetch');
-                    signupError.textContent = "Invalid Data, Try again!";
-                    signupError.style.display = 'block';
                 });
         }
     });

@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const editProfileModal = document.getElementById('editProfileModal');
     const closeModal = document.getElementById('close-modal-profile');
 
+    const showVideoButton = document.getElementById('showVideoButton');
+    const profileVideoSource = document.getElementById('profileVideoSource');
+    const modalProfileVideo = document.getElementById('modalProfileVideo');
+    const closeVideoModal = document.getElementById('closeVideoModal');
+
     // Show the loading spinner
     loadingSpinner.style.display = 'block';
     document.getElementById('loading__wrapper').style.display = 'none';
@@ -32,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('experienceInput').value = profileData.experience || '';
         document.getElementById('jobInput').value = profileData.job || '';
         document.getElementById('phoneInput').value = profileData.phone || '';
+        document.getElementById('bioInput').value = profileData.bio || '';
         // document.getElementById('addressInput').value = profileData.address || '';
-        // document.getElementById('bioInput').value = profileData.bio || '';
         document.getElementById('countryInput').value = profileData.country || '';
 
     });
@@ -50,6 +55,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Profile text
     const profileText = document.getElementById('profileText');
     profileText.innerText = profileData.bio || '“Pushing pixels and experiences in digital products for Sebostudio”';
+
+    // Show video if available
+    // if (profileData.video_url) {
+    if (profileData) {
+        profileVideoSource.src = 'img/video.mp4';
+        // profileVideoSource.src = profileData.video_url;
+        showVideoButton.style.display = 'block';
+    } else {
+        showVideoButton.style.display = 'none';
+    }
 
     // Profile stats
     document.getElementById('profilePosts').innerText = profileData.posts || '10,3K';
@@ -68,14 +83,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Populate HTML elements with the retrieved data
-    document.getElementById('note').innerText = profileData.bio;
-    document.getElementById('location').innerText = profileData.country;
-    document.getElementById('website').innerText = profileData.website;
-    document.getElementById('mainWebsiteLink').href = profileData.website;
+    document.getElementById('note').innerText = profileData.bio || "Unknown";
+    document.getElementById('location').innerText = profileData.country || "Unknown";
+    document.getElementById('website').innerText = profileData.website || "Unknown";
+    document.getElementById('mainWebsiteLink').href = profileData.website || "Unknown";
     document.getElementById('joinedDate').innerText = `Joined ${formatDate(profileData.created_at)}`;
-    document.getElementById('company').innerText = profileData.experience;
+    document.getElementById('company').innerText = profileData.experience || "Unknown";
 
-    
+
     // Close the modal
     closeModal.addEventListener('click', function () {
         editProfileModal.classList.add('hidden');
@@ -91,5 +106,23 @@ document.addEventListener('DOMContentLoaded', function () {
     // Hide the loading spinner and show the profile section
     loadingSpinner.style.display = 'none';
     document.getElementById('loading__wrapper').style.display = 'block';
+
+
+    // Show video modal on button click
+    showVideoButton.addEventListener('click', () => {
+        modalProfileVideo.style.display = 'flex';
+    });
+
+    // Close video modal on close button click
+    closeVideoModal.addEventListener('click', () => {
+        modalProfileVideo.style.display = 'none';
+    });
+
+    // Close video modal on outside click
+    window.addEventListener('click', (event) => {
+        if (event.target === modalProfileVideo) {
+            modalProfileVideo.style.display = 'none';
+        }
+    });
 
 });

@@ -55,7 +55,7 @@
         <div class="page2 js-page2">
 
             <!-- The Header -->
-            <div class="header2 js-header2">
+            <div class="header2 js-header2" id="MainHeader">
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
                 <a class="header2__logo" href="index.html">
                     <img class="header2__pic header2__pic_black" src="img/logo.svg" alt="" />
@@ -152,10 +152,12 @@
             <!-- Main Content -->
             <div class="page2__container" id="loading__wrapper">
                 <div class="profile profile_user" style="overflow: hidden;">
-                    <div class="profile__bg" style="background-image: url('img/bg-profile.jpg');">
+                    <div class="profile__bg" id="profile__bg_company" style="background-image: url('img/bg-profile.jpg');">
                     </div>
                     <div class="profile__user">
-                        <div class="profile__ava"><img class="profile__pic" src="img/ava-big.jpg" alt=""></div>
+                        <div class="profile__ava" id="avatarProfileContainerCompany">
+                            <img id="profileCompanyAvatar" class="profile__pic" src="img/ava-big.jpg" alt="">
+                        </div>
                         <div class="profile__details">
                             <span class="profile__title title" id="profileNameCompany"></span>
                             <span class="profile__login" id="profileCompanyEmail">@fawait</span>
@@ -254,7 +256,7 @@
                                         <svg class="icon icon-world">
                                             <use xlink:href="img/sprite.svg#icon-world"></use>
                                         </svg>
-                                        <span class="profileCompanyWebsite"></span>
+                                        <span class="profileCompanyWebsite" id="profileCompanyWebsite"></span>
                                     </a>
                                     <a class="card1__item" href="">
                                         <svg class="icon icon-date">
@@ -492,9 +494,9 @@
     <!-- Include jQuery and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script src="js/util/comapnies/modalSearch.js"></script>
-
+    
     <!-- For Header Profile -->
+    <script src="js/util/comapnies/modalSearch.js"></script>
     <script src="js/util/headerProfile.js"></script>
 
 
