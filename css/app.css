@@ -12112,9 +12112,9 @@ body.dark .projects__add:hover {
   border-radius: 50%;
 }
 
-.ava.active {
+/* .ava.active {
   border: 2px solid #0062FF;
-}
+} */
 
 .ava.active .ava__pic {
   border: 1px solid #F1F1F5;
@@ -15628,7 +15628,7 @@ body.dark .messenger__time {
 
 .post__write .ava {
   position: absolute;
-  top: 50%;
+  top: 30px;
   left: 20px;
   z-index: 2;
   -webkit-transform: translateY(-50%);
@@ -15780,6 +15780,7 @@ body.dark .messenger__time {
   width: 42px;
   height: 42px;
   font-size: 16px;
+  overflow: hidden;
 }
 
 .post__user .ava__pic {
@@ -15818,6 +15819,7 @@ body.dark .messenger__time {
 
 .post__body .post__text {
   margin-top: 20px;
+  margin-bottom: 8px;
   line-height: 1.71429;
   color: #44444F;
 }
@@ -15960,13 +15962,12 @@ body.dark .messenger__time {
 .post__foot .post__input {
   width: 100%;
   height: 46px;
-  padding: 0 130px 0 15px;
-  border: 1px solid #F1F1F5;
-  background: #FAFAFB;
-  border-radius: 15px;
+  /* border: 1px solid #F1F1F5; */
+  background: transparent;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   color: #171725;
+  flex: 1;
 }
 
 .post__foot .post__input::-webkit-input-placeholder {

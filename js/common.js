@@ -387,6 +387,11 @@ $(document).ready(function () {
 
 // page2
 (function () {
+    const postContentInput = document.getElementById('postContent');
+    const postFileInput = document.getElementById('postFileInput');
+    const selectedImagePreview = document.querySelector('.selected-image__preview');
+    const selectedImageContainer = document.querySelector('.selected-image');
+    const removeFileBtn = document.getElementById('removeFileBtn');
     var header = $('.js-header2'),
         burger = header.find('.js-header2-burger'),
         bg = header.find('.js-header2-bg'),
@@ -416,6 +421,13 @@ $(document).ready(function () {
     closePost.on('click', function () {
         item.removeClass('active');
         bg.removeClass('visible');
+
+        // Clear input fields and reset UI
+        postContentInput.value = '';
+        postFileInput.value = null;
+        selectedImagePreview.src = '';
+        selectedImageContainer.style.display = 'none';
+        removeFileBtn.style.display = 'none';
     });
 
     closeSidebar.on('click', function () {

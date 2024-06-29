@@ -179,7 +179,11 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             return `
                 <div class="post__foot" data-post-id="${postId}">
-                    <div class="ava" style="display: none;"><img class="ava__pic" /></div>
+                    <div class="ava">
+                        <div class="ava__placeholder" style="width: 100%; height: 100%; color: #898989; display: flex; justify-content: center; align-items: center; background: #eeeeeeab;">
+                            ${user.full_name.charAt(0).toUpperCase()}
+                        </div>
+                    </div>
                     <div class="post__field main_post__input">
                         <input class="post__input" type="text" placeholder="Write your comment…" />
                         <button class="post__publish-btn bg-[#81B0D9] rounded-full w-8 h-8 flex justify-center items-center transition-all hover:bg-[#81b0d9be]" style="display: none;">
@@ -193,181 +197,152 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function addCommentEventListeners(postId) {
-        const postFoot = document.querySelector(`.post__foot[data-post-id="${postId}"]`);
-        if (!postFoot) return; // Safety check
-
-        const commentInput = postFoot.querySelector('.post__input');
-        const publishButton = postFoot.querySelector('.post__publish-btn');
-
-        if (!commentInput || !publishButton) return; // Safety check
-
-        commentInput.addEventListener('input', function () {
-            if (this.value.trim()) {
-                publishButton.style.display = 'block';
-            } else {
-                publishButton.style.display = 'none';
-            }
-        });
-
-        publishButton.addEventListener('click', function () {
-            const commentText = commentInput.value.trim();
-            console.log('commentText', commentText)
-            console.log('postId', postId)
-            if (commentText) {
-                publishComment(postId, commentText);
-            }
-        });
-    }
-
-    async function publishComment(postId, commentText) {
-        const token = localStorage.getItem('token');
-        const payload = {
-            comments: commentText
-        };
-
-        loadingSpinner.style.display = 'flex';
-        loadingSpinner.style.backgroundColor = '#fbfbfb63';
-
-        try {
-            const response = await fetch(`https://back.anceega.com/client-api/v1/reviews/addComment/${postId}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify(payload)
-            });
-
-            const data = await response.json();
-            console.log('Comment published:', data);
-            console.log('message', data.message)
-
-            const myHeader = document.getElementById("myHeader")
-            const mainPostModal = document.getElementById("mainPostModal")
-
-            myHeader.classList.remove("visible")
-            mainPostModal.classList.remove("active")
-
-            if (data.message) {
-                location.reload()
-            }
-            showToast(data.message);
-
-            // Clear the input field after publishing
-            const postFoot = document.querySelector(`.post__foot[data-post-id="${postId}"]`);
-            if (!postFoot) return; // Safety check
-
-            const commentInput = postFoot.querySelector('.post__input');
-            const publishButton = postFoot.querySelector('.post__publish-btn');
-            if (commentInput) {
-                commentInput.value = ''; // Clear the input field
-                publishButton.style.display = 'none'
-            }
-
-            // Optionally, you can refresh the comments section or add the new comment to the DOM
-        } catch (error) {
-            console.error('Error publishing comment:', error);
-        } finally {
-            // Hide the loading spinner and show the profile section
-            loadingSpinner.style.display = 'none';
-        }
-    }
-
-
     function addLikeEventListeners() {
-        const likeLink = document.querySelector('.post__link--like');
+        const likeButtons = document.querySelectorAll('.post__link--like');
+        likeButtons.forEach(button => {
+            button.addEventListener('click', async function () {
+                const postId = this.getAttribute('data-post-id');
+                const token = localStorage.getItem('token');
+                const post = mainPosts.find(post => post.id == postId);
+                const likeIcon = this.querySelector('.icon-like');
+                const likeCounter = this.querySelector('#post__counter_likes');
 
-        likeLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            const postId = this.getAttribute('data-post-id');
-            handleLike(postId);
-        });
-    }
-
-    async function handleLike(postId) {
-        const token = localStorage.getItem('token');
-
-        console.log(token)
-        console.log(postId)
-
-        try {
-            const response = await fetch(`https://back.anceega.com/client-api/v1/reviews/addLike/${postId}`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                },
-                body: {}
+                if (likeIcon.classList.contains('icon-fill-like')) {
+                    // Already liked, perform unlike operation
+                    try {
+                        const response = await fetch(`https://back.anceega.com/client-api/v1/unlikePost/${postId}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            }
+                        });
+                        const data = await response.json();
+                        if (data.success) {
+                            // Update UI
+                            likeIcon.classList.remove('icon-fill-like');
+                            post.likes_sum[0].total_likes -= 1;
+                            likeCounter.textContent = post.likes_sum[0].total_likes;
+                        }
+                    } catch (error) {
+                        console.error('Error unliking the post:', error);
+                    }
+                } else {
+                    // Not liked yet, perform like operation
+                    try {
+                        const response = await fetch(`https://back.anceega.com/client-api/v1/likePost/${postId}`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            }
+                        });
+                        const data = await response.json();
+                        if (data.success) {
+                            // Update UI
+                            likeIcon.classList.add('icon-fill-like');
+                            post.likes_sum[0].total_likes += 1;
+                            likeCounter.textContent = post.likes_sum[0].total_likes;
+                        }
+                    } catch (error) {
+                        console.error('Error liking the post:', error);
+                    }
+                }
             });
-
-            const data = await response.json();
-            console.log('Like response:', data);
-            if (data) {
-                location.reload()
-            }
-
-            // // Optionally, update the like count in the DOM
-
-        } catch (error) {
-            console.error('Error liking post:', error);
-        }
+        });
     }
 
     function addCommentButtonEventListeners() {
-        const commentLink = document.querySelector('.post__link--comment');
+        const commentButtons = document.querySelectorAll('.post__link--comment');
+        commentButtons.forEach(button => {
+            button.addEventListener('click', async function () {
+                const postId = this.getAttribute('data-post-id');
+                const commentsContainer = this.closest('.post__item').querySelector('.post__comments');
+                commentsContainer.style.display = commentsContainer.style.display === 'none' ? 'block' : 'none';
 
-        commentLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            const postId = this.getAttribute('data-post-id');
-            const commentsContainer = this.closest('.post__body').querySelector('.post__comments');
-
-            if (commentsContainer.style.display === 'none' || commentsContainer.style.display === '') {
-                fetchComments(postId, commentsContainer);
-            } else {
-                commentsContainer.style.display = 'none';
-                commentsContainer.innerHTML = ''; // Clear comments when hiding
-            }
-        });
-        
-    }
-
-    async function fetchComments(postId, commentsContainer) {
-        const token = localStorage.getItem('token');
-
-        try {
-            const response = await fetch(`https://back.anceega.com/client-api/v1/getComments/${postId}`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`
+                if (commentsContainer.innerHTML === '') {
+                    // Fetch and display comments if not already fetched
+                    const token = localStorage.getItem('token');
+                    try {
+                        const response = await fetch(`https://back.anceega.com/client-api/v1/getComments/${postId}`, {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            }
+                        });
+                        const data = await response.json();
+                        if (data.success) {
+                            commentsContainer.innerHTML = data.comments.map(comment => `
+                                <div class="comment__item">
+                                    <div class="comment__ava">
+                                        <img src="${comment.user_photo}" alt="User Avatar" />
+                                    </div>
+                                    <div class="comment__body">
+                                        <div class="comment__user">${comment.user_name}</div>
+                                        <div class="comment__text">${comment.comment}</div>
+                                        <div class="comment__time">${formatDate(comment.created_at)}</div>
+                                    </div>
+                                </div>
+                            `).join('');
+                        }
+                    } catch (error) {
+                        console.error('Error fetching comments:', error);
+                    }
                 }
             });
-
-            const data = await response.json();
-            console.log('Comments fetched:', data);
-            displayComments(data.review, commentsContainer);// Here Data
-        } catch (error) {
-            console.error('Error fetching comments:', error);
-        }
+        });
     }
 
-    function displayComments(comments, commentsContainer) {
-        commentsContainer.style.display = 'block';
-        commentsContainer.innerHTML = ''; // Clear any existing comments
+    function addCommentEventListeners(postId) {
+        const commentInput = document.querySelector(`.post__foot[data-post-id="${postId}"] .post__input`);
+        const commentButton = document.querySelector(`.post__foot[data-post-id="${postId}"] .post__publish-btn`);
 
-        comments.forEach(comment => {
-            const commentItem = document.createElement('div');
-            commentItem.classList.add('comment__item');
-            commentItem.innerHTML = `
-                <div class="comment__user">
-                    <div class="ava"><img class="ava__pic" src="${comment.user.personal_photo}" alt="Avatar" /></div>
-                    <div class="comment__desc">
-                        <div class="comment__man">${comment.user.full_name}</div>
-                        <div class="comment__time">${formatDate(comment.created_at)}</div>
-                    </div>
-                </div>
-                <div class="comment__text">${comment.comment}</div>
-            `;
-            commentsContainer.appendChild(commentItem);
+        commentInput.addEventListener('input', function () {
+            if (commentInput.value.trim()) {
+                commentButton.style.display = 'flex';
+            } else {
+                commentButton.style.display = 'none';
+            }
+        });
+
+        commentButton.addEventListener('click', async function () {
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+                const token = localStorage.getItem('token');
+                try {
+                    const response = await fetch(`https://back.anceega.com/client-api/v1/commentPost/${postId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({ comment: commentText })
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        // Add the new comment to the comments section
+                        const commentsContainer = document.querySelector(`.post__item[data-post-id="${postId}"] .post__comments`);
+                        const newComment = `
+                            <div class="comment__item">
+                                <div class="comment__ava">
+                                    <img src="${user.personal_photo}" alt="User Avatar" />
+                                </div>
+                                <div class="comment__body">
+                                    <div class="comment__user">${user.full_name}</div>
+                                    <div class="comment__text">${commentText}</div>
+                                    <div class="comment__time">${formatDate(new Date().toISOString())}</div>
+                                </div>
+                            </div>
+                        `;
+                        commentsContainer.innerHTML += newComment;
+                        commentInput.value = '';
+                        commentButton.style.display = 'none';
+                    }
+                } catch (error) {
+                    console.error('Error posting comment:', error);
+                }
+            }
         });
     }
 

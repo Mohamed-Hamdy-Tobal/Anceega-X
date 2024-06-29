@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             </svg><span class="post__counter">0</span> Share
                         </span>
                     </div>
-                    <div class="post__comments" style="display: none;"></div>
+                    <div class="post__comments flex flex-col gap-3 justify-start items-start mb-3" style="display: none;"></div>
                 </div>
                 ${generateCommentSection(post.id)}
             `;
@@ -276,20 +276,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     function addLikeEventListeners() {
-        const likeLink = document.querySelector('.post__link--like');
+        const likeButtons = document.querySelectorAll('.post__link--like');
 
-        likeLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            const postId = this.getAttribute('data-post-id');
-            handleLike(postId);
+        likeButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                const postId = this.getAttribute('data-post-id');
+                handleLike(postId);
+            });
         });
+
     }
 
     async function handleLike(postId) {
         const token = localStorage.getItem('token');
 
-        console.log(token)
-        console.log(postId)
+        console.log("Like")
 
         try {
             const response = await fetch(`https://back.anceega.com/client-api/v1/reviews/addLike/${postId}`, {
@@ -313,21 +315,25 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+
     function addCommentButtonEventListeners() {
-        const commentLink = document.querySelector('.post__link--comment');
 
-        commentLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            const postId = this.getAttribute('data-post-id');
-            const commentsContainer = this.closest('.post__body').querySelector('.post__comments');
-
-            if (commentsContainer.style.display === 'none' || commentsContainer.style.display === '') {
-                fetchComments(postId, commentsContainer);
-            } else {
-                commentsContainer.style.display = 'none';
-                commentsContainer.innerHTML = ''; // Clear comments when hiding
-            }
+        const commentButtons = document.querySelectorAll('.post__link--comment');
+        commentButtons.forEach(commentLink => {
+            commentLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                const postId = this.getAttribute('data-post-id');
+                const commentsContainer = this.closest('.post__body').querySelector('.post__comments');
+    
+                if (commentsContainer.style.display === 'none' || commentsContainer.style.display === '') {
+                    fetchComments(postId, commentsContainer);
+                } else {
+                    commentsContainer.style.display = 'none';
+                    commentsContainer.innerHTML = ''; // Clear comments when hiding
+                }
+            });
         });
+
         
     }
 
@@ -351,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function displayComments(comments, commentsContainer) {
-        commentsContainer.style.display = 'block';
+        commentsContainer.style.display = 'flex';
         commentsContainer.innerHTML = ''; // Clear any existing comments
 
         comments.forEach(comment => {
@@ -359,13 +365,13 @@ document.addEventListener('DOMContentLoaded', function () {
             commentItem.classList.add('comment__item');
             commentItem.innerHTML = `
                 <div class="comment__user">
-                    <div class="ava"><img class="ava__pic" src="${comment.user.personal_photo}" alt="Avatar" /></div>
+                    <div class="ava"><img class="ava__pic" src="/img/ava-1.png" alt="Avatar" /></div>
                     <div class="comment__desc">
-                        <div class="comment__man">${comment.user.full_name}</div>
+                        <div class="comment__man">Mohamed Tobal</div>
                         <div class="comment__time">${formatDate(comment.created_at)}</div>
                     </div>
                 </div>
-                <div class="comment__text">${comment.comment}</div>
+                <div class="comment__text">${comment.comments}</div>
             `;
             commentsContainer.appendChild(commentItem);
         });

@@ -182,6 +182,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
                         if (accountType == 'user') {
                             localStorage.setItem('employee', JSON.stringify(data.employee));
+                            localStorage.setItem('token', data.employee.access_token);
                             window.location.href = 'index.html';
                             showToast('Register Successfully');
                             // Clear form fields if needed
@@ -189,6 +190,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             
                         } else {
                             localStorage.setItem('company', JSON.stringify(data.company));
+                            localStorage.setItem('token', data.company.access_token);
                             window.location.href = 'index.html';
                             showToast('Register Successfully');
                             // Clear form fields if needed

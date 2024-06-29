@@ -1,0 +1,6 @@
+body.body-user .mainPostModal {
+    display: none;
+}
+body.body-company .mainPostModal {
+    display: block;
+}

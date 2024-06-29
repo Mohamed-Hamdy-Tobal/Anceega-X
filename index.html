@@ -40,6 +40,34 @@
 </head>
 
 <body>
+
+    <div id="loadingSpinner" class="loading">
+        <div id="spinner" class="spinner">
+            <div class="rot"></div>
+            <div class="rot"></div>
+            <div class="rot"></div>
+        </div>
+    </div>
+
+    <div class="main-toast" id="toast">
+        <div class="p-4">
+            <div class="flex items-start">
+                <div class="uw good">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4CAF50"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-check toast-icon">
+                        <circle cx="12" cy="12" r="10" style="fill: white; stroke: #4CAF50;" />
+                        <path d="M9 12l2 2 4-4" style="fill: none; stroke: #4CAF50;" />
+                    </svg>
+                </div>
+                <div class="jw rj ut aur flex-1 ml-2">
+                    <p class="font-medium text-[0.875rem] mb-1 leading-5 text-linkText">Successfully!</p>
+                    <p id="toastMessage" class="font-normal text-[0.875rem] leading-5 text-[#6b7280]"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ### Employee ## -->
     <div class="out" id="root">
 
@@ -81,13 +109,15 @@
                                 <path d="M0 0 L5 5 L10 0 Z" fill="#333" />
                             </svg>
                         </div> -->
-                        <div class="header2__profile user-avatar flex justify-start items-center gap-2" onclick="toggleDropdown()">
+                        <div class="header2__profile user-avatar flex justify-start items-center gap-2"
+                            onclick="toggleDropdown()">
                             <div class="header2__pic" id="profilePicContainer"></div>
-                            <svg class="arrow-icon" width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="arrow-icon" width="10" height="10" viewBox="0 0 10 10"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 0 L5 5 L10 0 Z" fill="#333" />
                             </svg>
                         </div>
-                        
+
                         <div class="dropdown-menu" id="dropdownMenu">
                             <div class="info-avatar py-[10px] px-[20px] border-solid border-b-[1px] border-[#e5e7eb]">
                                 <h3 id="userName" class="font-bold text-gray-900 dark:text-gray-100"></h3>
@@ -118,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="header2__bg js-header2-bg"></div>
+                <div id="myHeader" class="header2__bg js-header2-bg"></div>
             </div>
 
             <!-- Modal -->
@@ -143,10 +173,10 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
 
 
-            <div class="page2__wrapper">
+            <div id="loading__wrapper" class="page2__wrapper">
 
                 <div class="page2__container">
                     <div class="page2__nav">
@@ -234,236 +264,57 @@
                         <!-- Main Content App -->
                         <div class=" main-app-content">
                             <div class="post js-post">
-                                <div class="post__item post__item_new js-post-item">
-                                    <div class="post__top">Post Something<button class="post__close js-post-close"><svg
-                                                class="icon icon-close">
+                                <div id="mainPostModal" class="company-content post__item post__item_new js-post-item">
+                                    <div class="post__top">
+                                        Post Something
+                                        <button class="post__close js-post-close">
+                                            <svg class="icon icon-close">
                                                 <use xlink:href="img/sprite.svg#icon-close"></use>
-                                            </svg></button></div>
+                                            </svg>
+                                        </button>
+                                    </div>
                                     <div class="post__write js-post-write">
-                                        <div class="ava"><img class="ava__pic" src="img/ava-1.png" alt="" /></div>
-                                        <div class="post__field"><input class="post__input" type="text"
-                                                placeholder="What’s on your mind?" />
-                                            <div class="post__actions"><button class="post__action"><svg
-                                                        class="icon icon-image">
-                                                        <use xlink:href="img/sprite.svg#icon-image"></use>
-                                                    </svg></button></div>
-                                            <div class="post__progress"><img class="post__pic" src="img/progress.svg"
-                                                    alt="" /></div>
+                                        <div class="ava" id="postProfilePicContainer">
+                                            <img id="postProfilePic" class="ava__pic" src="img/ava-1.png" alt="" />
+                                        </div>
+                                        <div class="post__field">
+                                            <input class="post__input" type="text" id="postContent"
+                                                placeholder="What’s on your mind?" autocomplete="off" />
+                                            <input class="post__file-input" type="file" id="postFileInput"
+                                                accept="image/*, video/*" style="display: none;" />
+                                            <label for="postFileInput" class="post__actions">
+                                                <svg class="icon icon-image">
+                                                    <use xlink:href="img/sprite.svg#icon-image"></use>
+                                                </svg>
+                                            </label>
+                                        </div>
+                                        <div class="selected-image relative" style="display: none;">
+                                            <button id="removeFileBtn">
+                                                <svg class="icon icon-close">
+                                                    <use xlink:href="img/sprite.svg#icon-close"></use>
+                                                </svg>
+                                            </button>
+                                            <img class="selected-image__preview" src="" alt="Selected image" style="display: none;" />
+                                            <video class="selected-video__preview" controls style="display: none;">
+                                                <source src="" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
                                         </div>
                                     </div>
                                     <div class="post__options">
-                                        <div class="post__actions"><button class="post__action"><svg
-                                                    class="icon icon-image">
+                                        <div class="post__actions">
+                                            <label for="postFileInput" class="post__action">
+                                                <svg class="icon icon-image">
                                                     <use xlink:href="img/sprite.svg#icon-image"></use>
-                                                </svg></button><button class="post__action"><svg
-                                                    class="icon icon-emoticon">
-                                                    <use xlink:href="img/sprite.svg#icon-emoticon"></use>
-                                                </svg></button><button class="post__action"><svg class="icon icon-gif">
-                                                    <use xlink:href="img/sprite.svg#icon-gif"></use>
-                                                </svg></button><button class="post__action"><svg
-                                                    class="icon icon-chart">
-                                                    <use xlink:href="img/sprite.svg#icon-chart"></use>
-                                                </svg></button></div><button class="post__btn btn btn_blue">Share
-                                            Post</button>
+                                                </svg>
+                                            </label>
+                                        </div>
+                                        <button class="post__btn btn btn_blue" id="sharePostBtn">Share Post</button>
                                     </div>
                                 </div>
 
-                                <div class="post__item">
-                                    <div class="post__body">
-                                        <div class="post__user">
-                                            <div class="ava"><img class="ava__pic" src="img/ava-12.png" /></div>
-                                            <div class="post__desc">
-                                                <div class="post__man">Pan Feng Shui</div>
-                                                <div class="post__time">12 April at 09.28 PM</div>
-                                                <div class="options2 js-options"><button
-                                                        class="options2__btn js-options-btn"><svg
-                                                            class="icon icon-dots">
-                                                            <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                        </svg></button>
-                                                    <div class="options2__dropdown js-options-dropdown"><a
-                                                            class="options2__item" href="#">
-                                                            <div class="options2__icon"><svg class="icon icon-saved">
-                                                                    <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                                </svg></div>
-                                                            <div class="options2__details">
-                                                                <div class="options2__info">Save Link</div>
-                                                                <div class="options2__text">Add this to your saved items
-                                                                </div>
-                                                            </div>
-                                                        </a><a class="options2__item" href="#">
-                                                            <div class="options2__icon"><svg
-                                                                    class="icon icon-close-circle">
-                                                                    <use xlink:href="img/sprite.svg#icon-close-circle">
-                                                                    </use>
-                                                                </svg></div>
-                                                            <div class="options2__details">
-                                                                <div class="options2__info">Hide Post</div>
-                                                                <div class="options2__text">See fewer post like this
-                                                                </div>
-                                                            </div>
-                                                        </a><a class="options2__item" href="#">
-                                                            <div class="options2__icon"><svg
-                                                                    class="icon icon-close-square">
-                                                                    <use xlink:href="img/sprite.svg#icon-close-square">
-                                                                    </use>
-                                                                </svg></div>
-                                                            <div class="options2__details">
-                                                                <div class="options2__info">Hide all from “Pan Feng
-                                                                    Shui”</div>
-                                                                <div class="options2__text">Stop seeing post from this
-                                                                    person</div>
-                                                            </div>
-                                                        </a><a class="options2__item" href="#">
-                                                            <div class="options2__icon"><svg class="icon icon-profile">
-                                                                    <use xlink:href="img/sprite.svg#icon-profile"></use>
-                                                                </svg></div>
-                                                            <div class="options2__details">
-                                                                <div class="options2__info">Unfollow “Pan Feng Shui”
-                                                                </div>
-                                                                <div class="options2__text">Disconnected with this
-                                                                    person</div>
-                                                            </div>
-                                                        </a></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post__text">One of the perks of working in an international company
-                                            is sharing knowledge
-                                            with your colleagues.</div>
-                                        <div class="post__gallery">
-                                            <div class="post__col post__col">
-                                                <div class="post__preview post__preview_big"><img class="post__pic"
-                                                        src="img/post-pic-1.jpg" alt="" /></div>
-                                            </div>
-                                            <div class="post__col">
-                                                <div class="post__preview post__preview_sm"><img class="post__pic"
-                                                        src="img/post-pic-2.jpg" alt="" /></div>
-                                                <div class="post__preview post__preview_sm"><img class="post__pic"
-                                                        src="img/post-pic-3.jpg" alt="" /></div>
-                                            </div>
-                                        </div>
-                                        <div class="post__control"><a class="post__link" href="#"><svg
-                                                    class="icon icon-comment">
-                                                    <use xlink:href="img/sprite.svg#icon-comment"></use>
-                                                </svg><span class="post__counter">25</span> Comments</a><a
-                                                class="post__link" href="#"><svg class="icon icon-like">
-                                                    <use xlink:href="img/sprite.svg#icon-like"></use>
-                                                </svg><span class="post__counter">120k</span> Likes</a><a
-                                                class="post__link" href="#"><svg class="icon icon-share">
-                                                    <use xlink:href="img/sprite.svg#icon-share"></use>
-                                                </svg><span class="post__counter">231</span> Share</a><a
-                                                class="post__link" href="#"><svg class="icon icon-saved">
-                                                    <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                </svg><span class="post__counter">12</span> Saved</a></div>
-                                    </div>
-                                    <div class="post__foot">
-                                        <div class="ava"><img class="ava__pic" src="img/ava-1.png" alt="" /></div>
-                                        <div class="post__field"><input class="post__input" type="text"
-                                                placeholder="Write your comment…" />
-                                            <div class="post__actions"><button class="post__action"><svg
-                                                        class="icon icon-attachment-thin">
-                                                        <use xlink:href="img/sprite.svg#icon-attachment-thin"></use>
-                                                    </svg></button><button class="post__action"><svg
-                                                        class="icon icon-emoticon">
-                                                        <use xlink:href="img/sprite.svg#icon-emoticon"></use>
-                                                    </svg></button><button class="post__action"><svg
-                                                        class="icon icon-image">
-                                                        <use xlink:href="img/sprite.svg#icon-image"></use>
-                                                    </svg></button></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="post__item">
-                                    <div class="post__body">
-                                        <div class="post__user active">
-                                            <div class="ava active"><img class="ava__pic" src="img/ava-13.png" /></div>
-                                            <div class="post__desc">
-                                                <div class="post__man">Clara Kim</div>
-                                                <div class="post__time">12 April at 09.28 PM</div>
-                                                <div class="options2 js-options"><button
-                                                        class="options2__btn js-options-btn"><svg
-                                                            class="icon icon-dots">
-                                                            <use xlink:href="img/sprite.svg#icon-dots"></use>
-                                                        </svg></button>
-                                                    <div class="options2__dropdown js-options-dropdown"><a
-                                                            class="options2__item" href="#">
-                                                            <div class="options2__icon"><svg class="icon icon-saved">
-                                                                    <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                                </svg></div>
-                                                            <div class="options2__details">
-                                                                <div class="options2__info">Save Link</div>
-                                                                <div class="options2__text">Add this to your saved items
-                                                                </div>
-                                                            </div>
-                                                        </a><a class="options2__item" href="#">
-                                                            <div class="options2__icon"><svg
-                                                                    class="icon icon-close-circle">
-                                                                    <use xlink:href="img/sprite.svg#icon-close-circle">
-                                                                    </use>
-                                                                </svg></div>
-                                                            <div class="options2__details">
-                                                                <div class="options2__info">Hide Post</div>
-                                                                <div class="options2__text">See fewer post like this
-                                                                </div>
-                                                            </div>
-                                                        </a><a class="options2__item" href="#">
-                                                            <div class="options2__icon"><svg
-                                                                    class="icon icon-close-square">
-                                                                    <use xlink:href="img/sprite.svg#icon-close-square">
-                                                                    </use>
-                                                                </svg></div>
-                                                            <div class="options2__details">
-                                                                <div class="options2__info">Hide all from “Pan Feng
-                                                                    Shui”</div>
-                                                                <div class="options2__text">Stop seeing post from this
-                                                                    person</div>
-                                                            </div>
-                                                        </a><a class="options2__item" href="#">
-                                                            <div class="options2__icon"><svg class="icon icon-profile">
-                                                                    <use xlink:href="img/sprite.svg#icon-profile"></use>
-                                                                </svg></div>
-                                                            <div class="options2__details">
-                                                                <div class="options2__info">Unfollow “Pan Feng Shui”
-                                                                </div>
-                                                                <div class="options2__text">Disconnected with this
-                                                                    person</div>
-                                                            </div>
-                                                        </a></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="post__text">A Great Way To Generate All The Motivation You Need To
-                                            Get Fit</div>
-                                        <div class="post__control"><a class="post__link" href="#"><svg
-                                                    class="icon icon-comment">
-                                                    <use xlink:href="img/sprite.svg#icon-comment"></use>
-                                                </svg><span class="post__counter">7</span> Comments</a><a
-                                                class="post__link" href="#"><svg class="icon icon-like">
-                                                    <use xlink:href="img/sprite.svg#icon-like"></use>
-                                                </svg><span class="post__counter">12</span> Likes</a><a
-                                                class="post__link" href="#"><svg class="icon icon-share">
-                                                    <use xlink:href="img/sprite.svg#icon-share"></use>
-                                                </svg><span class="post__counter">0</span> Share</a><a
-                                                class="post__link" href="#"><svg class="icon icon-saved">
-                                                    <use xlink:href="img/sprite.svg#icon-saved"></use>
-                                                </svg><span class="post__counter">0</span> Saved</a></div>
-                                    </div>
-                                    <div class="post__foot">
-                                        <div class="ava"><img class="ava__pic" src="img/ava-1.png" alt="" /></div>
-                                        <div class="post__field"><input class="post__input" type="text"
-                                                placeholder="Write your comment…" />
-                                            <div class="post__actions"><button class="post__action"><svg
-                                                        class="icon icon-attachment-thin">
-                                                        <use xlink:href="img/sprite.svg#icon-attachment-thin"></use>
-                                                    </svg></button><button class="post__action"><svg
-                                                        class="icon icon-emoticon">
-                                                        <use xlink:href="img/sprite.svg#icon-emoticon"></use>
-                                                    </svg></button><button class="post__action"><svg
-                                                        class="icon icon-image">
-                                                        <use xlink:href="img/sprite.svg#icon-image"></use>
-                                                    </svg></button></div>
-                                        </div>
-                                    </div>
+                                <div class="main-posts-content">
+
                                 </div>
                             </div>
                         </div>
@@ -480,7 +331,8 @@
                                 <div class="main-cards">
                                     <div class="card1__body">
                                         <a class="card1__user card1__user_team" href="#">
-                                            <div class="ava"><img class="ava__pic" src="img/logo-team-1.png" alt="">
+                                            <div class="ava">
+                                                <img class="ava__pic" src="img/logo-team-1.png" alt="">
                                             </div>
                                             <div class="card1__desc">
                                                 <div class="card1__man">Sebo Studio</div>
@@ -530,6 +382,7 @@
     </div>
 
     <script src="js/app.js"></script>
+    <script src="js/global.js"></script>
     <script src="js/common.js"></script>
     <script src="js/charts.js"></script>
     <script src="js/util/pages/mainApp.js"></script>
@@ -539,12 +392,15 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
-    
+
     <!-- For Header Profile -->
     <script src="js/util/comapnies/modalSearch.js"></script>
     <script src="js/util/headerProfile.js"></script>
 
-    
+    <!-- Posts -->
+    <script src="js/util/posts/posts.js"></script>
+    <script src="js/util/posts/addPost.js"></script>
+
     <script>
         // Check if the user is logged in
         const isEmployeeLoggedIn = localStorage.getItem('employee');
