@@ -103,7 +103,7 @@ function displayJobs(jobs) {
                     </div>
                     <div class="jobs__btns">
                         <a class="" href="job-details.html?id=${index}">
-                            <button class="jobs__btn btn btn_blue">Apply Now</button>
+                            <button class="jobs__btn btn btn_blue my-primary-btn">Apply Now</button>
                         </a>
                     </div>
                 `;

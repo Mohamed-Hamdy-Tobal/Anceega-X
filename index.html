@@ -68,6 +68,11 @@
         </div>
     </div>
 
+    <div id="dynamicToast" style="display: none;">
+        <span id="toastMessageDynamic"></span>
+    </div>
+    
+
     <!-- ### Employee ## -->
     <div class="out" id="root">
 
@@ -264,7 +269,7 @@
                         <!-- Main Content App -->
                         <div class=" main-app-content">
                             <div class="post js-post">
-                                <div id="mainPostModal" class="company-content post__item post__item_new js-post-item">
+                                <!-- <div id="mainPostModal" class="company-content post__item post__item_new js-post-item">
                                     <div class="post__top">
                                         Post Something
                                         <button class="post__close js-post-close">
@@ -311,7 +316,66 @@
                                         </div>
                                         <button class="post__btn btn btn_blue" id="sharePostBtn">Share Post</button>
                                     </div>
+                                </div> -->
+
+                                <div id="mainPostModal" class="company-content post__item post__item_new js-post-item">
+                                    <div class="post__top">
+                                        Post Something
+                                        <button class="post__close js-post-close">
+                                            <svg class="icon icon-close">
+                                                <use xlink:href="img/sprite.svg#icon-close"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="post__write js-post-write">
+                                        <div class="ava" id="postProfilePicContainer">
+                                            <img id="postProfilePic" class="ava__pic" src="img/ava-1.png" alt="" />
+                                        </div>
+                                        <div class="post__field">
+                                            <input class="post__input" type="text" id="postContent" placeholder="What’s on your mind?" autocomplete="off" />
+                                            <input class="post__file-input" type="file" id="postFileInput" accept="image/*, video/*" style="display: none;" />
+                                            <label for="postFileInput" class="post__actions">
+                                                <svg class="icon icon-image">
+                                                    <use xlink:href="img/sprite.svg#icon-image"></use>
+                                                </svg>
+                                            </label>
+                                        </div>
+                                        <div class="selected-image relative" style="display: none;">
+                                            <button id="removeFileBtn">
+                                                <svg class="icon icon-close">
+                                                    <use xlink:href="img/sprite.svg#icon-close"></use>
+                                                </svg>
+                                            </button>
+                                            <img class="selected-image__preview" src="" alt="Selected image" style="display: none;" />
+                                            <video class="selected-video__preview" controls style="display: none;">
+                                                <source src="" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        </div>
+                                    </div>
+                                    <div class="post__options flex-col gap-2">
+                                        <div class="flex w-full justify-start items-center">
+                                            <div class="post__actions">
+                                                <label for="postFileInput" class="post__action">
+                                                    <svg class="icon icon-image">
+                                                        <use xlink:href="img/sprite.svg#icon-image"></use>
+                                                    </svg>
+                                                </label>
+                                            </div>
+                                            <div class="">
+                                                <label class="switcher-adv">
+                                                    <input type="checkbox" id="advertiseSwitcher" /> Advertise
+                                                </label>
+                                            </div>
+                                            <div id="advertiseOptions" style="display: none;">
+                                                <input class="post__input" type="number" id="advertisePeriod" placeholder="Period (minutes)" />
+                                                <input class="post__input" type="number" id="advertisePublished" placeholder="Is Published (days)" />
+                                            </div>
+                                        </div>
+                                        <button class="post__btn btn btn_blue" id="sharePostBtn">Share Post</button>
+                                    </div>
                                 </div>
+                                
 
                                 <div class="main-posts-content">
 

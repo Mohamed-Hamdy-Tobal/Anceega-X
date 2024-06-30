@@ -5,7 +5,11 @@
 /* body.body-user .company-content {
     display: none !important;
 } */
-
+input#advertiseSwitcher {
+    -webkit-appearance: auto !important;
+    -moz-appearance: auto !important;
+    appearance: auto !important;
+}
 .main-visible {
     display: block !important;
 }
@@ -222,6 +226,24 @@
     background-color: #ffff;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     border: 1px solid #eee;
+}
+#dynamicToast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border-radius: 5px;
+    display: none;
+    z-index: 999999999999 !important;
+    opacity: 1 !important;
+    transition: .3s;
+    overflow: hidden;
+    max-width: 24rem;
+    border-radius: 0.5rem;
+    background-color: #ffff;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    border: 1px solid #eee;
+    padding: 15px;
+    color: #fff;
 }
 .ayc {
     --tw-text-opacity: 1;
@@ -504,6 +526,14 @@ body.body-user .main_profile_user .main-profile-cover-image {
 #sharePostBtn:hover {
     background-color: #0054db !important;
 }
+.my-primary-btn {
+    background-color: #0062FF !important;
+    color: #fff !important;
+    transition: .3s;
+}
+.my-primary-btn:hover {
+    background-color: #0054db !important;
+}
 .icon-fill-like {
     width: 1em;
     height: 1em;
@@ -536,4 +566,23 @@ body.body-user .main_profile_user .main-profile-cover-image {
     padding-top: 10px;
     color: #555;
     font-weight: 400;
+}
+.switcher-adv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-bottom: .5rem;
+    margin-left: 15px;
+    gap: 7px;
+    color: #333;
+    font-weight: 500;
+}
+
+.switcher-adv input{
+
+}
+
+#advertiseOptions {
+    margin: 0 10px .5rem 15px;
 }

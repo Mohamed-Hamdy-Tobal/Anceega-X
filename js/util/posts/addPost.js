@@ -6,8 +6,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const selectedVideoPreview = document.querySelector('.selected-video__preview');
     const selectedImageContainer = document.querySelector('.selected-image');
     const removeFileBtn = document.getElementById('removeFileBtn');
-    const item = document.getElementById('mainPostModal')
-    const bg = document.getElementById('my-header')
+    const advertiseSwitcher = document.getElementById('advertiseSwitcher');
+    const advertiseOptions = document.getElementById('advertiseOptions');
+    const advertisePeriod = document.getElementById('advertisePeriod');
+    const advertisePublished = document.getElementById('advertisePublished');
+    const item = document.getElementById('mainPostModal');
+    const bg = document.getElementById('myHeader');
+
+    advertiseSwitcher.addEventListener('change', function () {
+        if (advertiseSwitcher.checked) {
+            advertiseOptions.style.display = 'flex';
+        } else {
+            advertiseOptions.style.display = 'none';
+        }
+    });
 
     postFileInput.addEventListener('change', function () {
         const file = postFileInput.files[0];
@@ -41,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
         removeFileBtn.style.display = 'none'; // Hide remove button
     });
 
-
     sharePostBtn.addEventListener('click', async function () {
         const token = localStorage.getItem('token');
         const content = postContentInput.value.trim();
@@ -53,11 +64,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         fileData.append('content', content);
+
+        let url = 'https://back.anceega.com/client-api/v1/addPost/normal';
+
+        if (advertiseSwitcher.checked) {
+            url = 'https://back.anceega.com/client-api/v1/addPost/advertise';
+            // fileData.append('advertise', true);
+            fileData.append('period', advertisePeriod.value);
+            fileData.append('is_published', advertisePublished.value);
+        }
+
         loadingSpinner.style.display = 'flex';
         loadingSpinner.style.backgroundColor = '#fbfbfb63';
 
         try {
-            const response = await fetch('https://back.anceega.com/client-api/v1/addPost/normal', {
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -66,12 +87,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             const data = await response.json();
-            console.log('Post added :', fileData);
             console.log('Post added successfully:', data);
 
             // Close Modal 
-            item.removeClass('active');
-            bg.removeClass('visible');
+            item.classList.remove('active');
+            bg.classList.remove('visible');
             
             showToast(data.message);
 
@@ -87,11 +107,12 @@ document.addEventListener('DOMContentLoaded', function () {
             selectedImageContainer.style.display = 'none';
             removeFileBtn.style.display = 'none';
         } catch (error) {
-            console.error('Error adding post:', error);
+            console.error('Error adding post:', error.message);
+            showToastDynamic("Invalid Data", "#dc3545");
         } finally {
             // Hide the loading spinner and show the profile section
             loadingSpinner.style.display = 'none';
-            location.reload()
+            // location.reload()
         }
     });
 });

@@ -143,7 +143,7 @@ function displayJobDetails(jobIndex) {
                                 <div class="description__question">Are you Interested in this Jobs?
                                 </div>
                                 <div class="description__btns">
-                                    <button class="description__btn btn btn_blue" id="applyButton">Apply Now</button>
+                                    <button class="description__btn btn btn_blue my-primary-btn" id="applyButton">Apply Now</button>
                                 </div>
                             </div>
                         </div>
