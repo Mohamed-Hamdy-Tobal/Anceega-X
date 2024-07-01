@@ -15561,7 +15561,7 @@ body.dark .messenger__time {
 
 .post__item_new {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   height: 107px;
 }
 

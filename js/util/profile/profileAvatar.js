@@ -49,6 +49,8 @@ avatarProfile.addEventListener('click', (event) => {
 
 document.getElementById('showAvatarProfile').addEventListener('click', () => {
     document.getElementById('MainHeader').style.zIndex = '2'
+    // document.getElementById('post-profile-inside').style.zIndex = '1'
+    // document.getElementById('post-profile-inside').style.position = 'relative'
     modalProfileImage.src = avatarProfile.src;
     saveModalProfile.style.display = 'none';
     modalProfile.style.display = 'flex';

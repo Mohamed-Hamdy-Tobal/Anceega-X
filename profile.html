@@ -341,8 +341,7 @@
                                     </div>
 
                                     <div class="w-full">
-                                        <label for="bio"
-                                            class="block text-sm font-medium text-gray-700">Bio:</label>
+                                        <label for="bio" class="block text-sm font-medium text-gray-700">Bio:</label>
                                         <input type="text" id="bioInput" name="bio"
                                             class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#81B0D9] focus:border-[#009CF8] sm:text-sm">
                                     </div>
@@ -412,8 +411,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="page2__col page2__col_w65 company-content">
-                            <div class="post js-post">
+                        <div class="page2__col page2__col_w65">
+                            <div id="post-profile-inside" class="post js-post">
                                 <div class="post__item post__item_new js-post-item">
                                     <div class="post__top">Post Something<button class="post__close js-post-close"><svg
                                                 class="icon icon-close">
@@ -538,16 +537,7 @@
                                         <div class="ava"><img class="ava__pic" src="img/ava-1.png" alt="" /></div>
                                         <div class="post__field"><input class="post__input" type="text"
                                                 placeholder="Write your comment…" />
-                                            <div class="post__actions"><button class="post__action"><svg
-                                                        class="icon icon-attachment-thin">
-                                                        <use xlink:href="img/sprite.svg#icon-attachment-thin"></use>
-                                                    </svg></button><button class="post__action"><svg
-                                                        class="icon icon-emoticon">
-                                                        <use xlink:href="img/sprite.svg#icon-emoticon"></use>
-                                                    </svg></button><button class="post__action"><svg
-                                                        class="icon icon-image">
-                                                        <use xlink:href="img/sprite.svg#icon-image"></use>
-                                                    </svg></button></div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -630,16 +620,6 @@
                                         <div class="ava"><img class="ava__pic" src="img/ava-1.png" alt="" /></div>
                                         <div class="post__field"><input class="post__input" type="text"
                                                 placeholder="Write your comment…" />
-                                            <div class="post__actions"><button class="post__action"><svg
-                                                        class="icon icon-attachment-thin">
-                                                        <use xlink:href="img/sprite.svg#icon-attachment-thin"></use>
-                                                    </svg></button><button class="post__action"><svg
-                                                        class="icon icon-emoticon">
-                                                        <use xlink:href="img/sprite.svg#icon-emoticon"></use>
-                                                    </svg></button><button class="post__action"><svg
-                                                        class="icon icon-image">
-                                                        <use xlink:href="img/sprite.svg#icon-image"></use>
-                                                    </svg></button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -651,12 +631,16 @@
                     <div class="modalProfileVideo" id="modalProfileVideo">
                         <div class="modalProfileVideo-content">
                             <span class="close" id="closeVideoModal">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    <path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 6L6 18" stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
                                 </svg>
                             </span>
-                            <video class="the-main-video-profile" width="400" height="400" id="profileVideo" controls autoplay>
+                            <video class="the-main-video-profile" width="400" height="400" id="profileVideo" controls
+                                autoplay>
                                 <source id="profileVideoSource" src="" type="video/mp4">
                             </video>
                         </div>
