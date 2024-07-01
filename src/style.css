@@ -588,3 +588,12 @@ body.body-user .main_profile_user .main-profile-cover-image {
     flex-wrap: wrap;
     gap: 5px;
 }
+.no-advertisements {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #777;
+    padding: 20px;
+}
+.icon-fill-like-add {
+    fill: #009CF8;
+}
