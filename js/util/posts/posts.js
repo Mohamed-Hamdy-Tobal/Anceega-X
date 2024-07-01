@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const user = JSON.parse(localStorage.getItem('company')) || JSON.parse(localStorage.getItem('employee'));
     const profileAvatarContainer = document.getElementById('postProfilePicContainer');
     const avatarProfile = document.getElementById('postProfilePic');
+    const currentUserId = user ? user.id : null;
 
     // Profile avatar
     if (user.personal_photo) {
@@ -26,8 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
         avatar.style.height = '100%'; // Adjust size as needed
         profileAvatarContainer.appendChild(avatar);
     }
-
-    const currentUserId = user ? user.id : null;
 
     async function fetchPosts() {
         const token = localStorage.getItem('token');
@@ -250,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
             mainPostModal.classList.remove("active")
 
             if (data.message) {
-                location.reload()
+                fetchPosts()
             }
             showToast(data.message);
 
@@ -305,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const data = await response.json();
             console.log('Like response:', data);
             if (data) {
-                location.reload()
+                fetchPosts()
             }
 
             // // Optionally, update the like count in the DOM
